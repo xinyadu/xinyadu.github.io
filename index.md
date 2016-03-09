@@ -14,6 +14,11 @@ I am a senior undergrad at Shanghai Jiao Tong University, majoring in Computer S
 <br />
 I am interested in machine learning, natural language processing and algorithmic game theory. I am exciting about discovering exciting problems and devising core techniques. Here is my <a href="CV/CV_Xinya.pdf" target="_blank"><span style="color:blue">CV</span></a>. 
 
+***
+
+### Deep Learning for Fine-grained Opinion Extraction  
+_Research intern at  Cornell NLP group,  supervised by Prof. [<span style="color:blue">Claire Cardie</span>](http://www.cs.cornell.edu/home/cardie/)._ 
+
 ###News
 
 * Attened [<span style="color:blue">LTI</span>](http://www.lti.cs.cmu.edu/)'s Open House at Carnegie Mellon University.
