@@ -11,10 +11,12 @@ comments: true
   creditlink: http://wegraphics.net/downloads/free-ultimate-blurred-background-pack/ -->
 ---
 
+### Deep Learning for Fine-grained Opinion Extraction  
+_Research intern at  Cornell NLP group,  supervised by Prof. [<span style="color:blue">Claire Cardie</span>](http://www.cs.cornell.edu/home/cardie/)._ 
 
-
-###_Shanghai Jiao Tong University﻿﻿, Department of Computer Science and Engineering_
+### Shanghai Jiao Tong University﻿﻿, Department of Computer Science and Engineering
 Sep. 2013 - Jul. 2016 (_expected_)  
+
 * B.S., Computer Science
 * Overall GPA (141 credits): 94.50/100, **Rank: 1/122**
 
@@ -22,6 +24,7 @@ Sep. 2013 - Jul. 2016 (_expected_)
 
 ###_Shanghai Jiao Tong University﻿﻿, SJTU-ParisTech Elite Institute of Technology_
 Sep. 2012 - Jul. 2013
+
 * Overall GPA (77.5 credits): 92.85/100, **Rank: 1/62**
 
                                                                                                                                                                  
