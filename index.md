@@ -16,10 +16,8 @@ I am interested in machine learning, natural language processing and algorithmic
 
 ***
 
-### Deep Learning for Fine-grained Opinion Extraction  
-_Research intern at  Cornell NLP group,  supervised by Prof. [<span style="color:blue">Claire Cardie</span>](http://www.cs.cornell.edu/home/cardie/)._ 
-
-###News
-
+### News  
 * Attened [<span style="color:blue">LTI</span>](http://www.lti.cs.cmu.edu/)'s Open House at Carnegie Mellon University.
 * Get an offer from Cornell Computer Science Ph.D. program!!
+
+
