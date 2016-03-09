@@ -41,13 +41,13 @@ titlecase: true
 
 # Site owner
 owner:
-  name: Your Name
+  name: Xinya Du
   avatar: bio-photo.jpg
-  bio: "My name is Xinya Du."
+  bio: "CS undergrad @ Shanghai Jiao Tong University"
   email: louis.xyd@gmail.com
   disqus-shortname:
   twitter: #username
-  facebook: #username
+  facebook: louis.xinya.du
   google:
     plus: #username
     analytics:
@@ -55,9 +55,9 @@ owner:
     ad-client:
     ad-slot:
   bing-verify:
-  github: #username
+  github: sjtudxy
   stackoverflow: #123456/username   from a "http://stackoverflow.com/users/123456/username" link
-  linkedin: #username
+  linkedin: in/xinya-du-7435b8105?trk=hp-identity-photo
   xing: #username
   instagram: #username
   lastfm: #username

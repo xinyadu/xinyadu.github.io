@@ -5,36 +5,36 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
 <head>
 <meta charset="utf-8">
-<title>About the Theme &#8211; Louis' Homepage</title>
+<title>Research &#8211; Louis' Homepage</title>
 
 <meta name="keywords" content="about, Jekyll, theme, responsive">
 
 
 <!-- Twitter Cards -->
-<meta name="twitter:title" content="About the Theme">
+<meta name="twitter:title" content="Research">
 
 
 
 
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="/images/sample-image-2.jpg">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="/images/default-thumb.png">
 
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="About the Theme">
+<meta property="og:title" content="Research">
 
-<meta property="og:url" content="/about/">
+<meta property="og:url" content="/Research/">
 <meta property="og:site_name" content="Louis' Homepage">
 
-<meta property="og:image" content="/images/sample-image-2.jpg">
+<meta property="og:image" content="/images/default-thumb.png">
 
 
 
 
 
 
-<link rel="canonical" href="/about/">
+<link rel="canonical" href="/Research/">
 <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Louis' Homepage Feed">
 
 <!-- http://t.co/dKP3o1e -->
@@ -87,13 +87,16 @@
 		    <ul>
 		        
 				    
-				    <li><a href="/about/" >About</a></li>
+				    <li><a href="/Education/" >Education</a></li>
 				
 				    
-				    <li><a href="/posts/" >Sample Posts</a></li>
+				    <li><a href="/Research/" >Research</a></li>
 				
 				    
-				    <li><a href="/theme-setup/" >Theme Setup</a></li>
+				    <li><a href="/Awards&Honors/" >Awards&Honors</a></li>
+				
+				    
+				    <li><a href="/Personal/" >Personal</a></li>
 				
 		    </ul>
 		</nav>
@@ -101,17 +104,6 @@
 </div><!-- /.navigation-wrapper -->
 
 
-
-  <div class="image-wrap">
-  <img src=
-    
-      "/images/sample-image-2.jpg"
-    
-  alt="About the Theme feature image">
-  
-    <span class="image-credit">Photo Credit: <a href="http://wegraphics.net/downloads/free-ultimate-blurred-background-pack/">WeGraphics</a></span>
-  
-  </div><!-- /.image-wrap -->
 
 
 <div id="main" role="main">
@@ -121,20 +113,20 @@
 <div itemscope itemtype="http://schema.org/Person">
 
 
-	<img src="/images/bio-photo.jpg" class="bio-photo" alt="Your Name bio photo">
+	<img src="/images/bio-photo.jpg" class="bio-photo" alt="Xinya Du bio photo">
 
 
-  <h3 itemprop="name">Your Name</h3>
-  <p>My name is Xinya Du.</p>
+  <h3 itemprop="name">Xinya Du</h3>
+  <p>CS undergrad @ Shanghai Jiao Tong University</p>
   <a href="mailto:louis.xyd@gmail.com" class="author-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i> Email</a>
   
+  <a href="http://facebook.com/louis.xinya.du" class="author-social" target="_blank"><i class="fa fa-fw fa-facebook-square"></i> Facebook</a>
+  
+  <a href="http://linkedin.com/in/in/xinya-du-7435b8105?trk=hp-identity-photo" class="author-social" target="_blank"><i class="fa fa-fw fa-linkedin-square"></i> LinkedIn</a>
   
   
   
-  
-  
-  
-  
+  <a href="http://github.com/sjtudxy" class="author-social" target="_blank"><i class="fa fa-fw fa-github"></i> Github</a>
   
   
   
@@ -150,40 +142,48 @@
 
   </div>
   <article class="page">
-    <h1>About the Theme</h1>
+    <h1>Research</h1>
     <div class="article-wrap">
-      <p>Minimal Mistakes is responsive Jekyll theme with large featured images and solid typography. As the name implies the styling is fairly minimal to make it easier for you to build on top of.</p>
+      <!-- 
+Minimal Mistakes is responsive Jekyll theme with large featured images and solid typography. As the name implies the styling is fairly minimal to make it easier for you to build on top of.   -->
 
-<h2 id="minimal-mistakes-is-all-about">Minimal Mistakes is all about:</h2>
+<hr />
+
+<h3 id="deep-learning-for-fine-grained-opinion-extraction">Deep Learning for Fine-grained Opinion Extraction</h3>
+<p><em>Research intern at  Cornell NLP group,  supervised by Prof. <a href="http://www.cs.cornell.edu/home/cardie/"><span style="color:blue">Claire Cardie</span></a>.</em></p>
+
+<p><img src="http://www.cs.cmu.edu/~bishan/projects/op_example_2.png" alt="op2" /></p>
+
+<p><img src="http://www.cs.cmu.edu/~bishan/projects/op_example_1.png" alt="op1" /></p>
 
 <ul>
-  <li>Responsive templates. Looking good on mobile, tablet, and desktop.</li>
-  <li>Gracefully degrading in older browsers. Compatible with Internet Explorer 8+ and all modern browsers.</li>
-  <li>Minimal embellishments – content first.</li>
-  <li>Optional large feature images for posts and pages.</li>
-  <li>Simple and clear permalink structure.</li>
-  <li><a href="http://mmistakes.github.io/minimal-mistakes/404.html">Custom 404 page</a> to get you started.</li>
-  <li>Support for Disqus Comments</li>
+  <li>
+    <p>Proposed to evaluate labeling sequences using <strong>sentence-level log-likelihood (SLL)</strong> at output layer of deep recurrent neural networks. Empirical results showed around 4% improvement on F-measure of opinion target extraction and more accurate n-best ranking for labeling sequences.</p>
+  </li>
+  <li>
+    <p>Proposed to use deep recurrent neural networks to produce the n-best labeling sequences which can be fed into integer linear programming (ILP) system for joint inference.</p>
+  </li>
+  <li>
+    <p>Designed heuristic rules using dependency parse tree to eliminate inappropriate opinion candidates during inference. Empirical results showed higher precision and higher F-measure.</p>
+  </li>
+  <li>
+    <p>Building an ensemble system using the above algorithm to participate in Belief and Sentiment Evaluation 2015 <strong>(BeSt2015)</strong>. [Technical Report]​​​</p>
+  </li>
 </ul>
 
-<p><a href="/theme-setup" class="btn">Install Minimal Mistakes Theme</a></p>
+<!-- * Responsive templates. Looking good on mobile, tablet, and desktop.
+* Gracefully degrading in older browsers. Compatible with Internet Explorer 8+ and all modern browsers.
+* Minimal embellishments -- content first.
+* Optional large feature images for posts and pages.
+* Simple and clear permalink structure.
+* [Custom 404 page](http://mmistakes.github.io/minimal-mistakes/404.html) to get you started.
+* Support for Disqus Comments
 
-      
-        <hr />
-        <div class="social-share">
-  <h4>Share on</h4>
-  <ul>
-    <li>
-      <a href="https://twitter.com/intent/tweet?text=/about/" class="twitter" title="Share on Twitter"><i class="fa fa-twitter"></i><span> Twitter</span></a>
-    </li>
-    <li>
-      <a href="https://www.facebook.com/sharer/sharer.php?u=/about/" class="facebook" title="Share on Facebook"><i class="fa fa-facebook"></i><span> Facebook</span></a>
-    </li>
-    <li>
-      <a href="https://plus.google.com/share?url=/about/" class="google-plus" title="Share on Google Plus"><i class="fa fa-google-plus"></i><span> Google+</span></a>
-    </li>
-  </ul>
-</div><!-- /.social-share -->
+<a markdown="0" href="/theme-setup" class="btn">Install Minimal Mistakes Theme</a>
+ -->
+
+<hr />
+
       
     </div><!-- /.article-wrap -->
     
@@ -194,7 +194,7 @@
   <footer>
     
 
-<span>&copy; 2016 Your Name. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a> theme.</span>
+<span>&copy; 2016 Xinya Du. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a>.</span> <!-- using the <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a> theme.</span> -->
 
   </footer>
 </div><!-- /.footer-wrap -->

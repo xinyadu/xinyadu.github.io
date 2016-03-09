@@ -4,10 +4,10 @@
 <generator uri="https://github.com/jekyll/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2016-03-09T17:07:45+08:00</updated>
+<updated>2016-03-10T03:09:51+08:00</updated>
 <id>/</id>
 <author>
-  <name>Your Name</name>
+  <name>Xinya Du</name>
   <uri>/</uri>
   <email>louis.xyd@gmail.com</email>
 </author>
@@ -57,7 +57,7 @@
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt;&lt;span class=&quot;s&quot;&gt;author&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;billy_rick&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 
-    &lt;p&gt;&lt;a href=&quot;/author-override/&quot;&gt;Author Override&lt;/a&gt; was originally published by Your Name at &lt;a href=&quot;&quot;&gt;Louis' Homepage&lt;/a&gt; on July 31, 2014.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;/author-override/&quot;&gt;Author Override&lt;/a&gt; was originally published by Xinya Du at &lt;a href=&quot;&quot;&gt;Louis' Homepage&lt;/a&gt; on July 31, 2014.&lt;/p&gt;
   </content>
 </entry>
 
@@ -70,7 +70,7 @@
   <published>2013-08-16T00:00:00+08:00</published>
   
   <author>
-    <name>Your Name</name>
+    <name>Xinya Du</name>
     <uri></uri>
     <email>louis.xyd@gmail.com</email>
   </author>
@@ -213,7 +213,7 @@ description: &amp;quot;An archive of posts sorted by tag.&amp;quot;
   &lt;/ol&gt;
 &lt;/div&gt;
 
-    &lt;p&gt;&lt;a href=&quot;/code-highlighting-post/&quot;&gt;Syntax Highlighting Post&lt;/a&gt; was originally published by Your Name at &lt;a href=&quot;&quot;&gt;Louis' Homepage&lt;/a&gt; on August 16, 2013.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;/code-highlighting-post/&quot;&gt;Syntax Highlighting Post&lt;/a&gt; was originally published by Xinya Du at &lt;a href=&quot;&quot;&gt;Louis' Homepage&lt;/a&gt; on August 16, 2013.&lt;/p&gt;
   </content>
 </entry>
 
@@ -225,7 +225,7 @@ description: &amp;quot;An archive of posts sorted by tag.&amp;quot;
   <published>2013-08-12T00:00:00+08:00</published>
   <updated>2013-08-12T00:00:00+08:00</updated>
   <author>
-    <name>Your Name</name>
+    <name>Xinya Du</name>
     <uri></uri>
     <email>louis.xyd@gmail.com</email>
   </author>
@@ -238,7 +238,7 @@ description: &amp;quot;An archive of posts sorted by tag.&amp;quot;
 
 &lt;p&gt;Some &lt;a href=&quot;http://www.mademistakes.com&quot;&gt;link&lt;/a&gt; can also be shown.&lt;/p&gt;
 
-    &lt;p&gt;&lt;a href=&quot;/sample-link-post/&quot;&gt;Sample Link Post&lt;/a&gt; was originally published by Your Name at &lt;a href=&quot;&quot;&gt;Louis' Homepage&lt;/a&gt; on August 12, 2013.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;/sample-link-post/&quot;&gt;Sample Link Post&lt;/a&gt; was originally published by Xinya Du at &lt;a href=&quot;&quot;&gt;Louis' Homepage&lt;/a&gt; on August 12, 2013.&lt;/p&gt;
   </content>
 </entry>
 
@@ -250,7 +250,7 @@ description: &amp;quot;An archive of posts sorted by tag.&amp;quot;
   <published>2013-05-23T00:00:00+08:00</published>
   <updated>2013-05-23T00:00:00+08:00</updated>
   <author>
-    <name>Your Name</name>
+    <name>Xinya Du</name>
     <uri></uri>
     <email>louis.xyd@gmail.com</email>
   </author>
@@ -304,7 +304,7 @@ description: &amp;quot;An archive of posts sorted by tag.&amp;quot;
   &lt;/ol&gt;
 &lt;/div&gt;
 
-    &lt;p&gt;&lt;a href=&quot;/readability-feature-post/&quot;&gt;Post with Large Feature Image and Text&lt;/a&gt; was originally published by Your Name at &lt;a href=&quot;&quot;&gt;Louis' Homepage&lt;/a&gt; on May 23, 2013.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;/readability-feature-post/&quot;&gt;Post with Large Feature Image and Text&lt;/a&gt; was originally published by Xinya Du at &lt;a href=&quot;&quot;&gt;Louis' Homepage&lt;/a&gt; on May 23, 2013.&lt;/p&gt;
   </content>
 </entry>
 
@@ -316,7 +316,7 @@ description: &amp;quot;An archive of posts sorted by tag.&amp;quot;
   <published>2013-05-22T00:00:00+08:00</published>
   <updated>2013-05-22T00:00:00+08:00</updated>
   <author>
-    <name>Your Name</name>
+    <name>Xinya Du</name>
     <uri></uri>
     <email>louis.xyd@gmail.com</email>
   </author>
@@ -372,7 +372,7 @@ description: &amp;quot;An archive of posts sorted by tag.&amp;quot;
 	&lt;figcaption&gt;Three images.&lt;/figcaption&gt;
 &lt;/figure&gt;
 
-    &lt;p&gt;&lt;a href=&quot;/sample-post-images/&quot;&gt;A Post with Images&lt;/a&gt; was originally published by Your Name at &lt;a href=&quot;&quot;&gt;Louis' Homepage&lt;/a&gt; on May 22, 2013.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;/sample-post-images/&quot;&gt;A Post with Images&lt;/a&gt; was originally published by Xinya Du at &lt;a href=&quot;&quot;&gt;Louis' Homepage&lt;/a&gt; on May 22, 2013.&lt;/p&gt;
   </content>
 </entry>
 
@@ -384,7 +384,7 @@ description: &amp;quot;An archive of posts sorted by tag.&amp;quot;
   <published>2012-05-22T00:00:00+08:00</published>
   <updated>2012-05-22T00:00:00+08:00</updated>
   <author>
-    <name>Your Name</name>
+    <name>Xinya Du</name>
     <uri></uri>
     <email>louis.xyd@gmail.com</email>
   </author>
@@ -430,7 +430,7 @@ description: &amp;quot;An archive of posts sorted by tag.&amp;quot;
 
 &lt;p&gt;Aliquip enim artisan dolor post-ironic. Pug tote bag Marfa, deserunt pour-over Portland wolf eu odio intelligentsia american apparel ugh ea. Sunt viral et, 3 wolf moon gastropub pug id. Id fashion axe est typewriter, mlkshk Portland art party aute brunch. Sint pork belly Cosby sweater, deep v mumblecore kitsch american apparel. Try-hard direct trade tumblr sint skateboard. Adipisicing bitters excepteur biodiesel, pickled gastropub aute veniam.&lt;/p&gt;
 
-    &lt;p&gt;&lt;a href=&quot;/readability-post/&quot;&gt;Testing Readability with a Bunch of Text&lt;/a&gt; was originally published by Your Name at &lt;a href=&quot;&quot;&gt;Louis' Homepage&lt;/a&gt; on May 22, 2012.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;/readability-post/&quot;&gt;Testing Readability with a Bunch of Text&lt;/a&gt; was originally published by Xinya Du at &lt;a href=&quot;&quot;&gt;Louis' Homepage&lt;/a&gt; on May 22, 2012.&lt;/p&gt;
   </content>
 </entry>
 
@@ -443,7 +443,7 @@ description: &amp;quot;An archive of posts sorted by tag.&amp;quot;
   <published>2011-03-10T00:00:00+08:00</published>
   
   <author>
-    <name>Your Name</name>
+    <name>Xinya Du</name>
     <uri></uri>
     <email>louis.xyd@gmail.com</email>
   </author>
@@ -610,7 +610,7 @@ description: &amp;quot;An archive of posts sorted by tag.&amp;quot;
 
 &lt;p class=&quot;notice&quot;&gt;&lt;strong&gt;Watch out!&lt;/strong&gt; You can also add notices by appending &lt;code class=&quot;highlighter-rouge&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;.notice&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt; to a paragraph.&lt;/p&gt;
 
-    &lt;p&gt;&lt;a href=&quot;/sample-post/&quot;&gt;Sample Post&lt;/a&gt; was originally published by Your Name at &lt;a href=&quot;&quot;&gt;Louis' Homepage&lt;/a&gt; on March 10, 2011.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;/sample-post/&quot;&gt;Sample Post&lt;/a&gt; was originally published by Xinya Du at &lt;a href=&quot;&quot;&gt;Louis' Homepage&lt;/a&gt; on March 10, 2011.&lt;/p&gt;
   </content>
 </entry>
 

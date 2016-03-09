@@ -1,0 +1,33 @@
+Resume document class
+---------------------
+
+resume.cls a simple class file for resumes. 
+
+General usage:
+
+> \documentclass{resume}
+
+> \author{}
+> \website{}
+> \email{}
+> \address{}
+
+> \begin{document}
+> \resumeheader
+
+> \section{Objective}
+>   Text here.
+
+> \section{Education}
+
+> \begin{itemize}
+>     \credential
+>       {School} {Location}
+>       {Degree} {Duration}
+>       {Achievements, etc.}
+> \end{itemize}
+
+> ...
+
+Check out resume.tex for an example of usage.
+
