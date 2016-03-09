@@ -11,7 +11,7 @@ comments: true
   creditlink: http://wegraphics.net/downloads/free-ultimate-blurred-background-pack/ -->
 ---
 
-#### Shanghai Jiao Tong University﻿﻿, Department of Computer Science and Engineering
+#### _Shanghai Jiao Tong University﻿﻿, Department of Computer Science and Engineering_
 Sep. 2013 - Jul. 2016 (_expected_)  
 
 * B.S., Computer Science
