@@ -6,7 +6,7 @@ tags: [about, Jekyll, theme, responsive]
 modified: 2014-08-08T20:53:07.573882-04:00
 comments: true
 <!-- image:
-  feature: sample-image-2.jpg
+  feature: C_6.png
   credit: WeGraphics
   creditlink: http://wegraphics.net/downloads/free-ultimate-blurred-background-pack/ -->
 ---
@@ -17,9 +17,10 @@ Minimal Mistakes is responsive Jekyll theme with large featured images and solid
 
 ### Deep Learning for Fine-grained Opinion Extraction  
 _Research intern at  Cornell NLP group,  supervised by Prof. [<span style="color:blue">Claire Cardie</span>](http://www.cs.cornell.edu/home/cardie/)._ 
-
+<br />
+<br />
 ![op2](http://www.cs.cmu.edu/~bishan/projects/op_example_2.png)
-
+<br />
 ![op1](http://www.cs.cmu.edu/~bishan/projects/op_example_1.png) 
 
 * Proposed to evaluate labeling sequences using **sentence-level log-likelihood (SLL)** at output layer of deep recurrent neural networks. Empirical results showed around 4% improvement on F-measure of opinion target extraction and more accurate n-best ranking for labeling sequences.
@@ -51,6 +52,6 @@ _Research assistant at  Advanced Network Laboratory, Shanghai Jiao Tong Universi
 
 * Extended the classic payment determination algorithm (Myerson) to fit the new model. Proposed mechansim ensured strategy-proofness and achieved constant competitive ratio.
 
-* <a href="/CV/CV_Xinya.pdf" target="_blank"><span style="color:blue">[Technical Paper]</span></a>
+* <a href="/papers/techPaper.pdf" target="_blank"><span style="color:blue">[Technical Paper]</span></a>
 
 
