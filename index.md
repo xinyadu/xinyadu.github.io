@@ -21,7 +21,6 @@ I am interested in machine learning, natural language processing and algorithmic
 * Get an offer from Cornell Computer Science Ph.D. program!!
 
 <br />
-<br />
 
 <script type="text/javascript" id="clustrmaps" src="//cdn.clustrmaps.com/map_v2.js?u=P4EV&d=I88FrKF9sOV_jzIQBgMWAdBWXNSFotr3MxZMiJwFsbY"></script>
 
