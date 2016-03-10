@@ -20,6 +20,9 @@ I am interested in machine learning, natural language processing and algorithmic
 * Attened [<span style="color:blue">LTI</span>](http://www.lti.cs.cmu.edu/)'s Open House at Carnegie Mellon University.
 * Get an offer from Cornell Computer Science Ph.D. program!!
 
+<br />
+<br />
+
 <script type="text/javascript" id="clustrmaps" src="//cdn.clustrmaps.com/map_v2.js?u=P4EV&d=I88FrKF9sOV_jzIQBgMWAdBWXNSFotr3MxZMiJwFsbY"></script>
 
 
