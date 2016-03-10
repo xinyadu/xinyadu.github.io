@@ -43,3 +43,14 @@ _Research intern at  Cornell NLP group,  supervised by Prof. [<span style="color
  -->
 
  ***
+
+### Online Auction Mechanism Design with Time-varying Value
+_Research assistant at  Advanced Network Laboratory, Shanghai Jiao Tong University_       
+
+* Proposed the new scenario in online auction mechanism design where agent’s value may vary over time.
+
+* Extended the classic payment determination algorithm (Myerson) to fit the new model. Proposed mechansim ensured strategy-proofness and achieved constant competitive ratio.
+
+* <a href="/CV/CV_Xinya.pdf" target="_blank"><span style="color:blue">[Technical Paper]</span></a>
+
+
