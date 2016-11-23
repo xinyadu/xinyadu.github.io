@@ -12,7 +12,7 @@ tags: [Jekyll, theme, responsive, blog, template]
 ---
 Hi! My name is Xinya Du (pronounced as <span style="color:grey">_shinn-ya_</span>), you can also call me Louis. I am a senior undergrad at Shanghai Jiao Tong University, majoring in Computer Science. For fall 2015, I am  pursuing an research internship at Cornell NLP group, working with Prof. [<span style="color:blue">Claire Cardie</span>](http://www.cs.cornell.edu/home/cardie/).  
 <br />
-I am interested in machine learning, natural language processing and algorithmic game theory. Particularly, I am exciting about discovering exciting problems and devising core techniques. Here is my <a href="CV/CV_Xinya.pdf" target="_blank"><span style="color:blue">CV</span></a>. 
+I am interested in machine learning, natural language processing and algorithmic game theory. Particularly, I am exciting about discovering exciting problems and devising core techniques. Here is my <span style="color:blue">CV</span></a>. 
 
 ***
 
