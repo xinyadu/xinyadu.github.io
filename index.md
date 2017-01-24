@@ -10,15 +10,23 @@ tags: [Jekyll, theme, responsive, blog, template]
   credit: WeGraphics
   creditlink: http://wegraphics.net/downloads/free-ultimate-blurred-background-pack/ -->
 ---
-Hi! My name is Xinya Du (pronounced as <span style="color:grey">_shinn-ya_</span>), you can also call me Louis. I am a senior undergrad at Shanghai Jiao Tong University, majoring in Computer Science. For fall 2015, I am  pursuing an research internship at Cornell NLP group, working with Prof. [<span style="color:blue">Claire Cardie</span>](http://www.cs.cornell.edu/home/cardie/).  
+Thanks for stopping by!
+
 <br />
-I am interested in machine learning, natural language processing and algorithmic game theory. Particularly, I am exciting about discovering exciting problems and devising core techniques. Here is my <span style="color:blue">CV</span></a>. 
+My name is Xinya Du (pronounced as <span style="color:grey">_shinn-ya_</span>), you can also call me Louis. 
 
-***
+<br />
+I am a first year CS Ph.D. student at Cornell University. I now work on natural language processing and machine learning, with a focus on deep learning methods for natural language generation, and question answering.
+<!-- or fall 2015, I am  pursuing an research internship at Cornell NLP group, working with Prof. [<span style="color:blue">Claire Cardie</span>](http://www.cs.cornell.edu/home/cardie/).   -->
+<br />
+<!-- I am interested in machine learning, natural language processing and algorithmic game theory. Particularly, I am exciting about discovering exciting problems and devising core techniques. Here is my <span style="color:blue">CV</span></a>. 
+ -->
+<!-- *** -->
 
-### News  
-* Attened [<span style="color:blue">LTI</span>](http://www.lti.cs.cmu.edu/)'s Open House at Carnegie Mellon University.
-* Get an offer from Cornell Computer Science Ph.D. program!!
+### News 
+* Started my Ph.D. study at Cornell University. 
+* Attended [<span style="color:blue">LTI</span>](http://www.lti.cs.cmu.edu/)'s Open House at Carnegie Mellon University.
+
 
 <br />
 
