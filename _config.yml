@@ -1,6 +1,6 @@
 # Site wide configuration
 
-title:            Louis' Homepage
+title:            Xinya's Homepage
 locale:           en_US
 url: 
 
@@ -43,8 +43,8 @@ titlecase: true
 owner:
   name: Xinya Du
   avatar: bio-photo.jpg
-  bio: "CS undergrad @ Shanghai Jiao Tong University，like discovering new staff."
-  email: louis.xyd@gmail.com
+  bio: "CS undergrad @ Shanghai Jiao Tong University，like discovering new stuff."
+  email: xd75@cornell.edu
   disqus-shortname:
   twitter: #username
   facebook: louis.xinya.du
@@ -55,7 +55,7 @@ owner:
     ad-client:
     ad-slot:
   bing-verify:
-  github: sjtudxy
+  github: xinyadu
   stackoverflow: #123456/username   from a "http://stackoverflow.com/users/123456/username" link
   linkedin: xinya-du-7435b8105 
   xing: #username
