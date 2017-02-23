@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Bio
+title: 
 <!-- layout: home -->
 share: false
 excerpt: "A minimal Jekyll theme for your blog by designer Michael Rose."
@@ -13,10 +13,11 @@ tags: [Jekyll, theme, responsive, blog, template]
 Thanks for stopping by!
 
 <br />
-My name is Xinya Du (pronounced as <span style="color:grey">_shinn-ya_</span>), you can also call me Louis. 
+I am Xinya Du (pronounced as <span style="color:grey">_shinn-ya do_</span>). 
+<!-- , you can also call me Louis.  -->
 
 <br />
-I am a first year CS Ph.D. student at Cornell University. I now work on natural language processing and machine learning, with a focus on deep learning methods for natural language generation, and question answering.
+I am a first year CS Ph.D. student at Cornell University. I now work on natural language processing and machine learning, with a focus on deep learning methods for natural language generation and question answering. 
 <!-- or fall 2015, I am  pursuing an research internship at Cornell NLP group, working with Prof. [<span style="color:blue">Claire Cardie</span>](http://www.cs.cornell.edu/home/cardie/).   -->
 <br />
 <!-- I am interested in machine learning, natural language processing and algorithmic game theory. Particularly, I am exciting about discovering exciting problems and devising core techniques. Here is my <span style="color:blue">CV</span></a>. 

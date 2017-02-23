@@ -19,7 +19,7 @@ Minimal Mistakes is responsive Jekyll theme with large featured images and solid
 
 * Trying to incorprate paragraph-level information into text generation.
 * Baseline implemented in Tensorflow, final model implemented with Torch7.
-* Results to be submitted to ACL.
+* Results submitted to ACL'17.
 
 
 ### Deep Learning for Fine-grained Opinion Extraction  
@@ -36,7 +36,9 @@ _Research intern at  Cornell NLP group,  supervised by Prof. [<span style="color
 
 * Designed heuristic rules using dependency parse tree to eliminate inappropriate opinion candidates during inference. Empirical results showed higher precision and higher F-measure. 
 
-* Building an ensemble system using the above algorithm to participate in Belief and Sentiment Evaluation 2015 **(BeSt2015)**. [Technical Report]​​​
+* Building an ensemble system using the above algorithm to participate in Belief and Sentiment Evaluation 2015 **(BeSt2015)**.
+
+ <!-- #[Technical Report -->
 
 
 <!-- * Responsive templates. Looking good on mobile, tablet, and desktop.

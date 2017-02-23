@@ -11,6 +11,7 @@ comments: true
   creditlink: http://wegraphics.net/downloads/free-ultimate-blurred-background-pack/ -->
 ---
 
+* Shanghai Jiao Tong University Outstanding Graduate 2016
 
 * Shanghai Jiao Tong University Excellent Student Scholarship 2014
 
@@ -20,7 +21,7 @@ comments: true
 
 * National Olympiad in Mathematics in Provinces 2011 (_The First Prize_)
 
-* National Olympiad in Chemistry in Provinces 2011 (_The First Prize_)  
+<!-- * National Olympiad in Chemistry in Provinces 2011 (_The First Prize_)   -->
 
 * National Olympiad in Informatics in Provinces 2010 (_The First Prize_) 
 ​
