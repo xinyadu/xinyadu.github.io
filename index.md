@@ -24,6 +24,9 @@ I am a first year CS Ph.D. student at Cornell University. I now work on natural 
  -->
 <!-- *** -->
 
+<br />
+Book a meeting with [<span style="color:blue">me</span>](https://xinya.youcanbook.me/)!
+
 ### News 
 * Started my Ph.D. study at Cornell University. 
 * Attended [<span style="color:blue">LTI</span>](http://www.lti.cs.cmu.edu/)'s Open House at Carnegie Mellon University.
