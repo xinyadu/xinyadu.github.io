@@ -15,11 +15,7 @@ Minimal Mistakes is responsive Jekyll theme with large featured images and solid
 
  ***
 
-### RNN-based sequence learning for text generation
-
-* Trying to incorprate paragraph-level information into text generation.
-* Baseline implemented in Tensorflow, final model implemented with Torch7.
-* Results submitted to ACL'17.
+### Neural Question Generation for Reading Comprehension
 
 
 ### Deep Learning for Fine-grained Opinion Extraction  
@@ -61,6 +57,6 @@ _Research assistant at  Advanced Network Laboratory, Shanghai Jiao Tong Universi
 
 * Extended the classic payment determination algorithm (Myerson) to fit the new model. Proposed mechansim ensured strategy-proofness and achieved constant competitive ratio.
 
-* <a href="/papers/techPaper.pdf" target="_blank"><span style="color:blue">[Technical Paper]</span></a>
+<!-- * <a href="/papers/techPaper.pdf" target="_blank"><span style="color:blue">[Technical Paper]</span></a> -->
 
 
