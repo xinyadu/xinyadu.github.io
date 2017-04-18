@@ -37,7 +37,7 @@ Book a meeting with [<span style="color:blue">me</span>](https://xinya.youcanboo
 
 ### Publications
 **Learning to Ask: Neural Question Generation for Reading Comprehension**
-Xinya Du, Junru Shao, [<span style="color:blue">Claire Cardie</span>](https://www.cs.cornell.edu/home/cardie/) <br />
+**Xinya Du**, Junru Shao, [<span style="color:blue">Claire Cardie</span>](https://www.cs.cornell.edu/home/cardie/) <br />
 *In proceedings of the Annual Meeting of the Association for Computational Linguistics (ACL), 2017.* <br />
 [[<span style="color:blue">bib</span>]()] [[<span style="color:blue">Arxiv</span>](https://www.google.com)] [[<span style="color:blue">github</span>](https://github.com/xinyadu/nqg)]
 
