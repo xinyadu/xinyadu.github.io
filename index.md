@@ -52,6 +52,8 @@ Book a meeting with [<span style="color:blue">me</span>](https://xinya.youcanboo
 
 
 
-<script type="text/javascript" id="clustrmaps" src="//cdn.clustrmaps.com/map_v2.js?u=P4EV&d=I88FrKF9sOV_jzIQBgMWAdBWXNSFotr3MxZMiJwFsbY"></script>
+<!-- <script type="text/javascript" id="clustrmaps" src="//cdn.clustrmaps.com/map_v2.js?u=P4EV&d=I88FrKF9sOV_jzIQBgMWAdBWXNSFotr3MxZMiJwFsbY"></script> -->
+
+<script type="text/javascript" id="clustrmaps" src="//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=200&t=n&d=I88FrKF9sOV_jzIQBgMWAdBWXNSFotr3MxZMiJwFsbY"></script>
 
 
