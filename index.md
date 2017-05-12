@@ -21,7 +21,7 @@ I am Xinya Du (pronounced as <span style="color:grey">_shinn-ya do_</span>), a f
 <!-- *** -->
 
 <br />
-Book a meeting with [<span style="color:blue">me</span>](https://xinya.youcanbook.me/)! 
+Book a meeting with [<span style="color:blue">me</span>][youcanbookme]! 
 
 <br />
 
@@ -30,16 +30,21 @@ Book a meeting with [<span style="color:blue">me</span>](https://xinya.youcanboo
 * Arp. 2017 One paper submitted to EMNLP.
 * Mar. 2017 One paper accepted to ACL!
 * Aug. 2016 Started my Ph.D. study at Cornell University. 
-* Feb. 2016 Attended [<span style="color:blue">LTI</span>](http://www.lti.cs.cmu.edu/)'s Open House at Carnegie Mellon University. 
+* Feb. 2016 Attended LTI's Open House at Carnegie Mellon University. 
 
 <br />
 
 
 ### Publications
 <span style="color:black">Learning to Ask: Neural Question Generation for Reading Comprehension</span> <br />
-**Xinya Du**, Junru Shao, [<span style="color:blue">Claire Cardie</span>](https://www.cs.cornell.edu/home/cardie/) <br />
+**Xinya Du**, Junru Shao, [<span style="color:blue">Claire Cardie</span>][claire] <br />
 *In proceedings of the Annual Meeting of the Association for Computational Linguistics (ACL), 2017.* <br />
-[<a href="/bibs/acl2017qg.bib" target="_blank"><span style="color:blue">bib</span></a>] [[<span style="color:blue">Arxiv</span>](https://arxiv.org/abs/1705.00106)] [[<span style="color:blue">data & code</span>](https://github.com/xinyadu/nqg)]
+[<a href="/bibs/acl2017qg.bib"><span style="color:blue">bib</span></a>] [[<span style="color:blue">Arxiv</span>][qg-arxiv]] [[<span style="color:blue">data & code</span>](https://github.com/xinyadu/nqg)] <img src='images/tv-icon.png' width="20px"> Featured in [<span style="color:blue">New Scientist</span>][newsci] [<img src='images/newscientist.jpg' width="40px">][newsci]
+
+[newsci]: https://www.newscientist.com/article/2130205-inquisitive-bot-asks-questions-to-test-your-understanding/
+[claire]: https://www.cs.cornell.edu/home/cardie/
+[qg-arxiv]:https://arxiv.org/abs/1705.00106
+[youcanbookme]: https://xinya.youcanbook.me/
 
 
 <br />
