@@ -55,7 +55,7 @@ owner:
     ad-client:
     ad-slot:
   bing-verify:
-  github: xinyadu
+  # github: xinyadu
   stackoverflow: #123456/username   from a "http://stackoverflow.com/users/123456/username" link
   linkedin: xinya-du-7435b8105 
   xing: #username
