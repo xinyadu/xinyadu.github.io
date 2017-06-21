@@ -39,8 +39,8 @@ Book a meeting with [<span style="color:blue">me</span>][youcanbookme]!
 <span style="color:black">Learning to Ask: Neural Question Generation for Reading Comprehension</span> <br />
 **Xinya Du**, Junru Shao, [<span style="color:blue">Claire Cardie</span>][claire] <br />
 *In proceedings of the Annual Meeting of the Association for Computational Linguistics (ACL), 2017.* <br />
-<!-- [<a href="/bibs/acl2017qg.bib"><span style="color:blue">bib</span></a>]  -->
-[[<span style="color:blue">bib</span>]][qg-bib] [[<span style="color:blue">Arxiv</span>][qg-arxiv]] [[<span style="color:blue">data & code</span>][qg-github]] <img src='images/tv-icon.png' width="20px"> Featured in [<span style="color:blue">New Scientist</span>][newsci] [<img src='images/newscientist.jpg' width="40px">][newsci]
+[[<span style="color:blue">bib</span>]][qg-bib] [[<span style="color:blue">Arxiv</span>][qg-arxiv]] [[<span style="color:blue">data & code</span>][qg-github]] <br />
+<img src='images/tv-icon.png' width="20px"> Featured in [*New Scientist*][newsci] [<img src='images/newscientist.jpg' width="40px">][newsci] <img src='images/tv-icon.png' width="20px">  [*Tech Republic*][techrepublic] [<img src='images/techrepublic.png' width="70px">][techrepublic] <br />
 
 [newsci]: https://www.newscientist.com/article/2130205-inquisitive-bot-asks-questions-to-test-your-understanding/
 [claire]: https://www.cs.cornell.edu/home/cardie/
@@ -48,7 +48,7 @@ Book a meeting with [<span style="color:blue">me</span>][youcanbookme]!
 [qg-bib]: bibs/acl2017qg.bib
 [qg-github]: https://github.com/xinyadu/nqg
 [youcanbookme]: https://xinya.youcanbook.me/
-
+[techrepublic]: http://www.techrepublic.com/article/how-researchers-trained-one-ai-system-to-start-asking-its-own-questions/
 
 
 <br />
