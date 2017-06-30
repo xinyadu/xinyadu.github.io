@@ -10,7 +10,7 @@
 * Optional large feature images for posts and pages.
 * Simple and clear permalink structure.
 * [Custom 404 page](http://mmistakes.github.io/minimal-mistakes/404.html) to get you started.
-* Support for Disqus Comments
+* Support for Disqus Comment
 
 ![screenshot of Minimal Mistakes theme](http://mmistakes.github.io/minimal-mistakes/images/mm-theme-post-600.jpg)
 
