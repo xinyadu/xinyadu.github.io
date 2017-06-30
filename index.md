@@ -13,7 +13,7 @@ tags: [Jekyll, theme, responsive, blog, template]
 Thanks for stopping by!
 
 <br />
-I am Xinya Du (pronounced as <span style="color:grey">_shinn-ya do_</span>), a first year CS Ph.D. student at Cornell University. I am working on natural language processing and machine learning, with a focus on deep learning methods for natural language generation and question answering. I graduated with a bachelor degree from Shanghai Jiao Tong University in 2016.
+I am Xinya Du (pronounced as <span style="color:grey">_shinn-ya do_</span>), a first year CS Ph.D. student at Cornell University. I am working on natural language processing and machine learning. I graduated with a bachelor degree from Shanghai Jiao Tong University in 2016.
 <!-- or fall 2015, I am  pursuing an research internship at Cornell NLP group, working with Prof. [<span style="color:blue">Claire Cardie</span>](http://www.cs.cornell.edu/home/cardie/).   -->
 <br />
 <!-- I am interested in machine learning, natural language processing and algorithmic game theory. Particularly, I am exciting about discovering exciting problems and devising core techniques. Here is my <span style="color:blue">CV</span></a>. 
