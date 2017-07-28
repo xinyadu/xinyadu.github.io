@@ -34,7 +34,7 @@ I am working on natural language processing and machine learning, with a current
 <br />
 
 ### News 
-* Arp. 2017 One paper submitted to EMNLP.
+* Arp. 2017 One paper accepted to EMNLP.
 * Mar. 2017 One paper accepted to ACL!
 * Aug. 2016 Started my Ph.D. study at Cornell University. 
 * Feb. 2016 Attended LTI's Open House at Carnegie Mellon University. 
