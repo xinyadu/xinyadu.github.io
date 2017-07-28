@@ -13,18 +13,25 @@ tags: [Jekyll, theme, responsive, blog, template]
 Thanks for stopping by!
 
 <br />
-I am Xinya Du (pronounced as <span style="color:grey">_shinn-ya do_</span>), a first year CS Ph.D. student at Cornell University. I am working on natural language processing and machine learning. I graduated with a bachelor degree from Shanghai Jiao Tong University in 2016.
+I am Xinya Du (pronounced as <span style="color:grey">_shinn-ya do_</span>), a first year CS Ph.D. student at Cornell University, working with Prof. [<span style="color:blue">Claire Cardie</span>][claire]. 
+
+
+<br />
+I am working on natural language processing and machine learning, with a current focus on question answering (exploring many different aspects!). I graduated with a bachelor degree from Shanghai Jiao Tong University in 2016.
 <!-- or fall 2015, I am  pursuing an research internship at Cornell NLP group, working with Prof. [<span style="color:blue">Claire Cardie</span>](http://www.cs.cornell.edu/home/cardie/).   -->
 <br />
 <!-- I am interested in machine learning, natural language processing and algorithmic game theory. Particularly, I am exciting about discovering exciting problems and devising core techniques. Here is my <span style="color:blue">CV</span></a>. 
  -->
 <!-- *** -->
 
-<br />
-Book a meeting with [<span style="color:blue">me</span>][youcanbookme]! 
+<!-- <br /> -->
+<!-- Book a meeting with [<span style="color:blue">me</span>][youcanbookme]!  -->
 
 <br />
+**Attending ACL 2017 in Vancouver from 7.29 -- 8.5, PM if you are interested in talking :)!**
 
+<br />
+<br />
 
 ### News 
 * Arp. 2017 One paper submitted to EMNLP.
@@ -36,11 +43,19 @@ Book a meeting with [<span style="color:blue">me</span>][youcanbookme]!
 
 
 ### Publications
-<span style="color:black">Learning to Ask: Neural Question Generation for Reading Comprehension</span> <br />
+
+<span style="color:blue">Identifying Where to Focus in Reading Comprehension for Neural Question Generation </span> <br />
+**Xinya Du**, [<span style="color:blue">Claire Cardie</span>][claire] <br />
+*In EMNLP 2017.* <br />
+<!-- [[<span style="color:blue">bib</span>]][qg-bib] [[<span style="color:blue">arXiv</span>][qg-arxiv]] [[<span style="color:blue">data & code</span>][qg-github]] <br /> -->
+<!-- <img src='images/tv-icon.png' width="20px"> Featured in [*New Scientist*][newsci] [<img src='images/newscientist.jpg' width="40px">][newsci] <img src='images/tv-icon.png' width="20px">  [*Tech Republic*][techrepublic] [<img src='images/techrepublic.png' width="70px">][techrepublic]  -->
+
+<br />
+<span style="color:blue">Learning to Ask: Neural Question Generation for Reading Comprehension</span> <br />
 **Xinya Du**, Junru Shao, [<span style="color:blue">Claire Cardie</span>][claire] <br />
-*In proceedings of the Annual Meeting of the Association for Computational Linguistics (ACL), 2017.* <br />
+*In ACL 2017.* <br />
 [[<span style="color:blue">bib</span>]][qg-bib] [[<span style="color:blue">arXiv</span>][qg-arxiv]] [[<span style="color:blue">data & code</span>][qg-github]] <br />
-<img src='images/tv-icon.png' width="20px"> Featured in [*New Scientist*][newsci] [<img src='images/newscientist.jpg' width="40px">][newsci] <img src='images/tv-icon.png' width="20px">  [*Tech Republic*][techrepublic] [<img src='images/techrepublic.png' width="70px">][techrepublic] <br />
+<img src='images/tv-icon.png' width="20px"> Featured in [*New Scientist*][newsci] [<img src='images/newscientist.jpg' width="40px">][newsci] [*Tech Republic*][techrepublic] [<img src='images/techrepublic.png' width="70px">][techrepublic] <br />
 
 [newsci]: https://www.newscientist.com/article/2130205-inquisitive-bot-asks-questions-to-test-your-understanding/
 [claire]: https://www.cs.cornell.edu/home/cardie/
