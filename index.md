@@ -13,11 +13,12 @@ tags: [Jekyll, theme, responsive, blog, template]
 Thanks for stopping by!
 
 <br />
-I am Xinya Du (pronounced as <span style="color:grey">_shinn-ya do_</span>), a first year CS Ph.D. student at Cornell University, working with Prof. [<span style="color:blue">Claire Cardie</span>][claire]. 
+I am Xinya Du (pronounced as <span style="color:grey">_shinn-ya do_</span>, 杜辛亚), a CS Ph.D. student at Cornell University, working with Prof. [<span style="color:blue">Claire Cardie</span>][claire]. 
 
 
 <br />
-I am working on natural language processing and machine learning, with a current focus on question answering (exploring many different aspects!). I graduated with a bachelor degree from Shanghai Jiao Tong University in 2016.
+I am working on natural language processing and machine learning, 
+with a current focus on question answering and question generation. I graduated with a bachelor degree from Shanghai Jiao Tong University in 2016.
 <!-- or fall 2015, I am  pursuing an research internship at Cornell NLP group, working with Prof. [<span style="color:blue">Claire Cardie</span>](http://www.cs.cornell.edu/home/cardie/).   -->
 <br />
 <!-- I am interested in machine learning, natural language processing and algorithmic game theory. Particularly, I am exciting about discovering exciting problems and devising core techniques. Here is my <span style="color:blue">CV</span></a>. 
@@ -28,7 +29,7 @@ I am working on natural language processing and machine learning, with a current
 <!-- Book a meeting with [<span style="color:blue">me</span>][youcanbookme]!  -->
 
 <br />
-**Attending ACL 2017 in Vancouver from 7.29 -- 8.5, PM if you are interested in talking :)!**
+**Attending EMNLP 2017 in Copenhagen from Sep. 7 --- Sep. 11, PM if you are interested in talking :)!**
 
 <br />
 <br />
@@ -45,14 +46,14 @@ I am working on natural language processing and machine learning, with a current
 ### Publications
 
 <span style="color:blue">Identifying Where to Focus in Reading Comprehension for Neural Question Generation </span> <br />
-**Xinya Du**, [<span style="color:blue">Claire Cardie</span>][claire] <br />
+**Xinya Du** and Claire Cardie <br />
 *In EMNLP 2017.* <br />
 <!-- [[<span style="color:blue">bib</span>]][qg-bib] [[<span style="color:blue">arXiv</span>][qg-arxiv]] [[<span style="color:blue">data & code</span>][qg-github]] <br /> -->
 <!-- <img src='images/tv-icon.png' width="20px"> Featured in [*New Scientist*][newsci] [<img src='images/newscientist.jpg' width="40px">][newsci] <img src='images/tv-icon.png' width="20px">  [*Tech Republic*][techrepublic] [<img src='images/techrepublic.png' width="70px">][techrepublic]  -->
 
 <br />
 <span style="color:blue">Learning to Ask: Neural Question Generation for Reading Comprehension</span> <br />
-**Xinya Du**, Junru Shao, [<span style="color:blue">Claire Cardie</span>][claire] <br />
+**Xinya Du**, Junru Shao and Claire Cardie <br />
 *In ACL 2017.* <br />
 [[<span style="color:blue">bib</span>]][qg-bib] [[<span style="color:blue">arXiv</span>][qg-arxiv]] [[<span style="color:blue">data & code</span>][qg-github]] <br />
 <img src='images/tv-icon.png' width="20px"> Featured in [*New Scientist*][newsci] [<img src='images/newscientist.jpg' width="40px">][newsci] [*Tech Republic*][techrepublic] [<img src='images/techrepublic.png' width="70px">][techrepublic] <br />
@@ -64,6 +65,7 @@ I am working on natural language processing and machine learning, with a current
 [qg-github]: https://github.com/xinyadu/nqg
 [youcanbookme]: https://xinya.youcanbook.me/
 [techrepublic]: http://www.techrepublic.com/article/how-researchers-trained-one-ai-system-to-start-asking-its-own-questions/
+[emnlp17]: papers/emnlp17_dc.pdf
 
 
 <br />

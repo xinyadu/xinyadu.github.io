@@ -43,7 +43,7 @@ titlecase: true
 owner:
   name: Xinya Du
   avatar: bio-photo.jpg
-  bio: "杜辛亚, CS Ph.D. student in Computer Science, Cornell University. Office: Gates 323."
+  bio: "CS Ph.D. student in Computer Science, Cornell University. Office: Gates 349."
   email: xd75@cornell.edu
   disqus-shortname:
   twitter: #username
@@ -57,7 +57,7 @@ owner:
   bing-verify:
   # github: xinyadu
   stackoverflow: #123456/username   from a "http://stackoverflow.com/users/123456/username" link
-  linkedin: xinya-du-7435b8105 
+  # linkedin: xinya-du-7435b8105 
   xing: #username
   instagram: #username
   lastfm: #username
