@@ -48,8 +48,8 @@ with a current focus on question answering and question generation. I graduated 
 <span style="color:blue">Identifying Where to Focus in Reading Comprehension for Neural Question Generation </span> <br />
 **Xinya Du** and Claire Cardie <br />
 *In EMNLP 2017.* <br />
-<!-- [[<span style="color:blue">bib</span>]][qg-bib] [[<span style="color:blue">arXiv</span>][qg-arxiv]] [[<span style="color:blue">data & code</span>][qg-github]] <br /> -->
-<!-- <img src='images/tv-icon.png' width="20px"> Featured in [*New Scientist*][newsci] [<img src='images/newscientist.jpg' width="40px">][newsci] <img src='images/tv-icon.png' width="20px">  [*Tech Republic*][techrepublic] [<img src='images/techrepublic.png' width="70px">][techrepublic]  -->
+[[<span style="color:blue">bib</span>]][important-bib] [[<span style="color:blue">paper</span>][emnlp17]] <br />
+
 
 <br />
 <span style="color:blue">Learning to Ask: Neural Question Generation for Reading Comprehension</span> <br />
@@ -63,9 +63,11 @@ with a current focus on question answering and question generation. I graduated 
 [qg-arxiv]:https://arxiv.org/abs/1705.00106
 [qg-bib]: bibs/acl2017qg.bib
 [qg-github]: https://github.com/xinyadu/nqg
+
 [youcanbookme]: https://xinya.youcanbook.me/
 [techrepublic]: http://www.techrepublic.com/article/how-researchers-trained-one-ai-system-to-start-asking-its-own-questions/
 [emnlp17]: papers/emnlp17_dc.pdf
+[important-bib]: bibs/emnlp17important.bib
 
 
 <br />
