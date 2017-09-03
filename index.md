@@ -48,26 +48,35 @@ with a current focus on question answering and question generation. I graduated 
 <span style="color:blue">Identifying Where to Focus in Reading Comprehension for Neural Question Generation </span> <br />
 **Xinya Du** and Claire Cardie <br />
 *In EMNLP 2017.* <br />
-[[<span style="color:blue">bib</span>]][important-bib] [[<span style="color:blue">paper</span>][emnlp17]] <br />
+[[<span style="color:blue">bib</span>]][important-bib] [[<span style="color:blue">paper</span>][emnlp17]] [[<span style="color:blue">presentation</span>][emnlp17_poster]]  <br />
 
 
 <br />
 <span style="color:blue">Learning to Ask: Neural Question Generation for Reading Comprehension</span> <br />
 **Xinya Du**, Junru Shao and Claire Cardie <br />
 *In ACL 2017.* <br />
-[[<span style="color:blue">bib</span>]][qg-bib] [[<span style="color:blue">arXiv</span>][qg-arxiv]] [[<span style="color:blue">data & code</span>][qg-github]] <br />
+[[<span style="color:blue">bib</span>]][qg-bib] [[<span style="color:blue">arXiv</span>][qg-arxiv]] [[<span style="color:blue">presentation</span>][acl17_poster]] [[<span style="color:blue">data & code</span>][qg-github]] <br />
 <img src='images/tv-icon.png' width="20px"> Featured in [*New Scientist*][newsci] [<img src='images/newscientist.jpg' width="40px">][newsci] [*Tech Republic*][techrepublic] [<img src='images/techrepublic.png' width="70px">][techrepublic] <br />
 
-[newsci]: https://www.newscientist.com/article/2130205-inquisitive-bot-asks-questions-to-test-your-understanding/
+
 [claire]: https://www.cs.cornell.edu/home/cardie/
+
+<!-- ACL 17 -->
+
 [qg-arxiv]:https://arxiv.org/abs/1705.00106
 [qg-bib]: bibs/acl2017qg.bib
 [qg-github]: https://github.com/xinyadu/nqg
+[acl17_poster]: papers/acl17_dsc_poster.pdf
+[techrepublic]: http://www.techrepublic.com/article/how-researchers-trained-one-ai-system-to-start-asking-its-own-questions/
+[newsci]: https://www.newscientist.com/article/2130205-inquisitive-bot-asks-questions-to-test-your-understanding/
+
+<!-- EMNLP 17 -->
+
+[emnlp17]: papers/emnlp17_dc.pdf
+[emnlp17_poster]: papers/emnlp17_dc_poster.pdf
+[important-bib]: bibs/emnlp17important.bib
 
 [youcanbookme]: https://xinya.youcanbook.me/
-[techrepublic]: http://www.techrepublic.com/article/how-researchers-trained-one-ai-system-to-start-asking-its-own-questions/
-[emnlp17]: papers/emnlp17_dc.pdf
-[important-bib]: bibs/emnlp17important.bib
 
 
 <br />
