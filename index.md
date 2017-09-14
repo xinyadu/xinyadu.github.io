@@ -18,7 +18,7 @@ I am Xinya Du (pronounced as <span style="color:grey">_shinn-ya do_</span>, ÊùúË
 
 <br />
 I am working on natural language processing and machine learning, 
-with a current focus on question answering and question generation. I graduated with a bachelor degree from Shanghai Jiao Tong University in 2016.
+with a current focus on question answering and question generation. I graduated with a bachelor degree from Shanghai Jiao Tong University.
 <!-- or fall 2015, I am  pursuing an research internship at Cornell NLP group, working with Prof. [<span style="color:blue">Claire Cardie</span>](http://www.cs.cornell.edu/home/cardie/).   -->
 <br />
 <!-- I am interested in machine learning, natural language processing and algorithmic game theory. Particularly, I am exciting about discovering exciting problems and devising core techniques. Here is my <span style="color:blue">CV</span></a>. 
@@ -28,8 +28,8 @@ with a current focus on question answering and question generation. I graduated 
 <!-- <br /> -->
 <!-- Book a meeting with [<span style="color:blue">me</span>][youcanbookme]!  -->
 
-<br />
-**Attending EMNLP 2017 in Copenhagen from Sep. 7 --- Sep. 11, PM if you are interested in talking :)!**
+<!-- <br /> -->
+<!-- **Attending EMNLP 2017 in Copenhagen from Sep. 7 --- Sep. 11, PM if you are interested in talking :)!** -->
 
 <br />
 <br />
@@ -37,8 +37,9 @@ with a current focus on question answering and question generation. I graduated 
 ### News 
 * Arp. 2017 One paper accepted to EMNLP.
 * Mar. 2017 One paper accepted to ACL!
-* Aug. 2016 Started my Ph.D. study at Cornell University. 
-* Feb. 2016 Attended LTI's Open House at Carnegie Mellon University. 
+
+<!-- * Aug. 2016 Started my Ph.D. study at Cornell University.  -->
+<!-- * Feb. 2016 Attended LTI's Open House at Carnegie Mellon University.  -->
 
 <br />
 
