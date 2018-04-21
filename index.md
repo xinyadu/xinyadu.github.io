@@ -35,8 +35,11 @@ with a current focus on question answering and question generation. I graduated 
 <br />
 
 ### News 
-* Arp. 2017 One paper accepted to EMNLP.
-* Mar. 2017 One paper accepted to ACL!
+* Arp. 2018 One paper accepted to ACL.
+* Spending summer 2018 at MSR Seattle.
+
+<!-- * Arp. 2017 One paper accepted to EMNLP. -->
+<!-- * Mar. 2017 One paper accepted to ACL! -->
 
 <!-- * Aug. 2016 Started my Ph.D. study at Cornell University.  -->
 <!-- * Feb. 2016 Attended LTI's Open House at Carnegie Mellon University.  -->
@@ -46,21 +49,30 @@ with a current focus on question answering and question generation. I graduated 
 
 ### Publications
 
+<span style="color:blue">Harvesting Paragraph-level Question-Answer Pairs from Wikipedia </span> <br />
+**Xinya Du** and Claire Cardie <br />
+*To appear in ACL 2018* <br />
+<!-- [[<span style="color:blue">bib</span>]][important-bib] [[<span style="color:blue">paper</span>][emnlp17]] [[<span style="color:blue">presentation</span>][emnlp17_poster]]  <br /> -->
+
+<br /> <br />
 <span style="color:blue">Identifying Where to Focus in Reading Comprehension for Neural Question Generation </span> <br />
 **Xinya Du** and Claire Cardie <br />
-*In EMNLP 2017.* <br />
+*In EMNLP 2017 (short)* <br />
 [[<span style="color:blue">bib</span>]][important-bib] [[<span style="color:blue">paper</span>][emnlp17]] [[<span style="color:blue">presentation</span>][emnlp17_poster]]  <br />
 
 
-<br />
+<br /> <br />
 <span style="color:blue">Learning to Ask: Neural Question Generation for Reading Comprehension</span> <br />
 **Xinya Du**, Junru Shao and Claire Cardie <br />
-*In ACL 2017.* <br />
+*In ACL 2017* <br />
 [[<span style="color:blue">bib</span>]][qg-bib] [[<span style="color:blue">arXiv</span>][qg-arxiv]] [[<span style="color:blue">presentation</span>][acl17_poster]] [[<span style="color:blue">data & code</span>][qg-github]] <br />
 <img src='images/tv-icon.png' width="20px"> Featured in [*New Scientist*][newsci] [<img src='images/newscientist.jpg' width="40px">][newsci] [*Tech Republic*][techrepublic] [<img src='images/techrepublic.png' width="70px">][techrepublic] <br />
 
 
 [claire]: https://www.cs.cornell.edu/home/cardie/
+
+<!-- ACL 18 -->
+
 
 <!-- ACL 17 -->
 
