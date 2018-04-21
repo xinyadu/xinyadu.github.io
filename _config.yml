@@ -2,7 +2,7 @@
 
 title:            Xinya Du
 locale:           en_US
-url: http://www.cs.cornell.edu/~xdu
+url: 
 
 
 # Jekyll configuration
@@ -42,7 +42,7 @@ titlecase: true
 # Site owner
 owner:
   name: Xinya Du
-  # avatar: bio-photo.jpg
+  avatar: bio-photo-3.jpg
   bio: "CS Ph.D. student in Computer Science, Cornell University. Office: Gates 350."
   email: xd75@cornell.edu
   disqus-shortname:
