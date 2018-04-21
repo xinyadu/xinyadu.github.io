@@ -21,6 +21,24 @@ See a [live version of Minimal Mistakes](http://mmistakes.github.io/minimal-mist
 Minimal Mistakes takes advantage of Sass and data files to make customizing easier. These features require [Jekyll 2.x](https://github.com/mmistakes/minimal-mistakes/releases/tag/2.1.3) and will not work with older versions of Jekyll.
 
 To learn how to install and use this theme check out the [Setup Guide](http://mmistakes.github.io/minimal-mistakes/theme-setup/) for more information. -->
+
 ## My personal website
 
 Powered by Jekyll using the Minimal Mistakes theme.
+
+
+### Server site
+
+ssh netid@cslinux.cs.cornell.edu
+
+https://confluence.cornell.edu/display/coecis/New+CS+Research+and+Personal+Web+Server%2C+COECIS+ITSG+Help
+
+### How to update website
+- modify ./index.md and config
+- execute *bundle exec jekyll serve*
+- only need to upload *_site* folder, move all the stuff inside *_site* to */people/xd75*
+
+
+
+
+ 
