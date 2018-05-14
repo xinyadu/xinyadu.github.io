@@ -36,7 +36,7 @@ with a current focus on question answering and question generation. I graduated 
 
 ### News 
 * Arp. 2018 One paper accepted to ACL.
-* Spending summer 2018 at MSR Seattle.
+* Spending summer 2018 at MSR Redmond.
 
 <!-- * Arp. 2017 One paper accepted to EMNLP. -->
 <!-- * Mar. 2017 One paper accepted to ACL! -->
@@ -52,7 +52,7 @@ with a current focus on question answering and question generation. I graduated 
 <span style="color:blue">Harvesting Paragraph-level Question-Answer Pairs from Wikipedia </span> <br />
 **Xinya Du** and Claire Cardie <br />
 *To appear in ACL 2018* <br />
-<!-- [[<span style="color:blue">bib</span>]][important-bib] [[<span style="color:blue">paper</span>][emnlp17]] [[<span style="color:blue">presentation</span>][emnlp17_poster]]  <br /> -->
+[[<span style="color:blue">bib</span>]][acl18-bib] [[<span style="color:blue">paper</span>][acl18]] [<span style="color:blue">data (to come)</span>]  <br />
 
 <br /> <br />
 <span style="color:blue">Identifying Where to Focus in Reading Comprehension for Neural Question Generation </span> <br />
@@ -72,7 +72,8 @@ with a current focus on question answering and question generation. I graduated 
 [claire]: https://www.cs.cornell.edu/home/cardie/
 
 <!-- ACL 18 -->
-
+[acl18]: papers/acl18_dc.pdf
+[acl18-bib]: bibs/du2018harvesting.bib
 
 <!-- ACL 17 -->
 
