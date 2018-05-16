@@ -49,10 +49,10 @@ with a current focus on question answering and question generation. I graduated 
 
 ### Publications
 
-<span style="color:blue">Harvesting Paragraph-level Question-Answer Pairs from Wikipedia </span> <br />
+<span style="color:blue">Harvesting Paragraph-Level Question-Answer Pairs from Wikipedia </span> <br />
 **Xinya Du** and Claire Cardie <br />
 *To appear in ACL 2018* <br />
-[[<span style="color:blue">bib</span>]][acl18-bib] [[<span style="color:blue">paper</span>][acl18]] [<span style="color:blue">data (to come)</span>]  <br />
+[[<span style="color:blue">bib</span>]][acl18-bib] [[<span style="color:blue">paper</span>][acl18]] [[<span style="color:blue">data & code (to come)</span>][acl18-data]]  <br />
 
 <br /> <br />
 <span style="color:blue">Identifying Where to Focus in Reading Comprehension for Neural Question Generation </span> <br />
@@ -74,6 +74,7 @@ with a current focus on question answering and question generation. I graduated 
 <!-- ACL 18 -->
 [acl18]: papers/acl18_dc.pdf
 [acl18-bib]: bibs/du2018harvesting.bib
+[acl18-data]: https://github.com/xinyadu/harvestingQA
 
 <!-- ACL 17 -->
 
