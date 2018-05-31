@@ -17,8 +17,11 @@ I am Xinya Du (pronounced as <span style="color:grey">_shinn-ya do_</span>, ÊùúË
 
 
 <br />
-I am working on natural language processing and machine learning, 
-with a current focus on question answering and question generation. I graduated with a bachelor degree in Computer Science from Shanghai Jiao Tong University.
+I enjoy exploring/building things that are novel and impactful (in research and in life). I am working on natural language processing and machine learning, 
+with a current focus on question generation and question answering, and also with a keen interest in conversational intelligence and applications in the educational domain. 
+
+<br />
+I graduated with a bachelor degree in Computer Science from Shanghai Jiao Tong University.
 <!-- or fall 2015, I am  pursuing an research internship at Cornell NLP group, working with Prof. [<span style="color:blue">Claire Cardie</span>](http://www.cs.cornell.edu/home/cardie/).   -->
 <br />
 <!-- I am interested in machine learning, natural language processing and algorithmic game theory. Particularly, I am exciting about discovering exciting problems and devising core techniques. Here is my <span style="color:blue">CV</span></a>. 
@@ -35,7 +38,8 @@ with a current focus on question answering and question generation. I graduated 
 <br />
 
 ### News 
-* Arp. 2018 One paper accepted to ACL.
+* Jul. 2018 To attend ACL and giving an oral presentation, come and say Hi.
+<!-- * Arp. 2018 One paper accepted to ACL. -->
 * Spending summer 2018 at MSR Redmond.
 
 <!-- * Arp. 2017 One paper accepted to EMNLP. -->
@@ -52,7 +56,7 @@ with a current focus on question answering and question generation. I graduated 
 <span style="color:blue">Harvesting Paragraph-Level Question-Answer Pairs from Wikipedia </span> <br />
 **Xinya Du** and Claire Cardie <br />
 *To appear in ACL 2018* <br />
-[[<span style="color:blue">bib</span>]][acl18-bib] [[<span style="color:blue">paper</span>][acl18]] [[<span style="color:blue">data & code (to come)</span>][acl18-data]]  <br />
+[[<span style="color:blue">bib</span>]][acl18-bib] [[<span style="color:blue">paper</span>][acl18]] [[<span style="color:blue">data & code (to come)</span>][acl18-data]] [[<span style="color:blue">slides</span>][acl18-slides]] <br />
 
 <br /> <br />
 <span style="color:blue">Identifying Where to Focus in Reading Comprehension for Neural Question Generation </span> <br />
@@ -75,6 +79,7 @@ with a current focus on question answering and question generation. I graduated 
 [acl18]: papers/acl18_dc.pdf
 [acl18-bib]: bibs/du2018harvesting.bib
 [acl18-data]: https://github.com/xinyadu/harvestingQA
+[acl18-slides]: https://docs.google.com/presentation/d/1ZMtg1zhmPa1B1qoqhMn-EuilNgorTZaxQGWaY-tLUy0/edit?usp=sharing
 
 <!-- ACL 17 -->
 
