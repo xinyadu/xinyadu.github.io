@@ -38,7 +38,7 @@ I graduated with a bachelor degree in Computer Science from Shanghai Jiao Tong U
 <br />
 
 ### News 
-* Feb. 22 Internship work done at AI2 accepted to NAACL-HLT 2019 
+* Feb. 22 Internship work done at AI2 accepted to NAACL-HLT 2019 [[<span style="color:blue">paper</span>][naacl19]]
 <!-- * Jul. 2018 To attend ACL and giving an oral presentation, come and say Hi. -->
 <!-- * Arp. 2018 One paper accepted to ACL. -->
 <!-- * Spending summer 2018 at MSR Redmond. -->
@@ -57,7 +57,7 @@ I graduated with a bachelor degree in Computer Science from Shanghai Jiao Tong U
 <span style="color:blue">Be Consistent! Improving Procedural Text Comprehension using Label Consistency </span> <br />
 **Xinya Du**, Bhavana Dalvi, Niket Tandon, Antoine Bosselut, Wen-tau Yih, Peter Clark, Claire Cardie<br />
 *To appear in NAACL-HLT 2019* <br />
-[[<span style="color:blue">bib</span>]][naacl19-bib] [[<span style="color:blue">paper</span>][naacl19]]<br /> 
+[[<span style="color:blue">bib</span>]][naacl19-bib] [[<span style="color:blue">paper</span>][naacl19]] [[<span style="color:blue">presentation</span>][naacl19-slide]] <br /> 
 <!-- [[<span style="color:blue">data & code (to come)</span>][acl18-data]] [[<span style="color:blue">slides</span>][acl18-slides]] <br /> -->
 
 <br /> <br />
@@ -84,8 +84,9 @@ I graduated with a bachelor degree in Computer Science from Shanghai Jiao Tong U
 [claire]: https://www.cs.cornell.edu/home/cardie/
 
 <!-- NAACL 19 -->
-[naacl19]: papers/
+[naacl19]: papers/naacl19_ai2_be_consistent.pdf
 [naacl19-bib]: bibs/du2019consistent.bib
+[naacl19-slide]: papers/be_consistent.pptx
 <!-- [acl18-data]: https://github.com/xinyadu/harvestingQA -->
 <!-- [acl18-slides]: https://docs.google.com/presentation/d/1ZMtg1zhmPa1B1qoqhMn-EuilNgorTZaxQGWaY-tLUy0/edit?usp=sharing -->
 
