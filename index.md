@@ -13,7 +13,7 @@ tags: [Jekyll, theme, responsive, blog, template]
 Thanks for stopping by!
 
 <br />
-I am Xinya Du (pronounced as <span style="color:grey">_shinn-ya do_</span>, 杜辛亚), a CS Ph.D. student at Cornell University, working with Prof. [<span style="color:blue">Claire Cardie</span>][claire]. 
+I am Xinya Du (pronounced as <span style="color:grey">_shinn-ya do_</span>), a CS Ph.D. student at Cornell University, working with Prof. [<span style="color:blue">Claire Cardie</span>][claire]. 
 
 
 <br />
@@ -37,8 +37,8 @@ I graduated with a bachelor degree in Computer Science from Shanghai Jiao Tong U
 <br />
 <br />
 
-### News 
-* Feb. 22 Internship work done at AI2 accepted to NAACL-HLT 2019 [[<span style="color:blue">paper</span>][naacl19]]
+<!-- ### News  -->
+<!-- * Feb. 22 Internship work done at AI2 accepted to NAACL-HLT 2019 [[<span style="color:blue">paper</span>][naacl19]] -->
 <!-- * Jul. 2018 To attend ACL and giving an oral presentation, come and say Hi. -->
 <!-- * Arp. 2018 One paper accepted to ACL. -->
 <!-- * Spending summer 2018 at MSR Redmond. -->
@@ -54,18 +54,27 @@ I graduated with a bachelor degree in Computer Science from Shanghai Jiao Tong U
 
 ### Publications
 
+
+<span style="color:blue">Document-Level Event Extraction Using Multi-Granularity Contextualized Encoding of the Text</span> <br />
+**Xinya Du** and Claire Cardie<br />
+*To appear in ACL 2020* <br />
+[[<span style="color:blue">bib</span>]][acl20-bib] [[<span style="color:blue">paper</span>][acl20]] [[<span style="color:blue">presentation</span>][acl20-slide]] <br /> 
+
+--- 
+<br /> <br />
 <span style="color:blue">Be Consistent! Improving Procedural Text Comprehension using Label Consistency </span> <br />
 **Xinya Du**, Bhavana Dalvi, Niket Tandon, Antoine Bosselut, Wen-tau Yih, Peter Clark, Claire Cardie<br />
-*To appear in NAACL-HLT 2019* <br />
+*In NAACL-HLT 2019* <br />
 [[<span style="color:blue">bib</span>]][naacl19-bib] [[<span style="color:blue">paper</span>][naacl19]] [[<span style="color:blue">presentation</span>][naacl19-slide]] <br /> 
-<!-- [[<span style="color:blue">data & code (to come)</span>][acl18-data]] [[<span style="color:blue">slides</span>][acl18-slides]] <br /> -->
 
+--- 
 <br /> <br />
 <span style="color:blue">Harvesting Paragraph-Level Question-Answer Pairs from Wikipedia </span> <br />
 **Xinya Du** and Claire Cardie <br />
 *In ACL 2018* <br />
 [[<span style="color:blue">bib</span>]][acl18-bib] [[<span style="color:blue">paper</span>][acl18]] [[<span style="color:blue">data & code (to come)</span>][acl18-data]] [[<span style="color:blue">slides</span>][acl18-slides]] <br />
 
+--- 
 <br /> <br />
 <span style="color:blue">Identifying Where to Focus in Reading Comprehension for Neural Question Generation </span> <br />
 **Xinya Du** and Claire Cardie <br />
@@ -74,7 +83,7 @@ I graduated with a bachelor degree in Computer Science from Shanghai Jiao Tong U
 
 
 <br /> <br />
-<span style="color:blue">Learning to Ask: Neural Question Generation for Reading Comprehension</span> <br />
+<span style="color:blue">**Learning to Ask**: Neural Question Generation for Reading Comprehension</span> <br />
 **Xinya Du**, Junru Shao and Claire Cardie <br />
 *In ACL 2017* <br />
 [[<span style="color:blue">bib</span>]][qg-bib] [[<span style="color:blue">arXiv</span>][qg-arxiv]] [[<span style="color:blue">presentation</span>][acl17_poster]] [[<span style="color:blue">data & code</span>][qg-github]] <br />
@@ -82,6 +91,12 @@ I graduated with a bachelor degree in Computer Science from Shanghai Jiao Tong U
 
 
 [claire]: https://www.cs.cornell.edu/home/cardie/
+
+<!-- ACL 20 doc-event -->
+[acl20]: papers/
+[acl20-bib]: bibs/du2020document.bib
+[acl20-slide]: papers/
+
 
 <!-- NAACL 19 -->
 [naacl19]: papers/naacl19_ai2_be_consistent.pdf
