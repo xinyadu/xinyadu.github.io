@@ -22,7 +22,7 @@ Minimal Mistakes takes advantage of Sass and data files to make customizing easi
 
 To learn how to install and use this theme check out the [Setup Guide](http://mmistakes.github.io/minimal-mistakes/theme-setup/) for more information. -->
 
-## My personal website
+## My personal website (Cornell CS)
 
 Powered by Jekyll using the Minimal Mistakes theme.
 
