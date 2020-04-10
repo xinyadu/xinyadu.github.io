@@ -54,7 +54,12 @@ I graduated with a bachelor degree in Computer Science from Shanghai Jiao Tong U
 
 ### Publications
 
+<br /> <br />
+<span style="color:blue">Event Extraction by Answering (Almost) Natural Questions</span> <br />
+**Xinya Du** and Claire Cardie<br />
+*To come* <br />
 
+<br /> <br />
 <span style="color:blue">Document-Level Event Extraction Using Multi-Granularity Contextualized Encoding of the Text</span> <br />
 **Xinya Du** and Claire Cardie<br />
 *To appear in ACL 2020* <br />
