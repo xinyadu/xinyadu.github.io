@@ -60,7 +60,7 @@ I graduated with a bachelor degree in Computer Science from Shanghai Jiao Tong U
 *To come* <br />
 
 <br /> <br />
-<span style="color:blue">Document-Level Event Extraction Using Multi-Granularity Contextualized Encoding of the Text</span> <br />
+<span style="color:blue">Document-Level Event Role Filler Extraction Using Multi-Granularity Contextualized Encoding</span> <br />
 **Xinya Du** and Claire Cardie<br />
 *To appear in ACL 2020* <br />
 [[<span style="color:blue">bib</span>]][acl20-bib] [[<span style="color:blue">paper</span>][acl20]] [[<span style="color:blue">presentation</span>][acl20-slide]] <br /> 
