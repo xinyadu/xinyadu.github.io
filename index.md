@@ -57,7 +57,8 @@ I graduated with a bachelor degree in Computer Science from Shanghai Jiao Tong U
 <br /> <br />
 <span style="color:blue">Event Extraction by Answering (Almost) Natural Questions</span> <br />
 **Xinya Du** and Claire Cardie<br />
-*To come* <br />
+[[<span style="color:blue">paper</span>][eeqa]] <br />
+
 
 <br /> <br />
 <span style="color:blue">Document-Level Event Role Filler Extraction Using Multi-Granularity Contextualized Encoding</span> <br />
@@ -96,6 +97,11 @@ I graduated with a bachelor degree in Computer Science from Shanghai Jiao Tong U
 
 
 [claire]: https://www.cs.cornell.edu/home/cardie/
+
+<!-- EEQA -->
+[eeqa]: https://arxiv.org/abs/2004.13625
+[eeqa-bib]: bibs/
+[eeqa-slide]: papers/
 
 <!-- ACL 20 doc-event -->
 [acl20]: papers/
