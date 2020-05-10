@@ -31,7 +31,7 @@ Powered by Jekyll using the Minimal Mistakes theme.
 
 ssh netid@cslinux.cs.cornell.edu
 
-scp _site netid@cslinux.cs.cornell.edu:/people/xd75
+scp _site/* netid@cslinux.cs.cornell.edu:/people/xd75
 
 
 <!-- https://confluence.cornell.edu/display/coecis/New+CS+Research+and+Personal+Web+Server%2C+COECIS+ITSG+Help -->
