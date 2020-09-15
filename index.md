@@ -17,8 +17,10 @@ I am Xinya Du (pronounced as <span style="color:grey">_shinn-ya do_</span>), a C
 
 
 <br />
-I enjoy exploring/building things that are novel and impactful (in research and in life). I am working on natural language processing and machine learning, 
-with a current focus on question generation and question answering, and also with a keen interest in conversational intelligence and applications in the educational domain. 
+I enjoy exploring/building things that are novel and impactful (in research and in life). 
+I work on natural language processing and machine learning,
+with a current focus on context-aware methods for question **asking** & **answering**, and event **extraction**, and the interplay between them. 
+<!-- and also with a keen interest in conversational intelligence and applications in the educational domain.  -->
 
 <br />
 I graduated with a bachelor degree in Computer Science from Shanghai Jiao Tong University.
@@ -34,8 +36,6 @@ I graduated with a bachelor degree in Computer Science from Shanghai Jiao Tong U
 <!-- <br /> -->
 <!-- **Attending EMNLP 2017 in Copenhagen from Sep. 7 --- Sep. 11, PM if you are interested in talking :)!** -->
 
-<br />
-<br />
 
 <!-- ### News  -->
 <!-- * Feb. 22 Internship work done at AI2 accepted to NAACL-HLT 2019 [[<span style="color:blue">paper</span>][naacl19]] -->
@@ -52,21 +52,52 @@ I graduated with a bachelor degree in Computer Science from Shanghai Jiao Tong U
 <br />
 
 
+<br />
+[Google Scholar](https://scholar.google.com/citations?user=R-lKQqkAAAAJ&hl=en) <br />
+[GitHub](https://github.com/xinyadu) <br />
+[Twitter](https://twitter.com/Xinya16) <br />
+
 ### Publications
+
 
 <br /> <br />
 <span style="color:blue">Event Extraction by Answering (Almost) Natural Questions</span> <br />
 **Xinya Du** and Claire Cardie<br />
-[[<span style="color:blue">paper</span>][eeqa]] <br />
+*In EMNLP 2020* <br />
+[[<span style="color:blue">bib</span>]][eeqa-bib] 
+[[<span style="color:blue">paper</span>][eeqa]]
+[[<span style="color:blue">code</span>][eeqa-code]] <br />
 
 
 <br /> <br />
-<span style="color:blue">Document-Level Event Role Filler Extraction Using Multi-Granularity Contextualized Encoding</span> <br />
+<span style="color:blue">**Document-level** Event Entity Extraction Using Generative *Template-ﬁlling* Transformers</span> <br />
+**Xinya Du**, Alexander Rush and Claire Cardie<br />
+<!-- *In ACL 2020* <br /> -->
+<!-- [[<span style="color:blue">bib</span>]][acl20-bib]  -->
+[[<span style="color:blue">arXiv</span>][doc_ee]] 
+[[<span style="color:blue">code</span>][doc_ee-code]]
+<!-- [[<span style="color:blue">presentation</span>][acl20-slide]] <br />  -->
+
+
+<br /> <br />
+<span style="color:blue">Document-Level *Event Role Filler* Extraction Using Multi-Granularity Contextualized Encoding</span> <br />
 **Xinya Du** and Claire Cardie<br />
-*To appear in ACL 2020* <br />
-[[<span style="color:blue">bib</span>]][acl20-bib] [[<span style="color:blue">paper</span>][acl20]] [[<span style="color:blue">presentation</span>][acl20-slide]] <br /> 
+*In ACL 2020* <br />
+[[<span style="color:blue">bib</span>]][acl20-bib] 
+[[<span style="color:blue">paper</span>][acl20]] 
+[[<span style="color:blue">code</span>][acl20-code]]
+[[<span style="color:blue">presentation</span>][acl20-slide]] <br /> 
 
 --- 
+
+<br /> <br />
+<span style="color:blue">Leveraging Structured Metadata for Improving Question Answering on the Web</span> <br />
+**Xinya Du**, Ahmed Hassan Awadallah, Adam Fourney, Robert Sim, Paul Bennett and Claire Cardie<br />
+*In AACL 2020* (short)<br />
+[[<span style="color:blue">bib</span>]][metadata-bib] 
+<!-- [[<span style="color:blue">paper</span>][eeqa]] <br /> -->
+
+
 <br /> <br />
 <span style="color:blue">Be Consistent! Improving Procedural Text Comprehension using Label Consistency </span> <br />
 **Xinya Du**, Bhavana Dalvi, Niket Tandon, Antoine Bosselut, Wen-tau Yih, Peter Clark, Claire Cardie<br />
@@ -98,15 +129,31 @@ I graduated with a bachelor degree in Computer Science from Shanghai Jiao Tong U
 
 [claire]: https://www.cs.cornell.edu/home/cardie/
 
+
 <!-- EEQA -->
 [eeqa]: https://arxiv.org/abs/2004.13625
-[eeqa-bib]: bibs/
+[eeqa-bib]: bibs/du2020eeqa.bib
 [eeqa-slide]: papers/
+[eeqa-code]: https://github.com/xinyadu/eeqa
 
 <!-- ACL 20 doc-event -->
-[acl20]: papers/
+[acl20]: https://www.aclweb.org/anthology/2020.acl-main.714.pdf
 [acl20-bib]: bibs/du2020document.bib
-[acl20-slide]: papers/
+[acl20-code]: https://github.com/xinyadu/doc_event_role
+[acl20-slide]: https://www.aclweb.org/anthology/2020.acl-main.714/
+
+
+<!--  doc-ee -->
+[doc_ee]: https://arxiv.org/pdf/2008.09249.pdf
+<!-- [acl20-bib]: bibs/du2020document.bib -->
+[doc_ee-code]: https://github.com/xinyadu/doc_ee
+<!-- [acl20-slide]: papers/ -->
+
+
+
+<!-- metadata -->
+[metadata]: ./
+[metadata-bib]: bibs/du2020metadata.bib
 
 
 <!-- NAACL 19 -->
