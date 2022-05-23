@@ -1,9 +1,5 @@
 html {
-  font-size: 2rem;
-}
-
-p {
-  font-size: 2vmin;
+  font-size: 0.9rem;
 }
 
 @include media-breakpoint-up(sm) {
