@@ -1,5 +1,7 @@
+/*max-width: 2em;*/
+
 html {
-  font-size: 0.9rem;
+  font-size: 1rem;
 }
 
 @include media-breakpoint-up(sm) {
