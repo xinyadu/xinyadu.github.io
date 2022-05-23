@@ -1,0 +1,131 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Danqi Chen's Homepage</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Danqi Chen">
+    <meta name="keywords" content="Danqi Chen, Danqi Chen Princeton">
+    <meta name="robots" content="index,follow">
+    <meta name="description" content="Homepage of Danqi Chen">
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
+  	<link rel="stylesheet" type="text/css" media="screen,print" href="css/style.css" />
+	<link href="css/bootstrap.min.css" rel="stylesheet" media="screen" />
+	<link rel="icon" type="image/png" href="./images/logos/princeton.png">
+</head>
+
+<body>
+<div class="container">
+<br>
+<br>
+
+<div class="row">
+<div class="col-sm-4">
+<a href="images/danqi_2019.jpg">
+<img class="img-responsive" style="max-height:300px;" src="images/danqi_2019.jpg"/>
+</a>
+</div>
+
+<div class="col-sm-6">
+<div class="clearfix visible-xs-block"></div>
+<h1>Danqi Chen <img style="max-height:30px;" src="images/chinese_name.jpg"/></h1>
+
+<!-- <h1>Danqi Chen <span style="font-family:STFangsong; font-size:20pt"> (陈丹琦)</span></h1> -->
+
+<div id="pronounceLink" style="display:block;"><p><a href="#" onclick="$('#pronounce').toggle(); return false;"><i>How to pronounce?</i></a></p></div>
+<div id="pronounce" style="display:none;" class="alert">
+	<p>My first name can be pronounced as "dan-/'chE/" and here is a more standard Chinese pronunciation:
+        <audio controls>
+            <source src="audio/danqi.mp3" type="audio/mpeg">
+        </audio>
+    </p>
+</div>
+
+<p style="font-size: 18px">Assistant Professor<br>
+<a href="https://www.cs.princeton.edu/">Department of Computer Science</a> <br>
+<a href="https://www.princeton.edu/">Princeton University</a>
+<br>
+<br>
+<b>Email</b>: <tt>&#100;&#97;&#110;&#113;&#105;&#99;&#64;&#99;&#115;&#46;&#112;&#114;&#105;&#110;&#99;&#101;&#116;&#111;&#110;&#46;&#101;&#100;&#117;</tt> <br>
+<b>Office</b>: Computer Science 412 <br>
+<br>
+<div class="col-xs-3">
+<a href="https://twitter.com/danqi_chen" title="twitter"><img src="./images/logos/twitter.png" style="max-height:40px;" class="img-responsive"></a>
+</div>
+<div class="col-xs-3">
+<a href="https://scholar.google.com/citations?user=sVR8ktkAAAAJ&hl=en" title="gscholar"><img src="./images/logos/gscholar.png" style="max-height:40px;" class="img-responsive"></a>
+</div>
+<div class="col-xs-3">
+<a href="https://github.com/danqi" title="github"><img src="./images/logos/github.png" style="max-height:40px;" class="img-responsive"></a>
+</div>
+</p>
+</div>
+<div class="col-sm-2">
+<br><br><br>
+<img class="img-responsive" style="max-height:300px;" src="images/seal.png" />
+</div>
+</div>
+<br>
+
+<hr/>
+<h3>
+  <a href="papers.html">Papers</a> /
+  <a href="group.html">Group</a> /
+  <a href="teaching_and_service.html">Teaching & Service</a> /
+  <a href="awards.html">Awards</a> /
+  <a href="misc.html">Etc.</a>
+</h3>
+<hr/>
+
+<p>
+I am an assistant professor of Computer Science at Princeton University and I co-lead the <a href="https://nlp.cs.princeton.edu/">Princeton NLP Group</a>. I am also part of the larger <a href="https://aiml.cs.princeton.edu/">Princeton AIML group</a> and affiliated with <a href="https://csml.princeton.edu/">Princeton Center for Statistics and Machine Learning (CSML)</a>.
+
+Previously, I was a visiting scientist at <a href="https://ai.facebook.com/">Facebook AI Research (FAIR)</a> in Seattle. I received my PhD from the <a href = "https://www.cs.stanford.edu/"> Computer Science Department</a> at Stanford University in 2018, where I was advised by <a href = "https://nlp.stanford.edu/manning/">Christopher Manning</a> and worked in the <a href = "https://nlp.stanford.edu/">Stanford NLP Group</a>.
+Before that, I was an undergraduate student from the <a href = "https://iiis.tsinghua.edu.cn/en/yaoclass/"> Special Pilot CS Class</a> supervised by <a href = "https://iiis.tsinghua.edu.cn/en/yao/"> Andrew Yao</a> at Tsinghua University.
+</p>
+
+<h3 id="research">Research</h3>
+<p>
+    I have broad interests in natural language processing and machine learning (in particular, deep learning). My research is mostly driven by two goals:
+    <ul>
+        <li>Developing effective and fundamental methods for learning representations of <a href="https://arxiv.org/pdf/1907.11692.pdf">language</a> and knowledge, and their <a href="papers/emnlp2015.pdf">interplay</a>. I am specifically interested in how human knowledge (e.g., declarative, procedural, commonsense and linguistic!) can be <a href="papers/emnlp2017.pdf">obtained</a> from text and how they can be <a href="papers/tacl2020.pdf">represented</a>, <a href="https://arxiv.org/pdf/2004.04906.pdf">retrieved</a>, reasoned and finally used in our intelligent systems.
+        <li>Building practical systems including question answering, information extraction and conversational agents. I am mostly excited about <a href="https://arxiv.org/pdf/2010.12812.pdf">simple</a> and principled approaches which can be <a href="papers/acl2017.pdf">scalable</a> and <a href="papers/mrqa2019.pdf">generalizable</a> to real-world scenarios.
+    </ul>
+</p>
+<p>
+    Here is <a href="https://www.cs.princeton.edu/news/ushering-machines-world-human-knowledge">an article</a> highlighting my research goals. I recently gave <a href="https://github.com/danqi/acl2020-openqa-tutorial">a tutorial</a> on open-domain question answering at ACL if you would like to learn more about QA research. I also have been a co-organizer and a strong proponent of two communities: <a href="https://mrqa.github.io">Machine Reading for Question Answering (MRQA)</a> and <a href="https://www.akbc.ws/">Automated Knowledge Base Construction (AKBC)</a>.
+</p>
+
+<h3 id="education">Education / Experience</h3>
+<ul>
+<li> 2012-2018: Ph.D. in Computer Science, Stanford University </li>
+<li> 2008-2012: B.Eng from Yao Class, Tsinghua University </li>
+<li> 2010/8-2010/12: Exchange student at Hong Kong University of Science and Technology</li>
+</ul>
+<ul>
+<li> 2019/2-2019/8: Visiting scientist at Facebook AI Research, Seattle</li>
+<li> 2019/2-2019/8: Visiting researcher at University of Washington, Seattle </li>
+<li> 2016/10-2016/12: Research intern at Facebook AI Research, NYC</li>
+<li> 2014/7-2014/9: Research intern at Microsoft Research, Redmond</li>
+<li> 2011/2-2012/5: Research intern at Microsoft Research Asia, Beijing</li>
+</ul>
+
+
+<h3 id="students">Contact</h3>
+<p>
+<b>Prospective students</b>:  I am actively looking for strong and motivated students to join our group! If you are interested in working with me, please apply through the <a href="https://www.cs.princeton.edu/grad">Princeton CS PhD program</a> and mention me in your application (and I can't respond to all individual emails).
+<br><br>
+<b>Princeton students</b>: (1) If you are already a <b>graduate student</b> at Princeton, feel free to reach out. (2) I am also accepting <b>undergraduate students</b> for senior thesis advising or independent work. Please fill out <a href="https://forms.gle/8sp37dy4j6k1nCZq5">this form</a> before e-mailing me. I also recommend you take COS 484 (or at least one of ML or computer vision classes) before getting into NLP research.
+<br>
+<br>
+I also have weekly <a href="https://calendly.com/danqic/office-hours">office hours</a> for Princeton students (undergraduate and graduate). If you would like to discuss any topic with me, feel free to sign up for them (10-minute each; you can book multiple if needed).
+</p>
+
+<hr/>
+<p>Last update: May 2022</p>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+</div>
+</body>
+</html>
