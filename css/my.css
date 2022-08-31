@@ -34,3 +34,8 @@ html {
     font-size: 1.6rem;
   }
 }
+
+@img{
+    width: auto;
+    height:  auto;
+}
