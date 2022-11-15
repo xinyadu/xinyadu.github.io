@@ -142,16 +142,15 @@
 				        add_paper("Retrieval-Augmented Generative Question Answering for Event Argument Extraction",
 				            "<b>Xinya Du</b> and Heng Ji", // authors
 				            "Proceedings of the 2022 Conference on Empirical Methods in Natural Language Processing (EMNLP)", // conference
-				            "https://aclanthology.org/2022.acl-long.361/", // link
-				            null,
-				            // "@InProceedings{du2022dynamic,<br>" + // bib
-				            // "&nbsp;&nbsp;&nbsp;title={Dynamic Global Memory for Document-level Argument Extraction},<br>" +
-				            // "&nbsp;&nbsp;&nbsp;author={Du, Xinya and Li, Sha and Ji, Heng},<br>" +
-				            // "&nbsp;&nbsp;&nbsp;booktitle={Association for Computational Linguistics (ACL)},<br>" +
-				            // "&nbsp;&nbsp;&nbsp;year={2022}<br>}",
+				            "https://arxiv.org/pdf/2211.07067.pdf", // link
+				            "@InProceedings{du2022retrieval},<br>" + // bib
+				            "&nbsp;&nbsp;&nbsp;title={Retrieval-Augmented Generative Question Answering for Event Argument Extraction},<br>" +
+				            "&nbsp;&nbsp;&nbsp;author={Du, Xinya and Ji, Heng},<br>" +
+				            "&nbsp;&nbsp;&nbsp;booktitle={EMNLP},<br>" +
+				            "&nbsp;&nbsp;&nbsp;year={2022}<br>}",
 				            "Event argument extraction has long been studied as a sequential prediction problem with extractive-based methods, tackling each argument in isolation. Although recent work proposes generation-based methods to capture cross-argument dependency, they require generating and post-processing a complicated target sequence (template). Motivated by these observations and recent pretrained language models’ capabilities of learning from demonstrations. We propose a retrieval-augmented generative QA model (R-GQA) for event argument extraction. It retrieves the most similar QA pair and augments it as prompt to the current example’s context, then decodes the arguments as answers. Our approach outperforms substantially prior methods across various settings (i.e. fully supervised, domain transfer, and fewshot learning). Finally, we propose a clusteringbased sampling strategy (JointEnc) and conduct a thorough analysis of how different strategies influence the few-shot learning performance.", // abstract
-				            null, // arXiv_link
-				            // "https://github.com/xinyadu/memory_docie", // code
+				            "https://arxiv.org/abs/2211.07067", // arXiv_link
+				            "https://github.com/xinyadu/RGQA", // code
 				            // "abc", // data
 				            // "abc" // pre
 				        )
