@@ -48,7 +48,20 @@
   <script defer type="text/javascript" id="MathJax-script"
     src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js"></script>
   <script defer src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-
+  
+  <style>
+    .zoom {
+      padding: 0px;
+      background-color: rgb(255, 255, 255);
+      transition: transform .2s; /* Animation */
+      width: 200%;
+      margin: 0 auto;
+    }
+    
+    .zoom:hover {
+      transform: scale(1.5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+    }
+    </style>
 
 </head>
 
@@ -134,16 +147,16 @@
           <h2 class="year"></h2>
           <ol class="bibliography">
             <br><br>
-            <!-- Project Learning 2 Rank -->
+            <!-- Project Image Generation-->
             <li>
               <div class="row">
                 <div class="col-sm-2 abbr">
 
                   <!-- <abbr class="badge">arXiv</abbr> -->
                   <br><br>
-                  <img class="img-fluid z-depth-2 rounded" src="./photos/artai.jpg" style="width:180%;max-width:300px">
+                  <img class="zoom img-fluid z-depth-2 rounded" src="./photos/artai.jpg" style="width:180%;max-width:300px">
                 </div>
-                <div id="imageen" class="col-sm-9" style="left:float; left:100px; text-align: justify;">
+                <div id="imageen" class="col-sm-9" style="left:float; left:130px; text-align: justify;">
                   <div class="h3">
                     <a href="" style="font-weight: 800">
                       Image Generation
@@ -175,16 +188,17 @@
 
                   <!-- <abbr class="badge">arXiv</abbr> -->
                   <br><br>
-                  <img class="img-fluid z-depth-2 rounded" src="./photos/learning2rank.png"
+                  <img class="zoom img-fluid z-depth-2 rounded" src="./photos/learning2rank.png"
                     style="width:200%;max-width:300px">
 
                 </div>
 
-                <div id="imageen" class="col-sm-9" style="left:float; left:100px; text-align: justify;">
+                <div id="ltr" class="col-sm-9" style="left:float; left:130px; text-align: justify;">
 
                   <div class="h3">
                     <a href="" style="font-weight: 800">
                       Learning-to-Rank
+                      
                     </a>
                   </div>
                   <p>Learning-to-Rank re-rankes the results of <a href="https://pixta.jp/">PIXTA Inc</a>'s search system
@@ -199,6 +213,49 @@
                     <a class="abstract btn btn-sm z-depth-0" role="button">Information Retrival</a>
                     <a class="abstract btn btn-sm z-depth-0" role="button">Learning2Rank</a>
                     <a class="abstract btn btn-sm z-depth-0" role="button">LGBM</a>
+                  </div>
+                  <!-- Hidden abstract block -->
+                </div>
+              </div>
+            </li>
+
+            <!-- Project Tag Suggestion -->
+            <br><br>
+            <li>
+              <div class="row">
+                <div class="col-sm-2 abbr">
+
+                  <!-- <abbr class="badge">arXiv</abbr> -->
+                  <br><br>
+                  <!-- <div class="zoom img-fluid z-depth-2 rounded" > -->
+                  <img class="zoom img-fluid z-depth-2 rounded"  src="./photos/tagsuggestion.png"
+                    style="width:200%;max-width:300px">
+                  <!-- </div> -->
+                </div>
+
+                <div id="tagsuggestion" class="col-sm-9" style="left:float; left:130px; text-align: justify;">
+
+                  <div class="h3">
+                    <a href="" style="font-weight: 800">
+                      Tag Suggestion
+                      
+                    </a>
+                  </div>
+                  <p>Tag Suggestion is a project that My team and I want to enhance UX of users on Pixta Image Stock platform by providing 
+                    them an AI tool to tag their uploading photos. Beyond this scope, we are using this tool to annotate any kind of photo we have in the database for training. 
+                    Today, the model can annotate up to 25000 classes in a run.</p>
+                  <p><strong>Achievments</strong>:</p> 
+                  <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span style='font-size:10px;'>&#9899; </span>&nbsp In 2020, I have built the baseline with <a href="https://arxiv.org/abs/2004.08955">ResNest</a></p>
+                  <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span style='font-size:10px;'>&#9899; </span>&nbsp Apply <a href="https://arxiv.org/abs/1912.08226">Meshed-Memory</a> a mixed CNN & Transformer structure</p>
+                  <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span style='font-size:10px;'>&#9899; </span>&nbsp In 2021, I proposed a removal CNN to use <a href="https://medium.com/@silkworm/re-evolution-of-understanding-visual-feature-in-computer-vision-b8643221a27a"> Vision Transformer </a></p>
+                  <p><strong>Challenges</strong> &nbsp &nbsp : The number of class is huge (25k) and more. Model requires big data to train (up to more than 5 million samples)</p>
+                  <div class="links">
+                    <a class="abstract btn btn-sm z-depth-0" role="button">Deep Learning</a>
+                    <a class="abstract btn btn-sm z-depth-0" role="button">Auto Annotation</a>
+                    <a class="abstract btn btn-sm z-depth-0" role="button">Vision Transformer</a>
+                    <a class="abstract btn btn-sm z-depth-0" role="button">ResNest</a>
+                    <a class="abstract btn btn-sm z-depth-0" role="button">Meshed-Memory Transformer</a>
+
                   </div>
                   <!-- Hidden abstract block -->
                 </div>
