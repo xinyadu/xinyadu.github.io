@@ -139,6 +139,40 @@
 				        // ---------------------------------- 2022 ------------------------------------------------------------------------------------------------------
 				        document.write("<h5>2022</h5>")
 				        document.write("<ul style=\"list-style: none;\">")
+
+
+				        add_paper("End-to-end Case-Based Reasoning for Commonsense Knowledge Base Completion",
+				            "Zonglin Yang, <strong>Xinya Du</strong>, Erik Cambria, Claire Cardie", // authors
+				            "EACL 2023", // conference
+				            "https://arxiv.org/pdf/2211.07067.pdf", // link
+				            "@InProceedings{yang2023cbr},<br>" + // bib
+				            "&nbsp;&nbsp;&nbsp;title={End-to-end Case-Based Reasoning for Commonsense Knowledge Base Completion},<br>" +
+				            "&nbsp;&nbsp;&nbsp;author={Yang, Zonglin and Du, Xinya and Cambria, Erik and Cardie, Claire},<br>" +
+				            "&nbsp;&nbsp;&nbsp;booktitle={EACL},<br>" +
+				            "&nbsp;&nbsp;&nbsp;year={2023}<br>}",
+				            "n/a", // abstract
+				            "https://arxiv.org/abs/2211.07067", // arXiv_link
+				            // "https://github.com/xinyadu/RGQA", // code
+				            // "abc", // data
+				            // "abc" // pre
+				        )
+
+				        add_paper("Logical Entity Representation in Knowledge-Graphs for Differentiable Rule Learning",
+				            "Chi Han, Qizheng He, Charles Yu, <b>Xinya Du</b>, Hanghang Tong, Heng Ji", // authors
+				            "ICLR 2023", // conference
+				            "https://arxiv.org/pdf/2211.07067.pdf", // link
+				            "@InProceedings{yang2023cbr},<br>" + // bib
+				            "&nbsp;&nbsp;&nbsp;title={Logical Entity Representation in Knowledge-Graphs for Differentiable Rule Learning},<br>" +
+				            "&nbsp;&nbsp;&nbsp;author={Han, Chi et al},<br>" +
+				            "&nbsp;&nbsp;&nbsp;booktitle={ICLR},<br>" +
+				            "&nbsp;&nbsp;&nbsp;year={2023}<br>}",
+				            "Probabilistic logical rule learning has shown great strength in logical rule mining and knowledge graph completion. It learns logical rules to predict missing edges by reasoning on existing edges in the knowledge graph. However, previous efforts have largely been limited to only modeling chain-like Horn clauses such as R1(x; z) ^ R2(z; y) ) H(x; y). This formulation overlooks additional contextual information from neighboring sub-graphs of entity variables x, y and z. Intuitively, there is a large gap here, as local sub-graphs have been found to provide important information for knowledge graph completion. Inspired by these observations, we propose Logical Entity RePresentation (LERP) to encode contextual information of entities in the knowledge graph. A LERP is designed as a vector of probabilistic logical functions on the entity’s neighboring sub-graph. It is an interpretable representation while allowing for differentiable optimization. We can then incorporate LERP into probabilistic logical rule learning to learn more expressive rules. Empirical results demonstrate that with LERP, our model outperforms other rule learning methods in knowledge graph completion and is comparable or even superior to state-of-the-art black-box methods. Moreover, we find that our model can discover a more expressive family of logical rules. LERP can also be further combined with embedding learning methods like TransE to make it more interpretable.", // abstract
+				            "https://openreview.net/forum?id=JdgO-ht1uTN", // arXiv_link
+				            // "https://github.com/xinyadu/RGQA", // code
+				            // "abc", // data
+				            // "abc" // pre
+				        )
+
 				        add_paper("Retrieval-Augmented Generative Question Answering for Event Argument Extraction",
 				            "<b>Xinya Du</b> and Heng Ji", // authors
 				            "Proceedings of the 2022 Conference on Empirical Methods in Natural Language Processing (EMNLP)", // conference
