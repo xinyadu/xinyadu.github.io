@@ -99,6 +99,9 @@ h3 {
 .sechighlight5 {
   background-color: #e0ffd3;
 }
+.sechighlight6 {
+  background-color: #f7f7a3;
+}
 
 
 table {
@@ -323,12 +326,12 @@ html {
 
 /* unvisited link */
 a:link {
-  color: #990000;
+  color: #1f0ae1;
 }
 
 /* visited link */
 a:visited {
-  color: #990000;
+  color: #1f0ae1;
 }
 
 /* mouse over link */
