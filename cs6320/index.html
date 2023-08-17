@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>CS 6301.004: Deep Learning for NLP</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
+    <link rel="icon" type="image/png" href="https://brand.utdallas.edu/wp-content/themes/oberon/images/svg/favicon.svg">
+    <link href="./css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="./css/style.css" rel="stylesheet">
+
+<style type="text/css">
+  body {
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+  .sidebar-nav {
+    padding: 0px 0;
+  }
+  .page-header {
+    border-bottom: 1px solid #ADA9A9;
+    margin-bottom: 10px;
+  }
+
+  .topic-column {
+    column-width: 80em;
+  }
+
+  .recommended-column {
+    column-width: 100em;
+  }
+
+  .papers-column {
+    column-width: 150em;
+  }
+
+  .date-column {
+    column-width: 20em;
+  }
+
+</style>
+
+<style type="text/css">
+</style>
+
+</head>
+
+<body>
+
+
+<div class="page-header" style="text-align:center">
+        <h2><b>CS 6320 (Fall 23): Natural Language Processing</b></h2> <br>
+</div>
+
+<div class="container sec" id="logistics">
+        <!-- <h2>Logistics</h2> -->
+        <!-- <ul>
+            <li><b>Classes:</b> on Tuesday/Thursday 12 - 1:15 pm EST (room: Ames 234, or zoom meeting: 704 538 4305)</li>
+            <li><b>Office hours:</b> (Daniel office hour) Tuesday and Thursday 1:30 - 2:30 pm EST (Hackerman hall, 316B),
+                (TA office hour) Thursdays 11 - 11:50 am (in-person, Hackerman hall 3rd floor),
+                and (CA office hour) Fridays 1 - 1:50 pm (in-person, Hackerman hall 3rd floor).
+            </li>
+            <li><b>Contact:</b> If you have any questions about the course, you can post them on Piazza.
+            </li>
+            <li><b>Virtual or in-person</b>: The class will be in-person. Though there will be recordings of each class
+                made available online after each class on the Youtube playlist (shared on Piazza).
+            </li>
+            <li><b>Changes:</b> The instructor reserves the right to make changes to the syllabus or project due dates.
+                These changes will be announced as early as possible.
+            </li>
+            <li><b>News and announcements:</b> All the news and announcements will be made on Piazza.</li>
+
+            <li><b>COVID:</b> Students who report symptoms associated with COVID-19 are expected not to attend class and
+                to isolate themselves for at least five days and until they have been symptom-free for 24 hours.
+            </li>
+    
+            <li>
+                <b>Course grade:</b>
+                Your grade is based on the following activities:
+                (1) Semi-weekly assignments (50%),
+                (2) midterm exam (20%), and
+                (3) a final project (30%) -- same grade for all members of a team.
+                Attendance is not mandatory (hence, 0%) but highly encouraged: participation in class is our chance to
+                learn more effectively.
+                Up to 3% additional credit for any actions taken to improve the course that is brought to the instructors'
+                attention.
+            </li>
+        </ul>
+        <br> -->
+
+        <h2>Course Information</h2>
+        <ul>
+                <li><b>Days & Times</b>		Friday, 10:00 am - 12:45 pm (11:15--11:35 break)</li>
+                <li><b>Location</b>			HH 2.502</li>
+                
+                <li>
+                        <b>Professor Contact Information</b> <br>
+                        Professor:			<a href="https://xinyadu.github.io">Xinya Du</a><br>
+                        <!-- Office Phone:			(972) 883-2634<br> -->
+                        Email Address:			xinya.du@utdallas.edu<br>
+                        <!-- Office Location & Hours:	ECSS 3.227, Friday 2 pm - 3 pm<br> -->
+                </li>
+                
+                <li>
+                        <b>Teaching Assistant Information</b> <br>
+                        <!-- Teaching Assistant:		Yi-Hui Lee<br> -->
+                        <!-- Email Address:  		Yi-Hui.Lee@UTDallas.edu<br> -->
+                        <!-- Office Hours:			Teams, Monday 2-3pm<br> -->
+                </li>
+
+                <li>
+                        <b>Prerequisites, Co-requisites, and/or Other Restrictions</b><br>
+                        Programming in Python<br>
+                        CS 5343 Algorithm Analysis and Data Structures<br>
+                        CS 6375 Machine Learning <br>
+                </li>
+                <li>
+                        <b>More information</b><br> 
+                        - Grading, Presentation and project requirements, Course policies, please see the syllabus <a href="https://docs.google.com/document/d/1Yh_eLpUYox_iEf7Cpzkb8zaxbQyW2J2A/edit?usp=sharing&ouid=107990160837046170960&rtpof=true&sd=true">here</a><br>
+                        - Grouping: see the excel spreadsheet on eLearning<br>
+                        - Uploading slides: see the folder links on eLearning (Due: 11:59pm the day before your presentation)<br>
+                        - Uploading Assignments and Reports: GradeScope (Due: 11:59pm on the due date)
+                </li>
+                
+        </ul>
+    </div>
+
+<div class="container sec" id="course desc" style="margin-top:-20px">
+        <h2>Course Description (to update)</h2>
+        This graduate course covers the topic of deep learning for natural language processing, as well as the recent research related to this topic. It mainly consists of three parts:
+        <ul>
+                <li><b>Foundation knowlege and background</b> about DL and NLP: We will cover core deep learning and NLP concepts, such as feedforward networks, attention, backpropagation, and word embeddings; and most recent concepts like prompting and pre-training. 
+                        We will also cover application based topics such as question answering, summarization, and information extraction.</li>
+                <!-- <li><span style="background-color: #e0ffd3"><b>Recent research paper discussions</b>: We will hold paper presentations and discussions that focus on recent research on NLP.</span></li> -->
+                <!-- <li><span style="background-color: #FFFF00 "><b>Hands-on Projects</b>: each group of students work on a project that involves both DL and NLP.</span> -->
+                <li><b>Recent research paper discussions</b>: We will hold paper presentations and discussions that focus on recent research on NLP.</li>
+                <li><b>Hands-on Projects</b>: each group of students work on a project that involves both DL and NLP.
+                        Proposal template <a href="https://www.overleaf.com/read/rnmdjsdmcqnj">[link]</a>
+                        Final report template <a href="https://www.overleaf.com/read/jcngdfftcwsy">[link]</a></li>
+                </li>
+        </ul>
+</div>
+
+<div class="container" style="margin-top:-20px">
+        <h2>Textbooks and Materials</h2>
+        <ul>
+                <li>Speech and Language Processing (3rd edition), Jurafsky and Martin <a href="https://web.stanford.edu/~jurafsky/slp3/">[link]</a>
+                </li>
+                <li>Neural Network Methods for Natural Language Processing, Yoav Goldberg <a href="https://www.morganclaypool.com/doi/pdf/10.2200/S00762ED1V01Y201703HLT037">[link]</a>
+                </li>
+
+            <!-- <li><a href="https://catalyst.library.jhu.edu/catalog/bib_9689868">Natural language processing with PyTorch,
+                Rao and McMahan</a></li>
+            <li><a href="https://catalyst.library.jhu.edu/catalog/bib_9697352">Transformers for Natural Language Processing,
+                Rothman </a></li>
+            <li><a href="https://catalyst.library.jhu.edu/catalog/bib_9822241">Neural Network Methods for Natural Language
+                Processing, Goldberg </a></li> -->
+            <!-- <li><a href="https://d2l.ai/">Dive into Deep Learning, Zhang et al. </a></li> -->
+        </ul>
+    
+    </div>
+
+<!-- <div class="container"> -->
+<!-- below schedle is from http://danielkhashabi.com -->
+<div class="container sec" id="schedule" style="margin-top:-20px">
+        <h2>Schedule (to update)</h2>
+      <!-- <div class="bs-component"> -->
+
+        <table class="table">
+        <colgroup>
+                <col style="width:13%">
+                <col style="width:15%">
+                <col style="width:13%">
+                <col style="width:50%">
+                <col style="width:10%">
+        </colgroup>
+        <thead>
+        <tr class="active">
+                <th>Date</th>
+                <th>Topic</th>
+                <th>Assignment</th>
+                <th>Papers / Recommended Readings</th>
+                <th>Group</th>
+        </tr>
+        </thead>
+
+        <tbody>
+                <!-- <tr>
+                        <td>Example</td>
+                        <td>
+                        Course overview
+                        <br>
+                        Plan and expectations
+                        <br>
+                        [slides: <a href="files/01.intro.pdf">pdf</a>, <a href="files/01.intro.pptx">pptx</a>]
+                        </td>
+                        <td></td>
+                        <td class="sechighlight5">HW1 released!
+                        [<a href="https://www.overleaf.com/read/qnhxbgqnkwcz">tex</a>]
+                        [<a href="files/CS_601_471_671_spring2023_homework1.pdf">pdf</a>]
+                        [<a href="https://colab.research.google.com/drive/1rl53e8Gt3PebC4lobSMpCHlRZBwK69pb?usp=sharing">colab</a>]
+                        </td>
+                </tr> -->
+
+         
+<!-- week 1 -->
+                <tr>
+                        <td>Week 1 (Jan 20)</td>
+                        <td><b>Introduction</b><br>
+                        <!-- 1. <a href="https://arxiv.org/pdf/2204.14198.pdf"> Flamingo: a Visual Language Model for Few-Shot Learning</a> -->
+                        </td>
+                        <td>.</td>
+                        <td></td>
+                        <td></td>
+                </tr>
+
+<!-- week 2 -->
+                <tr>
+                        <td>Week 2 (Jan 27)</td>
+                        <td><b>Text Classification, Neural Networks</b>; <br> 
+                                <b>Backpropagation</b>
+                                <a href="./files/slides_pdf/01_Intro (ML Basics).pdf">[slides]</a>
+                                <a href="./files/slides_pdf/03_01_Neural Networks and Backpropagation.pdf"">[slides]</a>
+                        </td>
+                        <td></td>
+                        <td>J&M 7 (.1--.4), <a href="https://u.cs.biu.ac.il/~yogo/nnlp.pdf">Primer</a>, J&M 7, <a href="https://colah.github.io/posts/2015-08-Backprop/">Intro to Computation Graphs</a></td>
+                        <td></td>
+                </tr>
+
+<!-- week 3 -->
+                <tr>
+                        <td>Week 3 (Feb 3)</td>
+                        <td><b>Word Representations</b>; <a href="./files/slides_pdf/03_02_word_embeddings.pdf">[slides]</a><br>
+                                <b>RNNs, Seq2Seq, Attention</b> <a href="./files/slides_pdf/04_RNNs, Sequence-to-Sequence, Attention.pdf">[slides]</a><br>
+                        </td>
+                        <td>a1 out</td>
+                        <td>J&M 6, <a href="https://arxiv.org/pdf/1402.3722.pdf">word2vec explained</a> <br>
+                                J&M 9, J&M 10 (.2, .3), Luong 15</td>
+                        <td></td>
+                </tr>
+
+<!-- week 4 -->
+                <tr>
+                        <td>Week 4 (Feb 10)</td>
+                        <td>"""<br>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                </tr>
+
+<!-- week 5 -->
+                <tr>
+                        <td>Week 5 (Feb 17)</td>
+                        <td>(Optional) Pytorch & Transformers Tutorial<br>
+                        </td>
+                        <td>quiz</td>
+                        <td>If you have attended the tutorial in CS6320, or have background in the frameworks (i.e. Pytorch and HF), you can skip this lecture.</td>
+                        <td></td>
+                </tr>
+
+                <tr>
+                        <td></td>
+                        <td><b>Self-attention, Transformers</b> <a href="./files/slides_pdf/05_Transformers.pdf">[slides]</a><br>
+                        </td>
+                        <td>a1 due, <br> a2 out</td>
+                        <td>(Blog) <a href="https://jalammar.github.io/illustrated-transformer/">illustrated Transformer (Jay)</a><br>
+                                <a href="http://nlp.seas.harvard.edu/2018/04/03/attention.html">(Blog) Annotated Transformer (Sasha)</a>, <a href="https://arxiv.org/abs/1706.03762">Original Paper</a></td>
+                        <td></td>
+                </tr>
+
+<!-- week 6 -->
+                <tr>
+                        <td>Week 6 (Feb 24)</td>
+                        <td>"""
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                </tr>
+
+                <tr>
+                        <td></td>
+                        <td><b>Pretrained Language Models (PLMs)</b> <a href="./files/slides_pdf/06_BERT and Pretraining.pdf">[slides]</a><br>
+                        </td>
+                        <td></td>
+                        <td>(Blog post) <a href="https://lilianweng.github.io/posts/2019-01-31-lm/">Generalized Language Models 2019</a>, <br> 
+                                <a href="https://arxiv.org/abs/2003.08271"> Pre-trained Models for Natural Language Processing: A Survey (Liu et al 2019)</a>, <br>
+                                <a href="https://stanford-cs324.github.io/winter2022/lectures/introduction/">Percy Liang's introduction to LLMs</a></td>
+                        <td></td>
+                </tr>
+
+
+<!-- week 7 -->
+                <!-- <tr class="sechighlight4"> -->
+                <tr>
+                        <td>Week 7 (Mar 3)</td>
+                        <td>Paper Presentation * 2 (PLMs)<br>
+                        </td>
+                        <td></td>
+                        <td>Encoder-only models: <a href="https://arxiv.org/abs/1810.04805">BERT</a>,  <a href="https://openreview.net/pdf?id=r1xMH1BtvB">ELECTRA</a>, <br>
+                                "Encoder-decoder models: <a href="https://arxiv.org/pdf/1910.10683.pdf">T5</a>, <a href="https://arxiv.org/abs/2010.11934">mT5</a>, <br>
+                                (Optional) <a href="https://arxiv.org/abs/2109.01652">FLAN</a>, <a href="https://arxiv.org/abs/2110.08207">T0</a>, <a href="https://arxiv.org/abs/2210.11416">Scaling Instruction-Finetuned Language Model (FLAN)</a></td>
+                        <td>Group 17<br><br> Group 20</td>
+                </tr>
+
+                <tr> 
+                        <td></td>
+                        <td><b>DL for NLP applications (QA, NLG)</b> <a href="./files/slides_pdf/07_Question Answering.pdf">[slides]</a>
+                                <a href="./files/slides_pdf/08_Natural Language Generation.pdf">[slides]</a>
+                                <br>
+                        </td>
+                        <td></td>
+                        <td><a href="https://huggingface.co/datasets">Huggingface Datasets</a>, <br>
+                                <a href="https://paperswithcode.com/">Paper with Code</a></td>
+                        <td></td>
+                </tr>
+
+<!-- week 8 -->
+                <tr class="sechighlight6">
+                        <td>Week 8 (Mar 10)</td>
+                        <td>Project proposal * 21, <b>Check our students' awesome proposal presentations!</b> ➡️<br>
+                        </td>
+                        <td>a2 due</td>
+                        <td><a href="./proposal_pre_pdfs/Group 5.pdf">Group5</a>, <a href="./proposal_pre_pdfs/Group 6.pdf">Group6</a>, <a href="./proposal_pre_pdfs/Group 7.pdf">Group7</a>, <a href="./proposal_pre_pdfs/Group 8.pdf">Group8</a>, 
+                                <a href="./proposal_pre_pdfs/Group 9.pdf">Group9</a>, Group10, <a href="./proposal_pre_pdfs/Group 11.pdf">Group11</a>, Group12, <a href="./proposal_pre_pdfs/Group 13.pdf">Group13</a>, Group14, <a href="./proposal_pre_pdfs/Group 15.pdf">Group15</a>, <a href="./proposal_pre_pdfs/Group 16.pdf">Group16</a>, Group17, Group18, Group19, <a href="./proposal_pre_pdfs/Group 20.pdf">Group20</a>, Group21, Group22, Group23, Group24</td>
+                        <td></td>
+                </tr>
+
+<!-- week 9 -->
+                <tr class="sechighlight">
+                        <td>Week 9</td>
+                        <td colspan="4" align="center">
+                                <b> Spring Break!</b>
+                        </td>        
+                </tr>
+
+<!-- week 10 -->
+                <!-- <tr class="sechighlight5"> -->
+                <tr>
+                        <td>Week 10 (Mar 24)</td>
+                        <td>Paper Presentation * 1 (PLMs)<br>
+                        </td>
+                        <td></td>
+                        <td>Decoder-only models: <a href="https://d4mucfpksywv.cloudfront.net/better-language-models/language_models_are_unsupervised_multitask_learners.pdf">GPT-2</a>, <a href="https://arxiv.org/pdf/2005.14165.pdf">GPT-3 (OpenAI)</a>; <br> 
+                                (optional) <a href="https://arxiv.org/pdf/2204.02311.pdf">PaLM</a>,  <a href="https://arxiv.org/pdf/2205.01068.pdf">OPT</a>; <br>
+                                (optional) <a href="https://www.notion.so/How-does-GPT-Obtain-its-Ability-Tracing-Emergent-Abilities-of-Language-Models-to-their-Sources-b9a57ac0fcf74f30a1ab9e3e36fa1dc1">How does GPT Obtain its Ability (blog post)?</a> <br>
+                        </td>
+                        <td>Group 11</td>
+                </tr>
+
+                <tr> 
+                        <td></td>
+                        <td><b>Prompting, In-context learning (PL, RZ)</b> <a href="./files/slides_pdf/09_Prompting, Instruction Finetuning, and RLHF.pdf">[slides]</a><br>
+                        </td>
+                        <td>project proposal report due</td>
+                        <td><a href="https://arxiv.org/abs/2107.13586">Survey Pre-train, Prompt, and Predict: A Systematic Survey of Prompting Methods in Natural Language Processing</a>, Liu et al 2021</td>
+                        <td></td>
+                </tr>
+
+<!-- week 11 -->
+                <!-- <tr class="sechighlight5"> -->
+                <tr>
+                        <td>Week 11 (Mar 31)</td>
+                        <td>Paper Presentation * 3 (Prompting)<br>
+                        </td>
+                        <td></td>
+                        <td><b>Prompting for few-shot learning:</b> <a href="https://arxiv.org/pdf/2001.07676.pdf"> Exploiting Cloze Questions for Few Shot Text Classification and Natural Language Inference Schick and Schütze 2021 </a><br>
+                                <a href="https://arxiv.org/abs/2012.15723">Making Pre-trained Language Models Better Few-shot Learner (Gao et al 2021)</a> <br>
+                                <b>Prompting as parameter-efficient fine-tuning</b> <a href="https://arxiv.org/abs/2101.00190">Prefix-Tuning: Optimizing Continuous Prompts for Generation (Li and Liang 2021)</a>
+                        </td>
+                        <td>Group 16 <br><br>
+                                Group 7 <br><br>
+                                Group 12 <br>
+                        </td>
+                </tr>
+
+                <!-- <tr class="sechighlight5"> -->
+                <tr>
+                        <td></td>
+                        <td>"""<br>
+                        </td>
+                        <td></td>
+                        <td><b>In-context learning:</b> <a href="https://arxiv.org/abs/2202.12837"> Rethinking the Role of Demonstrations: What Makes In-Context Learning Work? (Min et al. 2021) </a><br>
+                                <a href="https://arxiv.org/abs/2101.06804"> What Makes Good In-Context Examples for GPT-3? (Liu et al 2021)</a>
+                        </td>
+                        <td>Group 10 <br> <br>
+                                Group 14
+                        </td>
+                </tr>
+
+
+<!-- week 12 -->
+        <tr>
+                <td>Week 12 (Apr 7)</td>
+                <td><b>Interpretability, Explainability, Model Analysis (RZ), Robustness (RZ)</b> <a href="./files/slides_pdf/10_Interpretability, Explainability, Model Analysis.pdf">[slides]</a>
+                        <a href="./files/slides_pdf/11_Robustness in NLP.pdf">[slides]</a>
+                        <br>
+                </td>
+                <td></td>
+                <td>(Optional) <a href="https://arxiv.org/abs/2102.12452">Probing Classifiers: Promises, Shortcomings, and Advances</a>, <br>
+                        (Optional) <a href="https://virtual.acl2020.org/tutorial_T1.html">ACL 2020 Tutorial</a>
+                </td>
+                <td>
+                </td>
+        </tr>
+
+        <tr>
+                <td></td>
+                <td><b>Reasoning (D, CoT)</b><br>
+                </td>
+                <td></td>
+                <td><a href="https://arxiv.org/abs/2201.11903">CoT Chain-of-Thought Prompting Elicits Reasoning in Large Language Models</a>, <br>
+                        <a href="https://arxiv.org/abs/2303.12023"><b>Logical Reasoning</b> over Natural Language as Knowledge Representation: A Survey</a>
+                        Table 2 in <a href="https://arxiv.org/pdf/2302.00923.pdf">https://arxiv.org/pdf/2302.00923.pdf</a> <br>
+                        Table 6 in <a href="https://arxiv.org/abs/2212.10535">A Survey of Deep Learning for Mathematical Reasoning</a> <br>
+                </td>
+                <td>
+                </td>
+        </tr>
+
+<!-- week 13 -->
+        <!-- <tr class="sechighlight5"> -->
+        <tr>
+                <td>Week 13 (Apr 14)</td>
+                <td>Paper Presentation * 3 (Interpretability, RZ, D)<br>
+                </td>
+                <td></td>
+                <td><b>Attention</b> <a href="https://arxiv.org/abs/1902.10186"> Attention is not Explanation</a> <br>
+                        <b>Probing</b> <a href="https://aclanthology.org/N19-1419">A Structural Probe for Finding Syntax in Word Representations</a> <br>
+                        <b>Causal Inference</b> <a href="https://arxiv.org/abs/2004.12265">Causal Mediation Analysis for Interpreting Neural NLP: The Case of Gender Bias</a> (presented on Mar 31)
+                </td>
+                <td>Group 21 <br>
+                        Group 8 <br>
+                        Group 18 <br>
+                </td>
+        </tr>
+
+        <!-- <tr class="sechighlight5"> -->
+        <tr>
+                <td></td>
+                <td>Paper Presentation * 3 (Robustness, RZ)<br>
+                </td>
+                <td></td>
+                <td><b>Motivation</b> <a href="https://arxiv.org/abs/1412.6572"> Explaining and Harnessing Adversarial Examples, Adversarial Examples for Evaluating Reading Comprehension Systems </a><br>
+                        <b>Design</b> <a href="https://arxiv.org/abs/1908.07125">Universal Adversarial Triggers for Attacking and Analyzing NLP</a><br> 
+                        (Optional) <a href="https://aclanthology.org/2020.findings-emnlp.117">Evaluating Models’ Local Decision Boundaries via Contrast Sets</a> <br>
+                        <b>Improve</b> <a href="https://arxiv.org/abs/2210.04992"> Extracting or Guessing? Improving Faithfulness of Event Temporal Relation Extraction </a> (to be presented on Apr 21)
+                </td>
+                <td>Group 19 <br><br>
+                        Group 22 <br><br>
+                        Group 9
+                </td>
+        </tr>
+
+
+<!-- week 14 -->
+        <tr>
+                <td>Week 14 (Apr 21)</td>
+                <td><b>Vision-Language Models (RZ)</b> <a href="./files/slides_pdf/12_Language and Vision.pdf">[slides]</a><br>
+                </td>
+                <td></td>
+                <td>
+                        - (Optional) 
+                        Blog Post <a href="https://lilianweng.github.io/posts/2022-06-09-vlm/">Generalized Visual Language Models</a>, <br>
+                        - <a href="https://arxiv.org/abs/2204.01691">Do As I Can, Not As I Say: Grounding Language in Robotic Affordances</a> <br>
+                        - <a href="https://arxiv.org/abs/2204.14198">Flamingo: a Visual Language Model for Few-Shot Learning</a> , <br>
+                        - <a href="https://arxiv.org/pdf/2302.00923.pdf">Multimodal Chain-of-Thought Reasoning in Language Models</a>, 
+                </td>
+                <td>
+                </td>
+        </tr>
+
+        <!-- <tr class="sechighlight5"> -->
+        <tr>
+                <td></td>
+                <td>Paper presentations * 3 (Reasoning)<br>
+                </td>
+                <td></td>
+                <td><b>Zero-shot</b> <a href="https://arxiv.org/abs/2205.11916">Large Language Models are Zero-Shot Reasoners</a> Kojima et al 2022 <br>
+                        <b>Self-consistency</b> <a href="https://arxiv.org/abs/2203.11171">Self-Consistency Improves Chain of Thought Reasoning in Language Models</a>, Wang et al 2022, <br>
+                        (Optional) <a href="https://arxiv.org/abs/2210.00720">Complexity-Based Prompting for Multi-Step Reasoning</a> Fu et al. 2022<br>
+                        <b>Faithful</b> <a href="https://arxiv.org/abs/2208.14271"> Faithful Reasoning Using Large Language Models</a><br>
+                        (Optional) <a href="https://arxiv.org/abs/2205.09712">Selection-Inference: Exploiting Large Language Models for Interpretable Logical Reasoning DeepMind</a> <br>
+                </td>
+                <td>Group 5 <br>
+                        Group 6 <br><br><br>
+                        Group 13
+                </td>
+        </tr>
+
+<!-- week 15 -->
+        <!-- <tr class="sechighlight5"> -->
+        <tr>
+                <td>Week 15 (Apr 28)</td>
+                <td>Paper presentations * 3 (VL)<br>
+                </td>
+                <td></td>
+                <td><b>Visual Transformer (ViT)</b> <a href="https://arxiv.org/abs/2010.11929">An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale 2020</a>, <br>
+                        (Optional) <a href="https://arxiv.org/abs/1908.03557">Pretrain VisualBERT: A Simple and Performant Baseline for Vision and Language 2019"</a> <br>
+                        <b>Grounding</b> <a href="https://arxiv.org/abs/2204.01691">Do As I Can, Not As I Say: Grounding Language in Robotic Affordances</a> <br>
+                        <b>Contrastive Pretraining</b> <a href="https://arxiv.org/abs/2103.00020">(CLIP) Learning transferable visual models from natural language supervision. 2021</a>, <br>
+                        (Optional one application) <a href="https://arxiv.org/abs/2111.09734">ClipCap: CLIP Preﬁx for Image Captioning</a>, <br>
+                        (Optional) <a href="https://www.cs.princeton.edu/courses/archive/fall22/cos597G/lectures/lec20.pdf">ViT to VisualBERT to CLIP (slide 1-7)"</a> <br>
+                </td>
+                <td>Group 15 <br><br><br><br>
+                        Group 24 <br><br>
+                        Group 23 <br>
+                </td>
+        </tr>
+
+        <tr class="sechighlight6">
+                <td></td>
+                <td>Final presentations * 6 <b>Check our students' awesome final presentations!</b> ➡️<br>
+                </td>
+                <td></td>
+                <td> Group24, <a href="./final_pre_pdfs/Group 23.pdf">Group23</a>, <a href="./final_pre_pdfs/Group 22.pdf">Group22</a>, <a href="./final_pre_pdfs/Group 21.pdf">Group21</a>, <a href="./final_pre_pdfs/Group 20.pdf">Group20</a>, Group19
+                </td>
+                <td>8min+2min QA
+                </td>
+        </tr>
+
+
+
+<!-- week 15 -->
+        <tr class="sechighlight6">
+                <td>Week 16 (May 5)</td>
+                <td>Final presentations * 15<br>
+                </td>
+                <td>project final report due</td>
+                <td>
+                        <a href="./final_pre_pdfs/Group 18.pdf">Group18</a>, Group17, <a href="./final_pre_pdfs/Group 16.pdf">Group16</a>, <a href="./final_pre_pdfs/Group 15.pdf">Group15</a>, <a href="./final_pre_pdfs/Group 14.pdf">Group14</a>, <a href="./final_pre_pdfs/Group 13.pdf">Group13</a>, <a href="./final_pre_pdfs/Group 12.pdf">Group12</a>, 
+                        <a href="./final_pre_pdfs/Group 11.pdf">Group11</a>, <a href="./final_pre_pdfs/Group 10.pdf">Group10</a>, Group9, <a href="./final_pre_pdfs/Group 8.pdf">Group8</a>, Group7, <a href="./final_pre_pdfs/Group 6.pdf">Group6</a>, <a href="./final_pre_pdfs/Group 5.pdf">Group5</a>
+                </td>
+                <td>8min+2min QA
+                </td>
+        </tr>
+
+
+</div><!--container-->
+
+<script src="./css/jquery-1.10.2.min.js"></script>
+<script src="./css/bootstrap.min.js"></script>
+</body></html>
