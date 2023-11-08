@@ -140,6 +140,23 @@
 				        document.write("<h5>2023</h5>")
 				        document.write("<ul style=\"list-style: none;\">")
 
+						add_paper("FaithScore: Evaluating Hallucinations in Large Vision-Language Models",
+						"Liqiang Jing, Ruosen Li, Yunmo Chen, Mengzhao Jia, <strong>Xinya Du</strong>", // authors
+						"arXiv:2311.01477v1", // conference
+						"", // link
+						// "n/a", // bib.
+						"@misc{jing2023faithscore,<br>" + // bib
+						"&nbsp;&nbsp;&nbsp;title={FAITHSCORE: Evaluating Hallucinations in Large Vision-Language Models},<br>" +
+						"&nbsp;&nbsp;&nbsp;author={Liqiang Jing and Ruosen Li and Yunmo Chen and Mengzhao Jia and Xinya Du},<br>" +
+						"&nbsp;&nbsp;&nbsp;eprint={2311.01477},<br>" +
+						"&nbsp;&nbsp;&nbsp;year={2023}<br>}",
+						"We introduce FAITHSCORE (Faithfulness to Atomic Image Facts Score), a reference-free and fine-grained evaluation metric that measures the faithfulness of the generated free-form answers from large vision-language models (LVLMs). The FAITHSCORE evaluation first identifies sub-sentences containing descriptive statements that need to be verified, then extracts a comprehensive list of atomic facts from these sub-sentences, and finally conducts consistency verification between fine-grained atomic facts and the input image. Meta-evaluation demonstrates that our metric highly correlates with human judgments of faithfulness. We collect two benchmark datasets (i.e. LLaVA-1k and MSCOCO-Cap) for evaluating LVLMs instruction-following hallucinations. We measure hallucinations in state-of-the-art LVLMs with FAITHSCORE on the datasets. Results reveal that current systems are prone to generate hallucinated content unfaithful to the image, which leaves room for future improvements. Further, we find that current LVLMs despite doing well on color and counting, still struggle with long answers, relations, and multiple objects.", // abstract
+						"https://arxiv.org/pdf/2311.01477.pdf", // arXiv_link
+						// "https://github.com/xinyadu/RGQA", // code
+						// "abc", // data
+						// "abc" // pre
+				        )
+
 						add_paper("Leveraging Structured Information for Explainable Multi-hop Question Answering and Reasoning",
 						"Ruosen Li, Xinya Du", // authors
 						"EMNLP 2023 (Findings)", // conference
