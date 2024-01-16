@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>CS 6301.004: Deep Learning for NLP</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
+    <link rel="icon" type="image/png" href="https://brand.utdallas.edu/wp-content/themes/oberon/images/svg/favicon.svg">
+    <link href="./css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="./css/style.css" rel="stylesheet">
+
+<style type="text/css">
+  body {
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+  .sidebar-nav {
+    padding: 0px 0;
+  }
+  .page-header {
+    border-bottom: 1px solid #ADA9A9;
+    margin-bottom: 10px;
+  }
+
+  .topic-column {
+    column-width: 80em;
+  }
+
+  .recommended-column {
+    column-width: 100em;
+  }
+
+  .papers-column {
+    column-width: 150em;
+  }
+
+  .date-column {
+    column-width: 20em;
+  }
+
+</style>
+
+<style type="text/css">
+</style>
+
+</head>
+
+<body>
+
+
+<div class="page-header" style="text-align:center">
+        <h2><b>CS 4375 (Spring 24): Introduction to Machine Learning</b></h2> <br>
+</div>
+
+<div class="container sec" id="logistics">
+        <!-- <h2>Logistics</h2> -->
+        <!-- <ul>
+            <li><b>Classes:</b> on Tuesday/Thursday 12 - 1:15 pm EST (room: Ames 234, or zoom meeting: 704 538 4305)</li>
+            <li><b>Office hours:</b> (Daniel office hour) Tuesday and Thursday 1:30 - 2:30 pm EST (Hackerman hall, 316B),
+                (TA office hour) Thursdays 11 - 11:50 am (in-person, Hackerman hall 3rd floor),
+                and (CA office hour) Fridays 1 - 1:50 pm (in-person, Hackerman hall 3rd floor).
+            </li>
+            <li><b>Contact:</b> If you have any questions about the course, you can post them on Piazza.
+            </li>
+            <li><b>Virtual or in-person</b>: The class will be in-person. Though there will be recordings of each class
+                made available online after each class on the Youtube playlist (shared on Piazza).
+            </li>
+            <li><b>Changes:</b> The instructor reserves the right to make changes to the syllabus or project due dates.
+                These changes will be announced as early as possible.
+            </li>
+            <li><b>News and announcements:</b> All the news and announcements will be made on Piazza.</li>
+
+            <li><b>COVID:</b> Students who report symptoms associated with COVID-19 are expected not to attend class and
+                to isolate themselves for at least five days and until they have been symptom-free for 24 hours.
+            </li>
+    
+            <li>
+                <b>Course grade:</b>
+                Your grade is based on the following activities:
+                (1) Semi-weekly assignments (50%),
+                (2) midterm exam (20%), and
+                (3) a final project (30%) -- same grade for all members of a team.
+                Attendance is not mandatory (hence, 0%) but highly encouraged: participation in class is our chance to
+                learn more effectively.
+                Up to 3% additional credit for any actions taken to improve the course that is brought to the instructors'
+                attention.
+            </li>
+        </ul>
+        <br> -->
+
+        <h2>Course Information</h2>
+        <ul>
+                <li><b>Days & Times</b>		Mon, Wed 10:00am-11:15am</li>
+                <li><b>Location</b>			FN 2.102 (or Teams)</li>
+                
+                <li>
+                        <b>Professor Contact Information</b> <br>
+                        Professor:			<a href="https://xinyadu.github.io">Xinya Du</a><br>
+                        <!-- Office Phone:			(972) 883-2634<br> -->
+                        Email Address:			xinya.du@utdallas.edu<br>
+                        Office Location & Hours:	ECSS 3.227 at Friday 1-2pm<br>
+                </li>
+                
+                <li>
+                        <b>Teaching Assistant Information</b> <br>
+                        Teaching Assistant:		Liqiang Jing, Ruosen Li<br>
+                        <!-- Email Address:  		<br> -->
+                        Office Hours:			Mon 1-2pm (on Teams) <br>
+                </li>
+
+                <li>
+                        <b>Prerequisites, Co-requisites, and/or Other Restrictions</b><br>
+                        Programming in Python<br>
+                        CS3345: Data Structures and Introduction to Algorithmic Analysis<br>
+                        CS3341: Probability and Statistics in Computer Science  <br>
+                </li>
+                <li>
+                        <b>More information</b><br> 
+                        - Grading, Course policies, please see the syllabus <a href="https://docs.google.com/document/d/1YZPWIijyKTNrfa5YM4R33CvEnWa4PIqD/edit?usp=sharing&ouid=107990160837046170960&rtpof=true&sd=true">[Link]</a><br>
+                        <!-- - Uploading slides: see the folder links on eLearning (Due: 11:59pm the day before your presentation)<br> -->
+                        - Uploading Assignments and Reports: GradeScope (Due: 11:59pm on the due date)
+                </li>
+                
+        </ul>
+    </div>
+
+<div class="container sec" id="course desc" style="margin-top:-20px">
+        <h2>Course Description</h2>
+        Algorithms for creating computer programs that can improve their performance through learning. 
+        Topics include: cross-validation, decision trees, neural nets, statistical tests, Bayesian learning, computational learning theory, instance-based learning, reinforcement learning, bagging, boosting, support vector machines, 
+        Hidden Markov Models, clustering, and semi-supervised and unsupervised learning techniques.
+        
+        <ul>
+                <!-- <li>about DL and NLP: We will cover core deep learning and NLP concepts, such as feedforward networks, attention, backpropagation, and word embeddings; and most recent concepts like prompting and pre-training. 
+                        We will also cover application based topics such as question answering, summarization, and information extraction.</li>
+                <li><span style="background-color: #e0ffd3"><b>Recent research paper discussions</b>: We will hold paper presentations and discussions that focus on recent research on NLP.</span></li>
+                <li><span style="background-color: #FFFF00 "><b>Hands-on Projects</b>: each group of students work on a project that involves both DL and NLP.</span>
+                <li><b>Recent research paper discussions</b>: We will hold paper presentations and discussions that focus on recent research on NLP.</li>
+                <li><b>Hands-on Projects</b>: each group of students work on a project that involves both DL and NLP.
+                        Proposal template <a href="https://www.overleaf.com/read/rnmdjsdmcqnj">[link]</a>
+                        Final report template <a href="https://www.overleaf.com/read/jcngdfftcwsy">[link]</a></li>
+                </li> -->
+        </ul>
+</div>
+
+<!-- <div class="container" style="margin-top:-20px">
+        <h2>Textbooks and Materials</h2>
+        <ul>
+                <li>Speech and Language Processing (3rd edition), Jurafsky and Martin <a href="https://web.stanford.edu/~jurafsky/slp3/">[link]</a>
+                </li>
+                <li>Neural Network Methods for Natural Language Processing, Yoav Goldberg <a href="https://www.morganclaypool.com/doi/pdf/10.2200/S00762ED1V01Y201703HLT037">[link]</a>
+                </li>
+        </ul>
+</div> -->
+
+<!-- <div class="container"> -->
+<!-- below schedle is from http://danielkhashabi.com -->
+<div class="container sec" id="schedule" style="margin-top:-20px">
+        <h2>Schedule [<a href="https://docs.google.com/document/d/1m6g0OEUThMrpEAtkRrHQAsbBGI4TXiO7/edit?usp=sharing&ouid=107990160837046170960&rtpof=true&sd=true">Link</a>]</h2>
+      <!-- <div class="bs-component"> -->
+
+        <table class="table">
+        <colgroup>
+                <col style="width:13%">
+                <col style="width:15%">
+                <col style="width:13%">
+                <col style="width:50%">
+                <col style="width:10%">
+        </colgroup>
+        <!-- <thead>
+        <tr class="active">
+                <th>Date</th>
+                <th>Topic</th>
+                <th>Assignment</th>
+                <th>Papers / Recommended Readings</th>
+                <th>Group</th>
+        </tr>
+        </thead> -->
+
+        <tbody>
+                <!-- <tr>
+                        <td>Example</td>
+                        <td>
+                        Course overview
+                        <br>
+                        Plan and expectations
+                        <br>
+                        [slides: <a href="files/01.intro.pdf">pdf</a>, <a href="files/01.intro.pptx">pptx</a>]
+                        </td>
+                        <td></td>
+                        <td class="sechighlight5">HW1 released!
+                        [<a href="https://www.overleaf.com/read/qnhxbgqnkwcz">tex</a>]
+                        [<a href="files/CS_601_471_671_spring2023_homework1.pdf">pdf</a>]
+                        [<a href="https://colab.research.google.com/drive/1rl53e8Gt3PebC4lobSMpCHlRZBwK69pb?usp=sharing">colab</a>]
+                        </td>
+                </tr> -->
+
+         
+
+<script src="./css/jquery-1.10.2.min.js"></script>
+<script src="./css/bootstrap.min.js"></script>
+</body></html>
