@@ -39,6 +39,107 @@
 			  dest.blur();
 			}
 		</script>	
+
+
+		<!--  toggle selections -->
+		<style>
+			.publication-list {
+				display: none;
+			}
+			.active-btn {
+				background-color: #007bff;
+				color: white;
+			}
+			.inactive-btn {
+				background-color: #6c757d;
+				color: white;
+			}
+			.publication-item {
+				margin-bottom: 1em;
+			}
+			#selectedPublicationList {
+				display: block;
+			}
+		</style>
+		<script>
+			function togglePublications(showSelected) {
+				var selectedPublicationList = document.getElementById("selectedPublicationList");
+				var allPublicationList = document.getElementById("allPublicationList");
+				var selectedButton = document.getElementById('selectedButton');
+				var allButton = document.getElementById('allButton');
+
+				if (showSelected) {
+					selectedPublicationList.style.display = "block";
+					allPublicationList.style.display = "none";
+					selectedButton.classList.add('active-btn');
+					selectedButton.classList.remove('inactive-btn');
+					allButton.classList.remove('active-btn');
+					allButton.classList.add('inactive-btn');
+				} else {
+					selectedPublicationList.style.display = "none";
+					allPublicationList.style.display = "block";
+					selectedButton.classList.remove('active-btn');
+					selectedButton.classList.add('inactive-btn');
+					allButton.classList.add('active-btn');
+					allButton.classList.remove('inactive-btn');
+				}
+			}
+        	// Ensure the selected publications are shown by default when the page loads
+        	window.onload = function() {
+            	togglePublications(true);
+        	}
+		</script>
+		
+		<!-- add paper function-->
+		<script>
+			function add_paper(title, authors, conference, link, bib, abstract, arxiv_link, code, data, slides, talk, msg) {
+				list_entry = "<li style=\"font-size:15px\">"
+				if (link != null)
+					list_entry += "<a href=\"" + link + "\">"
+				list_entry += "<b>" + title + "</b>"
+				if (link != null)
+					list_entry += "</a>"
+				list_entry += "<br>" + authors + "<br>" + conference + "</li>"
+
+				if (bib != null) {
+					list_entry += "<div id=\"bib" + paper_count + "\" style=\"display:none\">" + bib + "</div>"
+					list_entry += "<a href=\"javascript:copy(div" + paper_count + ",bib" + paper_count + ")\"> <span class=\"btn-sm btn-info\">bib</span></a>"
+				}
+
+				if (abstract != null) {
+					list_entry += "<div id=\"abstract" + paper_count + "\" style=\"display:none\">" + abstract + "</div>"
+					list_entry += " <a href=\"javascript:copy(div" + paper_count + ",abstract" + paper_count + ")\"> <span class=\"btn-sm btn-info\">abstract</span></a>"
+					// list_entry += " <a target=\"_blank\" href=\"javascript:copy(div" + paper_count + ",abstract" + paper_count + ")\" class=\"btn-sm btn-info\">abstract</a>"
+				}
+				if (arxiv_link != null)
+					list_entry += " <a target=\"_blank\" href=\"" + arxiv_link + "\" class=\"btn-sm btn-info\">arXiv</a>"
+
+				if (code != null)
+					list_entry += " <a target=\"_blank\" href=\"" + code + "\" class=\"btn-sm btn-info\">code</a>"
+
+				if (data != null)
+					list_entry += " <a target=\"_blank\" href=\"" + data + "\" class=\"btn-sm btn-info\">data</a>"
+
+				if (slides != null)
+					list_entry += " <a target=\"_blank\" href=\"" + slides + "\" class=\"btn-sm btn-info\">presentation</a>"
+
+				if (talk != null)
+					list_entry += " <a target=\"_blank\" href=\"" + talk + "\" class=\"btn-sm btn-info\">talk</a>"
+
+				list_entry += "<br>"
+
+				if (msg != null)
+					list_entry += "<i>" + msg + "</i>"
+
+				list_entry += "<div id=\"div" + paper_count + "\" style=\"font-size:15px\"></div><br>"
+
+				document.write(list_entry)
+
+				paper_count += 1
+			}
+		</script>
+
+		
 	</head>
 
 
@@ -85,60 +186,36 @@
          	<!-- Publications -->
          	<hr>
          	<section name="publications" id="publications" style="scroll-margin-top: 55px">
-	        	<h4>Papers <a href="https://scholar.google.com/citations?user=R-lKQqkAAAAJ&hl=en"> (Google Scholar)</a> </h4>
-			
-				<script>
-				        paper_count = 0
+	        	<h4>Papers <a href="https://scholar.google.com/citations?hl=en&user=R-lKQqkAAAAJ&view_op=list_works&sortby=pubdate"> (Google Scholar)</a> </h4>
+				<p>(† indicates that I am a co-leading author; * indicates equal contributions.)</p>
+				<button id="selectedButton" class="btn" onclick="togglePublications(true)">Show Selected Papers</button>
+				<button id="allButton" class="btn" onclick="togglePublications(false)">Show All Papers</button>
 
-				        function add_paper(title, authors, conference, link, bib, abstract, arxiv_link, code, data, slides, talk, msg) {
-				            list_entry = "<li style=\"font-size:15px\">"
-				            if (link != null)
-				                list_entry += "<a href=\"" + link + "\">"
-				            list_entry += "<b>" + title + "</b>"
-				            if (link != null)
-				                list_entry += "</a>"
-				            list_entry += "<br>" + authors + "<br>" + conference + "</li>"
 
-				            if (bib != null) {
-				                list_entry += "<div id=\"bib" + paper_count + "\" style=\"display:none\">" + bib + "</div>"
-				                list_entry += "<a href=\"javascript:copy(div" + paper_count + ",bib" + paper_count + ")\"> <span class=\"btn-sm btn-info\">bib</span></a>"
-				            }
+				<div id="selectedPublicationList" class="publication-list mt-3">
+					<script>
+						paper_count = 0
 
-				            if (abstract != null) {
-				                list_entry += "<div id=\"abstract" + paper_count + "\" style=\"display:none\">" + abstract + "</div>"
-				                list_entry += " <a href=\"javascript:copy(div" + paper_count + ",abstract" + paper_count + ")\"> <span class=\"btn-sm btn-info\">abstract</span></a>"
-				                // list_entry += " <a target=\"_blank\" href=\"javascript:copy(div" + paper_count + ",abstract" + paper_count + ")\" class=\"btn-sm btn-info\">abstract</a>"
-				            }
-				            if (arxiv_link != null)
-				                list_entry += " <a target=\"_blank\" href=\"" + arxiv_link + "\" class=\"btn-sm btn-info\">arXiv</a>"
 
-				            if (code != null)
-				                list_entry += " <a target=\"_blank\" href=\"" + code + "\" class=\"btn-sm btn-info\">code</a>"
+						document.write("<ul style=\"list-style: none;\">")
 
-				            if (data != null)
-				                list_entry += " <a target=\"_blank\" href=\"" + data + "\" class=\"btn-sm btn-info\">data</a>"
 
-				            if (slides != null)
-				                list_entry += " <a target=\"_blank\" href=\"" + slides + "\" class=\"btn-sm btn-info\">presentation</a>"
-
-				            if (talk != null)
-				                list_entry += " <a target=\"_blank\" href=\"" + talk + "\" class=\"btn-sm btn-info\">talk</a>"
-
-				            list_entry += "<br>"
-
-				            if (msg != null)
-				                list_entry += "<i>" + msg + "</i>"
-
-				            list_entry += "<div id=\"div" + paper_count + "\" style=\"font-size:15px\"></div><br>"
-
-				            document.write(list_entry)
-
-				            paper_count += 1
-				        }
-
-				        // ---------------------------------- 2022 ------------------------------------------------------------------------------------------------------
-				        document.write("<h5>2024</h5>")
-				        document.write("<ul style=\"list-style: none;\">")
+						add_paper("FGAIF: Aligning Large Vision-Language Models with Fine-grained AI Feedback",
+							"Liqiang Jing, <strong>Xinya Du</strong>", // authors
+							"arXiv preprint arXiv:2404.05046", // conference
+							"https://arxiv.org/abs/2404.05046", // link
+							"n/a", // bib.
+							"@misc{jing2023faithscore,<br>" + // bib
+							"&nbsp;&nbsp;&nbsp;title={FAITHSCORE: Evaluating Hallucinations in Large Vision-Language Models},<br>" +
+							"&nbsp;&nbsp;&nbsp;author={Liqiang Jing and Ruosen Li and Yunmo Chen and Mengzhao Jia and Xinya Du},<br>" +
+							"&nbsp;&nbsp;&nbsp;eprint={2311.01477},<br>" +
+							"&nbsp;&nbsp;&nbsp;year={2023}<br>}",
+							// "We introduce FAITHSCORE (Faithfulness to Atomic Image Facts Score), a reference-free and fine-grained evaluation metric that measures the faithfulness of the generated free-form answers from large vision-language models (LVLMs). The FAITHSCORE evaluation first identifies sub-sentences containing descriptive statements that need to be verified, then extracts a comprehensive list of atomic facts from these sub-sentences, and finally conducts consistency verification between fine-grained atomic facts and the input image. Meta-evaluation demonstrates that our metric highly correlates with human judgments of faithfulness. We collect two benchmark datasets (i.e. LLaVA-1k and MSCOCO-Cap) for evaluating LVLMs instruction-following hallucinations. We measure hallucinations in state-of-the-art LVLMs with FAITHSCORE on the datasets. Results reveal that current systems are prone to generate hallucinated content unfaithful to the image, which leaves room for future improvements. Further, we find that current LVLMs despite doing well on color and counting, still struggle with long answers, relations, and multiple objects.", // abstract
+							"https://arxiv.org/abs/2404.05046", // arXiv_link
+							// "https://github.com/xinyadu/RGQA", // code
+							// "abc", // data
+							// "abc" // pre
+						)
 
 						add_paper("FaithScore: Evaluating Hallucinations in Large Vision-Language Models",
 						"Liqiang Jing, Ruosen Li, Yunmo Chen, Mengzhao Jia, <strong>Xinya Du</strong>", // authors
@@ -155,8 +232,7 @@
 						// "https://github.com/xinyadu/RGQA", // code
 						// "abc", // data
 						// "abc" // pre
-				        )
-
+						)
 
 						add_paper("PRD: Peer Rank and Discussion Improve Large Language Model based Evaluations",
 						"Ruosen Li, Teerth Patel, Xinya Du", // authors
@@ -172,26 +248,10 @@
 						// "https://github.com/xinyadu/RGQA", // code
 						// "abc", // data
 						// "abc" // pre
-				        )
-
-						add_paper("Logical Reasoning over Natural Language as Knowledge Representation: A Survey",
-						"Zonglin Yang, Xinya Du, Rui Mao, Jinjie Ni, Erik Cambria", // authors
-						"arXiv", // conference
-						"https://arxiv.org/abs/2303.12023", // link
-						"@article{yang2023logical},<br>" + // bib
-						"&nbsp;&nbsp;&nbsp;title={Logical Reasoning over Natural Language as Knowledge Representation: A Survey},<br>" +
-						"&nbsp;&nbsp;&nbsp;author={Yang, Zonglin and Du, Xinya and Mao, Rui and Ni, Jinjie and Cambria, Erik},<br>" +
-						"&nbsp;&nbsp;&nbsp;booktitle={arXiv preprint arXiv:2303.12023},<br>" +
-						"&nbsp;&nbsp;&nbsp;year={2023}<br>}",
-						"n/a", // abstract
-						"n/a", // arXiv_link
-						// "https://github.com/xinyadu/RGQA", // code
-						// "abc", // data
-						// "abc" // pre
-				        )
+						)
 
 						add_paper("Large Language Models for Automated Open-domain Scientific Hypotheses Discovery",
-						"Zonglin Yang, Xinya Du, Junxian Li, Jie Zheng, Soujanya Poria, Erik Cambria", // authors
+						"Zonglin Yang, Xinya Du †, Junxian Li, Jie Zheng, Soujanya Poria, Erik Cambria", // authors
 						"ACL 2024 (Findings)", // conference
 						"https://arxiv.org/pdf/2309.02726.pdf", // link
 						// "@article{yang2023logical},<br>" + // bib
@@ -204,11 +264,10 @@
 						// "https://github.com/xinyadu/RGQA", // code
 						// "abc", // data
 						// "abc" // pre
-				        )
-
+						)
 
 						add_paper("Language Models as Inductive Reasoners",
-						"Zonglin Yang, Li Dong, Xinya Du, Hao Cheng, Erik Cambria, Xiaodong Liu, Jianfeng Gao, Furu Wei", // authors
+						"Zonglin Yang, Li Dong, Xinya Du †, Hao Cheng, Erik Cambria, Xiaodong Liu, Jianfeng Gao, Furu Wei", // authors
 						"EACL 2024", // conference
 						"https://arxiv.org/pdf/2212.10923.pdf", // link
 						"@article{yang2022inductive},<br>" + // bib
@@ -221,7 +280,7 @@
 						// "https://github.com/xinyadu/RGQA", // code
 						// "abc", // data
 						// "abc" // pre
-				        )
+						)
 
 						add_paper("QAEvent: Event Extraction as Question-Answer Pairs Generation",
 						"Milind Choudhary, Xinya Du", // authors
@@ -237,12 +296,8 @@
 						// "https://github.com/xinyadu/RGQA", // code
 						// "abc", // data
 						// "abc" // pre
-				        )
+						)
 
-						document.write("</ul>")
-
-						document.write("<h5>2023</h5>")
-				        document.write("<ul style=\"list-style: none;\">")
 
 						add_paper("Leveraging Structured Information for Explainable Multi-hop Question Answering and Reasoning",
 						"Ruosen Li, Xinya Du", // authors
@@ -258,7 +313,7 @@
 						// "https://github.com/xinyadu/RGQA", // code
 						// "abc", // data
 						// "abc" // pre
-				        )
+						)
 
 						add_paper("Process of Elimination for Multiple Choice Reasoning",
 						"Chenkai Ma, Xinya Du", // authors
@@ -274,7 +329,7 @@
 						// "https://github.com/xinyadu/RGQA", // code
 						// "abc", // data
 						// "abc" // pre
-				        )
+						)
 
 						add_paper("Probing Representations for Document-level Event Extraction",
 						"Barry Wang, Xinya Du, Claire Cardie", // authors
@@ -290,9 +345,7 @@
 						// "https://github.com/xinyadu/RGQA", // code
 						// "abc", // data
 						// "abc" // pre
-				        )
-
-
+						)
 
 						add_paper("Toward Consistent and Informative Event-Event Temporal Relation Extraction",
 						"Xiaomeng Jin, Haoyang Wen, Xinya Du, Heng Ji", // authors
@@ -308,7 +361,7 @@
 						// "https://github.com/xinyadu/RGQA", // code
 						// "abc", // data
 						// "abc" // pre
-				        )
+						)
 
 						add_paper("Zero-Shot Classification by Logical Reasoning on Natural Language Explanations",
 						"Chi Han, Hengzhi Pei, Xinya Du, Heng Ji", // authors
@@ -324,327 +377,789 @@
 						// "https://github.com/xinyadu/RGQA", // code
 						// "abc", // data
 						// "abc" // pre
-				        )
+						)
 
-				        add_paper("End-to-end Case-Based Reasoning for Commonsense Knowledge Base Completion",
-				            "Zonglin Yang, <strong>Xinya Du</strong>, Erik Cambria, Claire Cardie", // authors
-				            "EACL 2023", // conference
-				            "https://w.sentic.net/commonsense-knowledge-base-completion.pdf", // link
-				            "@InProceedings{yang2023cbr},<br>" + // bib
-				            "&nbsp;&nbsp;&nbsp;title={End-to-end Case-Based Reasoning for Commonsense Knowledge Base Completion},<br>" +
-				            "&nbsp;&nbsp;&nbsp;author={Yang, Zonglin and Du, Xinya and Cambria, Erik and Cardie, Claire},<br>" +
-				            "&nbsp;&nbsp;&nbsp;booktitle={EACL},<br>" +
-				            "&nbsp;&nbsp;&nbsp;year={2023}<br>}",
-				            "n/a", // abstract
-				            "n/a", // arXiv_link
-				            // "https://github.com/xinyadu/RGQA", // code
-				            // "abc", // data
-				            // "abc" // pre
-				        )
+						add_paper("End-to-end Case-Based Reasoning for Commonsense Knowledge Base Completion",
+							"Zonglin Yang, <strong>Xinya Du</strong>, Erik Cambria, Claire Cardie", // authors
+							"EACL 2023", // conference
+							"https://w.sentic.net/commonsense-knowledge-base-completion.pdf", // link
+							"@InProceedings{yang2023cbr},<br>" + // bib
+							"&nbsp;&nbsp;&nbsp;title={End-to-end Case-Based Reasoning for Commonsense Knowledge Base Completion},<br>" +
+							"&nbsp;&nbsp;&nbsp;author={Yang, Zonglin and Du, Xinya and Cambria, Erik and Cardie, Claire},<br>" +
+							"&nbsp;&nbsp;&nbsp;booktitle={EACL},<br>" +
+							"&nbsp;&nbsp;&nbsp;year={2023}<br>}",
+							"n/a", // abstract
+							"n/a", // arXiv_link
+							// "https://github.com/xinyadu/RGQA", // code
+							// "abc", // data
+							// "abc" // pre
+						)
 
-				        add_paper("Logical Entity Representation in Knowledge-Graphs for Differentiable Rule Learning",
-				            "Chi Han, Qizheng He, Charles Yu, <b>Xinya Du</b>, Hanghang Tong, Heng Ji", // authors
-				            "ICLR 2023", // conference
-				            "https://arxiv.org/pdf/2211.07067.pdf", // link
-				            "@InProceedings{yang2023cbr},<br>" + // bib
-				            "&nbsp;&nbsp;&nbsp;title={Logical Entity Representation in Knowledge-Graphs for Differentiable Rule Learning},<br>" +
-				            "&nbsp;&nbsp;&nbsp;author={Han, Chi and He, Qizheng and Yu, Charles and Du, Xinya and Tong, Hanghang and Ji, Heng},<br>" +
-				            "&nbsp;&nbsp;&nbsp;booktitle={ICLR},<br>" +
-				            "&nbsp;&nbsp;&nbsp;year={2023}<br>}",
-				            "Probabilistic logical rule learning has shown great strength in logical rule mining and knowledge graph completion. It learns logical rules to predict missing edges by reasoning on existing edges in the knowledge graph. However, previous efforts have largely been limited to only modeling chain-like Horn clauses such as R1(x; z) ^ R2(z; y) ) H(x; y). This formulation overlooks additional contextual information from neighboring sub-graphs of entity variables x, y and z. Intuitively, there is a large gap here, as local sub-graphs have been found to provide important information for knowledge graph completion. Inspired by these observations, we propose Logical Entity RePresentation (LERP) to encode contextual information of entities in the knowledge graph. A LERP is designed as a vector of probabilistic logical functions on the entity’s neighboring sub-graph. It is an interpretable representation while allowing for differentiable optimization. We can then incorporate LERP into probabilistic logical rule learning to learn more expressive rules. Empirical results demonstrate that with LERP, our model outperforms other rule learning methods in knowledge graph completion and is comparable or even superior to state-of-the-art black-box methods. Moreover, we find that our model can discover a more expressive family of logical rules. LERP can also be further combined with embedding learning methods like TransE to make it more interpretable.", // abstract
-				            "https://openreview.net/forum?id=JdgO-ht1uTN", // arXiv_link
-				            // "https://github.com/xinyadu/RGQA", // code
-				            // "abc", // data
-				            // "abc" // pre
-				        )
+						add_paper("Logical Entity Representation in Knowledge-Graphs for Differentiable Rule Learning",
+							"Chi Han, Qizheng He, Charles Yu, <b>Xinya Du</b>, Hanghang Tong, Heng Ji", // authors
+							"ICLR 2023", // conference
+							"https://arxiv.org/pdf/2211.07067.pdf", // link
+							"@InProceedings{yang2023cbr},<br>" + // bib
+							"&nbsp;&nbsp;&nbsp;title={Logical Entity Representation in Knowledge-Graphs for Differentiable Rule Learning},<br>" +
+							"&nbsp;&nbsp;&nbsp;author={Han, Chi and He, Qizheng and Yu, Charles and Du, Xinya and Tong, Hanghang and Ji, Heng},<br>" +
+							"&nbsp;&nbsp;&nbsp;booktitle={ICLR},<br>" +
+							"&nbsp;&nbsp;&nbsp;year={2023}<br>}",
+							"Probabilistic logical rule learning has shown great strength in logical rule mining and knowledge graph completion. It learns logical rules to predict missing edges by reasoning on existing edges in the knowledge graph. However, previous efforts have largely been limited to only modeling chain-like Horn clauses such as R1(x; z) ^ R2(z; y) ) H(x; y). This formulation overlooks additional contextual information from neighboring sub-graphs of entity variables x, y and z. Intuitively, there is a large gap here, as local sub-graphs have been found to provide important information for knowledge graph completion. Inspired by these observations, we propose Logical Entity RePresentation (LERP) to encode contextual information of entities in the knowledge graph. A LERP is designed as a vector of probabilistic logical functions on the entity’s neighboring sub-graph. It is an interpretable representation while allowing for differentiable optimization. We can then incorporate LERP into probabilistic logical rule learning to learn more expressive rules. Empirical results demonstrate that with LERP, our model outperforms other rule learning methods in knowledge graph completion and is comparable or even superior to state-of-the-art black-box methods. Moreover, we find that our model can discover a more expressive family of logical rules. LERP can also be further combined with embedding learning methods like TransE to make it more interpretable.", // abstract
+							"https://openreview.net/forum?id=JdgO-ht1uTN", // arXiv_link
+							// "https://github.com/xinyadu/RGQA", // code
+							// "abc", // data
+							// "abc" // pre
+						)
 
+						add_paper("Retrieval-Augmented Generative Question Answering for Event Argument Extraction",
+							"<b>Xinya Du</b> and Heng Ji", // authors
+							"Proceedings of the 2022 Conference on Empirical Methods in Natural Language Processing (EMNLP)", // conference
+							"https://arxiv.org/pdf/2211.07067.pdf", // link
+							"@InProceedings{du2022retrieval},<br>" + // bib
+							"&nbsp;&nbsp;&nbsp;title={Retrieval-Augmented Generative Question Answering for Event Argument Extraction},<br>" +
+							"&nbsp;&nbsp;&nbsp;author={Du, Xinya and Ji, Heng},<br>" +
+							"&nbsp;&nbsp;&nbsp;booktitle={EMNLP},<br>" +
+							"&nbsp;&nbsp;&nbsp;year={2022}<br>}",
+							"Event argument extraction has long been studied as a sequential prediction problem with extractive-based methods, tackling each argument in isolation. Although recent work proposes generation-based methods to capture cross-argument dependency, they require generating and post-processing a complicated target sequence (template). Motivated by these observations and recent pretrained language models’ capabilities of learning from demonstrations. We propose a retrieval-augmented generative QA model (R-GQA) for event argument extraction. It retrieves the most similar QA pair and augments it as prompt to the current example’s context, then decodes the arguments as answers. Our approach outperforms substantially prior methods across various settings (i.e. fully supervised, domain transfer, and fewshot learning). Finally, we propose a clusteringbased sampling strategy (JointEnc) and conduct a thorough analysis of how different strategies influence the few-shot learning performance.", // abstract
+							"https://arxiv.org/abs/2211.07067", // arXiv_link
+							"https://github.com/xinyadu/RGQA", // code
+							// "abc", // data
+							// "abc" // pre
+						)
+						
+						add_paper("Dynamic Global Memory for Document-level Argument Extraction",
+							"<b>Xinya Du</b>, Sha Li, Heng Ji", // authors
+							"Association for Computational Linguistics and the International Joint Conference on Natural Language Processing (ACL-IJCNLP) 2022", // conference
+							"https://aclanthology.org/2022.acl-long.361/", // link
+							"@InProceedings{du2022dynamic,<br>" + // bib
+							"&nbsp;&nbsp;&nbsp;title={Dynamic Global Memory for Document-level Argument Extraction},<br>" +
+							"&nbsp;&nbsp;&nbsp;author={Du, Xinya and Li, Sha and Ji, Heng},<br>" +
+							"&nbsp;&nbsp;&nbsp;booktitle={Association for Computational Linguistics (ACL)},<br>" +
+							"&nbsp;&nbsp;&nbsp;year={2022}<br>}",
+							"Extracting informative arguments of events from news articles is a challenging problem in information extraction, which requires a global understanding of each document. While recent work on document-level extraction has gone beyond single-sentence and increased the cross-sentence inference capability of end-to-end models, they are still restricted by certain input sequence length constraints and usually ignore the global context between events. To tackle this issue, we introduce a new global neural generation-based framework for document-level event argument extraction by constructing a document memory store to record the contextual event information and leveraging it to implicitly and explicitly help with decoding of arguments for later events. Empirical results show that our framework outperforms prior methods substantially and it is more robust to adversarially annotated examples with our constrained decoding design.", // abstract
+							null, // arXiv_link
+							"https://github.com/xinyadu/memory_docie", // code
+							// "abc", // data
+							// "abc" // pre
+						)
+
+						add_paper("Template Filling with Generative Transformers",
+							"<b>Xinya Du</b>, Alexander M. Rush, Claire Cardie", // authors
+							"NAACL 2021 (short)", // conference
+							"https://aclanthology.org/2021.naacl-main.70", // link
+							null,
+							// "@InProceedings{du2022dynamic,<br>" + // bib
+							// "&nbsp;&nbsp;&nbsp;title={Dynamic Global Memory for Document-level Argument Extraction},<br>" +
+							// "&nbsp;&nbsp;&nbsp;author={Du, Xinya and Li, Sha and Ji, Heng},<br>" +
+							// "&nbsp;&nbsp;&nbsp;booktitle={Association for Computational Linguistics (ACL)},<br>" +
+							// "&nbsp;&nbsp;&nbsp;year={2022}<br>}",
+							"Template filling is generally tackled by a pipeline of two separate supervised systems – one for role-filler extraction and another for template/event recognition. Since pipelines consider events in isolation, they can suffer from error propagation. We introduce a framework based on end-to-end generative transformers for this task (i.e., GTT). It naturally models the dependence between entities both within a single event and across the multiple events described in a document. Experiments demonstrate that this framework substantially outperforms pipeline-based approaches, and other neural end-to-end baselines that do not model between-event dependencies. We further show that our framework specifically improves performance on documents containing multiple events.", // abstract
+							null, // arXiv_link
+							"https://github.com/xinyadu/gtt", // code
+						)
+						
+						add_paper("GRIT: Generative Role-filler Transformers for <strong>Document-level</strong> Event Entity Extraction",
+							"<b>Xinya Du</b>, Alexander M. Rush, Claire Cardie", // authors
+							"EACL 2021", // conference
+							"https://aclanthology.org/2021.eacl-main.52", // link
+							null,
+							// "@InProceedings{du2022dynamic,<br>" + // bib
+							// "&nbsp;&nbsp;&nbsp;title={Dynamic Global Memory for Document-level Argument Extraction},<br>" +
+							// "&nbsp;&nbsp;&nbsp;author={Du, Xinya and Li, Sha and Ji, Heng},<br>" +
+							// "&nbsp;&nbsp;&nbsp;booktitle={Association for Computational Linguistics (ACL)},<br>" +
+							// "&nbsp;&nbsp;&nbsp;year={2022}<br>}",
+							"We revisit the classic problem of document-level role-filler entity extraction (REE) for template filling. We argue that sentence-level approaches are ill-suited to the task and introduce a generative transformer-based encoder-decoder framework (GRIT) that is designed to model context at the document level: it can make extraction decisions across sentence boundaries; is implicitly aware of noun phrase coreference structure, and has the capacity to respect cross-role dependencies in the template structure. We evaluate our approach on the MUC-4 dataset, and show that our model performs substantially better than prior work. We also show that our modeling choices contribute to model performance, e.g., by implicitly capturing linguistic knowledge such as recognizing coreferent entity mentions.", // abstract
+							null, // arXiv_link
+							"https://github.com/xinyadu/grit_doc_event_entity", // code
+						)
+						
+						add_paper("Few-shot Intent Classification and Slot Filling with Retrieved Examples",
+							"Dian Yu, Luheng He, Yuan Zhang, <strong>Xinya Du</strong>, Panupong Pasupat, Qi Li", // authors
+							"NAACL 2021", // conference
+							"https://aclanthology.org/2021.naacl-main.59/", // link
+							null,
+							// "@InProceedings{du2022dynamic,<br>" + // bib
+							// "&nbsp;&nbsp;&nbsp;title={Dynamic Global Memory for Document-level Argument Extraction},<br>" +
+							// "&nbsp;&nbsp;&nbsp;author={Du, Xinya and Li, Sha and Ji, Heng},<br>" +
+							// "&nbsp;&nbsp;&nbsp;booktitle={Association for Computational Linguistics (ACL)},<br>" +
+							// "&nbsp;&nbsp;&nbsp;year={2022}<br>}",
+							"Few-shot learning arises in important practical scenarios, such as when a natural language understanding system needs to learn new semantic labels for an emerging, resource-scarce domain. In this paper, we explore retrieval-based methods for intent classification and slot filling tasks in few-shot settings. Retrieval-based methods make predictions based on labeled examples in the retrieval index that are similar to the input, and thus can adapt to new domains simply by changing the index without having to retrain the model. However, it is non-trivial to apply such methods on tasks with a complex label space like slot filling. To this end, we propose a span-level retrieval method that learns similar contextualized representations for spans with the same label via a novel batch-softmax objective. At inference time, we use the labels of the retrieved spans to construct the final structure with the highest aggregated score. Our method outperforms previous systems in various few-shot settings on the CLINC and SNIPS benchmarks.", // abstract
+							"https://arxiv.org/abs/2104.05763", // arXiv_link
+							// "https://github.com/xinyadu/grit_doc_event_entity", // code
+						)
+						
+						add_paper("QA-Driven Zero-shot Slot Filling with Weak Supervision Pretraining",
+							"<strong>Xinya Du</strong>, Luheng He, Qi Li, Dian Yu, Panupong Pasupat and Yuan Zhang", // authors
+							"ACL 2021", // conference
+							"https://aclanthology.org/2021.acl-short.83.pdf", // link
+							null,
+							// "@InProceedings{du2022dynamic,<br>" + // bib
+							// "&nbsp;&nbsp;&nbsp;title={Dynamic Global Memory for Document-level Argument Extraction},<br>" +
+							// "&nbsp;&nbsp;&nbsp;author={Du, Xinya and Li, Sha and Ji, Heng},<br>" +
+							// "&nbsp;&nbsp;&nbsp;booktitle={Association for Computational Linguistics (ACL)},<br>" +
+							// "&nbsp;&nbsp;&nbsp;year={2022}<br>}",
+							"Slot-filling is an essential component for build- ing task-oriented dialog systems. In this work, we focus on the zero-shot slot-filling problem, where the model needs to predict slots and their values, given utterances from new do- mains without training on the target domain. Prior methods directly encode slot descrip- tions to generalize to unseen slot types. How- ever, raw slot descriptions are often ambigu- ous and do not encode enough semantic in- formation, limiting the models’ zero-shot ca- pability. To address this problem, we intro- duce QA-driven slot filling (QASF), which ex- tracts slot-filler spans from utterances with a span-based QA model. We use a linguistically motivated questioning strategy to turn descrip- tions into questions, allowing the model to gen- eralize to unseen slot types. Moreover, our QASF model can benefit from weak supervi- sion signals from QA pairs synthetically gen- erated from unlabeled conversations. Our full system substantially outperforms baselines by over 5% on the SNIPS benchmark.", // abstract
+							// "https://arxiv.org/abs/2104.05763", // arXiv_link
+							// "https://github.com/xinyadu/grit_doc_event_entity", // code
+						)
+
+						add_paper("Event Extraction by Answering (Almost) Natural <strong>Questions</strong>",
+							"<b>Xinya Du</b>, Claire Cardie", // authors
+							"EMNLP 2020", // conference
+							"https://aclanthology.org/2020.emnlp-main.49/", // link
+							// null,
+							"@Inproceedings{du2022eeqa,<br>" + // bib
+							"&nbsp;&nbsp;&nbsp;title={Event Extraction by Answering (Almost) Natural Questions},<br>" +
+							"&nbsp;&nbsp;&nbsp;author={Du, Xinya and Cardie, Claire},<br>" +
+							"&nbsp;&nbsp;&nbsp;booktitle={EMNLP)},<br>" +
+							"&nbsp;&nbsp;&nbsp;year={2022}<br>}",
+							"The problem of event extraction requires detecting the event trigger and extracting its corresponding arguments. Existing work in event argument extraction typically relies heavily on entity recognition as a preprocessing/concurrent step, causing the well-known problem of error propagation. To avoid this issue, we introduce a new paradigm for event extraction by formulating it as a question answering (QA) task that extracts the event arguments in an end-to-end manner. Empirical results demonstrate that our framework outperforms prior methods substantially; in addition, it is capable of extracting event arguments for roles not seen at training time (i.e., in a zero-shot learning setting).", // abstract
+							"https://arxiv.org/abs/2004.13625", // arXiv_link
+							"https://github.com/xinyadu/eeqa", // code
+						)
+
+						add_paper("Improving Event Duration Prediction via Time-aware Pre-training",
+							"Zonglin Yang, <strong>Xinya Du</strong>, Alexander Rush, Claire Cardie", // authors
+							"EMNLP 2020 (Findings)", // conference
+							"https://aclanthology.org/2020.findings-emnlp.302.pdf", // link
+							null,
+							// "@Inproceedings{du2022eeqa,<br>" + // bib
+							// "&nbsp;&nbsp;&nbsp;title={Dynamic Global Memory for Document-level Argument Extraction},<br>" +
+							// "&nbsp;&nbsp;&nbsp;author={Du, Xinya and Cardie, Claire},<br>" +
+							// "&nbsp;&nbsp;&nbsp;booktitle={EMNLP)},<br>" +
+							// "&nbsp;&nbsp;&nbsp;year={2022}<br>}",
+							"End-to-end models in NLP rarely encode external world knowledge about length of time. We introduce two effective models for duration prediction, which incorporate external knowledge by reading temporal-related news sentences (time-aware pre-training). Specifically, one model predicts the range/unit where the duration value falls in (R-PRED); and the other predicts the exact duration value (E-PRED). Our best model – E-PRED, substantially outperforms previous work, and captures duration information more accurately than R-PRED. We also demonstrate our models are capable of duration prediction in the unsupervised setting, outperforming the baselines.", // abstract
+							// "https://arxiv.org/abs/2004.13625", // arXiv_link
+							// "https://github.com/xinyadu/eeqa", // code
+						)
+
+						add_paper("Document-Level <em>Event Role Filler</em> Extraction Using Multi-Granularity Contextualized Encoding",
+							"<strong>Xinya Du</strong>, Claire Cardie", // authors
+							"ACL 2020", // conference
+							"https://aclanthology.org/2020.acl-main.714/", // link
+							// null,
+							"@Inproceedings{du2020document,<br>" + // bib
+							"&nbsp;&nbsp;&nbsp;title={Document-Level Event Role Filler Extraction Using Multi-Granularity Contextualized Encoding},<br>" +
+							"&nbsp;&nbsp;&nbsp;author={Du, Xinya and Cardie, Claire},<br>" +
+							"&nbsp;&nbsp;&nbsp;booktitle={ACL},<br>" +
+							"&nbsp;&nbsp;&nbsp;year={2020}<br>}",
+							"Few works in the literature of event extraction have gone beyond individual sentences to make extraction decisions. This is problematic when the information needed to recognize an event argument is spread across multiple sentences. We argue that document-level event extraction is a difficult task since it requires a view of a larger context to determine which spans of text correspond to event role fillers. We first investigate how end-to-end neural sequence models (with pre-trained language model representations) perform on document-level role filler extraction, as well as how the length of context captured affects the models’ performance. To dynamically aggregate information captured by neural representations learned at different levels of granularity (e.g., the sentence- and paragraph-level), we propose a novel multi-granularity reader. We evaluate our models on the MUC-4 event extraction dataset, and show that our best system performs substantially better than prior work. We also report findings on the relationship between context length and neural model performance on the task.", // abstract
+							null,
+							// "https://arxiv.org/abs/2004.13625", // arXiv_link
+							"https://github.com/xinyadu/doc_event_role", // code
+						)
+
+
+						add_paper("Be Consistent! Improving Procedural Text Comprehension using Label Consistency",
+							"<b>Xinya Du</b>, Bhavana Dalvi, Niket Tandon, Antoine Bosselut, Wen-tau Yih, Peter Clark, Claire Cardie", // authors
+							"NAACL 2019", // conference
+							"https://aclanthology.org/N19-1244/", // link
+							// null,
+							"@Inproceedings{du2019consistency,<br>" + // bib
+							"&nbsp;&nbsp;&nbsp;title={Be Consistent! Improving Procedural Text Comprehension using Label Consistency},<br>" +
+							"&nbsp;&nbsp;&nbsp;author={Du, Xinya  and Dalvi, Bhavana  and Tandon, Niket  and Bosselut, Antoine  and Yih, Wen-tau  and Clark, Peter  and Cardie, Claire},<br>" +
+							"&nbsp;&nbsp;&nbsp;booktitle={NAACL},<br>" +
+							"&nbsp;&nbsp;&nbsp;year={2019}<br>}",
+							"Our goal is procedural text comprehension, namely tracking how the properties of entities (e.g., their location) change with time given a procedural text (e.g., a paragraph about photosynthesis, a recipe). This task is challenging as the world is changing throughout the text, and despite recent advances, current systems still struggle with this task. Our approach is to leverage the fact that, for many procedural texts, multiple independent descriptions are readily available, and that predictions from them should be consistent (label consistency). We present a new learning framework that leverages label consistency during training, allowing consistency bias to be built into the model. Evaluation on a standard benchmark dataset for procedural text, ProPara (Dalvi et al., 2018), shows that our approach significantly improves prediction performance (F1) over prior state-of-the-art systems.", // abstract
+							null,
+							// "https://arxiv.org/abs/2004.13625", // arXiv_link
+							// "https://github.com/xinyadu/doc_event_role", // code
+						)
+
+						add_paper("Harvesting Paragraph-level Question-Answer Pairs from Wikipedia",
+							"<b>Xinya Du</b>, Claire Cardie", // authors
+							"ACL 2018", // conference
+							"https://aclanthology.org/P18-1177/", // link
+							// null,
+							"@Inproceedings{du2018harvesting,<br>" + // bib
+							"&nbsp;&nbsp;&nbsp;title={Harvesting Paragraph-level Question-Answer Pairs from Wikipedia},<br>" +
+							"&nbsp;&nbsp;&nbsp;author={Du, Xinya and Cardie, Claire},<br>" +
+							"&nbsp;&nbsp;&nbsp;booktitle={ACL},<br>" +
+							"&nbsp;&nbsp;&nbsp;year={2018}<br>}",
+							"We study the task of generating from Wikipedia articles question-answer pairs that cover content beyond a single sentence. We propose a neural network approach that incorporates coreference knowledge via a novel gating mechanism. As compared to models that only take into account sentence-level information (Heilman and Smith, 2010; Du et al., 2017; Zhou et al., 2017), we find that the linguistic knowledge introduced by the coreference representation aids question generation significantly, producing models that outperform the current state-of-the-art. We apply our system (composed of an answer span extraction system and the passage-level QG system) to the 10,000 top ranking Wikipedia articles and create a corpus of over one million question-answer pairs. We provide qualitative analysis for the this large-scale generated corpus from Wikipedia.", // abstract
+							// null,
+							"https://arxiv.org/pdf/1805.05942.pdf", // arXiv_link
+							"https://github.com/xinyadu/harvestingQA", // code
+						)
+
+						add_paper("<strong>Learning to Ask</strong>: Neural Question Generation for Reading Comprehension",
+							"<b>Xinya Du</b>, Junru Shao, Claire Cardie", // authors
+							"ACL 2017", // conference
+							"https://aclanthology.org/P17-1123/", // link
+							// null,
+							"@Inproceedings{du2017learning,<br>" + // bib
+							"&nbsp;&nbsp;&nbsp;title={Learning to Ask: Neural Question Generation for Reading Comprehension},<br>" +
+							"&nbsp;&nbsp;&nbsp;author={Du, Xinya  and Shao, Junru  and Cardie, Claire},<br>" +
+							"&nbsp;&nbsp;&nbsp;booktitle={ACL},<br>" +
+							"&nbsp;&nbsp;&nbsp;year={2017}<br>}",
+							"We study the task of generating from Wikipedia articles question-answer pairs that cover content beyond a single sentence. We propose a neural network approach that incorporates coreference knowledge via a novel gating mechanism. As compared to models that only take into account sentence-level information (Heilman and Smith, 2010; Du et al., 2017; Zhou et al., 2017), we find that the linguistic knowledge introduced by the coreference representation aids question generation significantly, producing models that outperform the current state-of-the-art. We apply our system (composed of an answer span extraction system and the passage-level QG system) to the 10,000 top ranking Wikipedia articles and create a corpus of over one million question-answer pairs. We provide qualitative analysis for the this large-scale generated corpus from Wikipedia.", // abstract
+							// null,
+							"https://arxiv.org/abs/1705.00106", // arXiv_link
+							"https://github.com/xinyadu/nqg", // code
+							null, //data
+							"files/acl17_dsc_poster.pdf", //slides
+							null, //talk
+							"<img src=\"imgs/tv-icon.png\" width=\"30px\" /> Featured in <a href=\"https://www.newscientist.com/article/2130205-inquisitive-bot-asks-questions-to-test-your-understanding/\"><em>New Scientist</em></a> <a><img src=\"imgs/newscientist.jpg\" width=\"40px\" /></a> <a href=\"http://www.techrepublic.com/article/how-researchers-trained-one-ai-system-to-start-asking-its-own-questions/\"><em>Tech Republic</em></a> <a><img src=\"imgs/techrepublic.png\" width=\"70px\" /></a>", //msg
+						)
+						add_paper("Identifying Where to Focus in Reading Comprehension for Neural Question Generation",
+							"<b>Xinya Du</b>, Claire Cardie", // authors
+							"EMNLP 2017", // conference
+							"https://aclanthology.org/D17-1219/", // link
+							// null,
+							"@Inproceedings{du2017identifying,<br>" + // bib
+							"&nbsp;&nbsp;&nbsp;title={Identifying Where to Focus in Reading Comprehension for Neural Question Generation},<br>" +
+							"&nbsp;&nbsp;&nbsp;author={Du, Xinya and Cardie, Claire},<br>" +
+							"&nbsp;&nbsp;&nbsp;booktitle={EMNLP},<br>" +
+							"&nbsp;&nbsp;&nbsp;year={2017}<br>}",
+							"A first step in the task of automatically generating questions for testing reading comprehension is to identify question-worthy sentences, i.e. sentences in a text passage that humans find it worthwhile to ask questions about. We propose a hierarchical neural sentence-level sequence tagging model for this task, which existing approaches to question generation have ignored. The approach is fully data-driven — with no sophisticated NLP pipelines or any hand-crafted rules/features — and compares favorably to a number of baselines when evaluated on the SQuAD data set. When incorporated into an existing neural question generation system, the resulting end-to-end system achieves state-of-the-art performance for paragraph-level question generation for reading comprehension.", // abstract
+							null,
+							// "https://arxiv.org/abs/1705.00106", // arXiv_link
+							null,
+							// "https://github.com/xinyadu/nqg", // code
+							null, //data
+
+							// "./files/acl17_dsc_poster.pdf", //slides
+							null, //talk
+						)
 						document.write("</ul>")
 
-						document.write("<h5>2022</h5>")
-				        document.write("<ul style=\"list-style: none;\">")
+					</script>
+				</div>
 
-				        add_paper("Retrieval-Augmented Generative Question Answering for Event Argument Extraction",
-				            "<b>Xinya Du</b> and Heng Ji", // authors
-				            "Proceedings of the 2022 Conference on Empirical Methods in Natural Language Processing (EMNLP)", // conference
-				            "https://arxiv.org/pdf/2211.07067.pdf", // link
-				            "@InProceedings{du2022retrieval},<br>" + // bib
-				            "&nbsp;&nbsp;&nbsp;title={Retrieval-Augmented Generative Question Answering for Event Argument Extraction},<br>" +
-				            "&nbsp;&nbsp;&nbsp;author={Du, Xinya and Ji, Heng},<br>" +
-				            "&nbsp;&nbsp;&nbsp;booktitle={EMNLP},<br>" +
-				            "&nbsp;&nbsp;&nbsp;year={2022}<br>}",
-				            "Event argument extraction has long been studied as a sequential prediction problem with extractive-based methods, tackling each argument in isolation. Although recent work proposes generation-based methods to capture cross-argument dependency, they require generating and post-processing a complicated target sequence (template). Motivated by these observations and recent pretrained language models’ capabilities of learning from demonstrations. We propose a retrieval-augmented generative QA model (R-GQA) for event argument extraction. It retrieves the most similar QA pair and augments it as prompt to the current example’s context, then decodes the arguments as answers. Our approach outperforms substantially prior methods across various settings (i.e. fully supervised, domain transfer, and fewshot learning). Finally, we propose a clusteringbased sampling strategy (JointEnc) and conduct a thorough analysis of how different strategies influence the few-shot learning performance.", // abstract
-				            "https://arxiv.org/abs/2211.07067", // arXiv_link
-				            "https://github.com/xinyadu/RGQA", // code
-				            // "abc", // data
-				            // "abc" // pre
-				        )
-				        add_paper("Dynamic Global Memory for Document-level Argument Extraction",
-				            "<b>Xinya Du</b>, Sha Li, Heng Ji", // authors
-				            "Association for Computational Linguistics and the International Joint Conference on Natural Language Processing (ACL-IJCNLP) 2022", // conference
-				            "https://aclanthology.org/2022.acl-long.361/", // link
-				            "@InProceedings{du2022dynamic,<br>" + // bib
-				            "&nbsp;&nbsp;&nbsp;title={Dynamic Global Memory for Document-level Argument Extraction},<br>" +
-				            "&nbsp;&nbsp;&nbsp;author={Du, Xinya and Li, Sha and Ji, Heng},<br>" +
-				            "&nbsp;&nbsp;&nbsp;booktitle={Association for Computational Linguistics (ACL)},<br>" +
-				            "&nbsp;&nbsp;&nbsp;year={2022}<br>}",
-				            "Extracting informative arguments of events from news articles is a challenging problem in information extraction, which requires a global understanding of each document. While recent work on document-level extraction has gone beyond single-sentence and increased the cross-sentence inference capability of end-to-end models, they are still restricted by certain input sequence length constraints and usually ignore the global context between events. To tackle this issue, we introduce a new global neural generation-based framework for document-level event argument extraction by constructing a document memory store to record the contextual event information and leveraging it to implicitly and explicitly help with decoding of arguments for later events. Empirical results show that our framework outperforms prior methods substantially and it is more robust to adversarially annotated examples with our constrained decoding design.", // abstract
-				            null, // arXiv_link
-				            "https://github.com/xinyadu/memory_docie", // code
-				            // "abc", // data
-				            // "abc" // pre
-				        )
-
-				        add_paper("Automatic Error Analysis for Document-level Information Extraction",
-				            "Aliva Das<sup>*</sup>, <b>Xinya Du</b><sup>*</sup>, Barry Wang<sup>*</sup>, Jiayuan Gu, Kejian Shi, Thomas Porter, Claire Cardie", // authors
-				            "ACL 2022", // conference
-				            "https://aclanthology.org/2022.acl-long.274.pdf", // link
-				            "@InProceedings{das2022error,<br>" + // bib
-				            "&nbsp;&nbsp;&nbsp;title={Automatic Error Analysis for Document-level Information Extraction},<br>" +
-				            "&nbsp;&nbsp;&nbsp;author={Das, Aliva and Du, Xinya  and Wang, Barry  and Shi, Kejian  and Gu, Jiayuan  and Porter, Thomas  and Cardie, Claire,<br>" +
-				            "&nbsp;&nbsp;&nbsp;booktitle={Association for Computational Linguistics (ACL)},<br>" +
-				            "&nbsp;&nbsp;&nbsp;year={2022}<br>}",
-				            "Document-level information extraction (IE) tasks have recently begun to be revisited in earnest using the end-to-end neural network techniques that have been successful on their sentence-level IE counterparts. Evaluation of the approaches, however, has been limited in a number of dimensions. In particular, the precision/recall/F1 scores typically reported provide few insights on the range of errors the models make. We build on the work of Kummerfeld and Klein (2013) to propose a transformation-based framework for automating error analysis in document-level event and (N-ary) relation extraction. We employ our framework to compare two state-of-the-art document-level template-filling approaches on datasets from three domains; and then, to gauge progress in IE since its inception 30 years ago, vs. four systems from the MUC-4 (1992) evaluation.", // abstract
-				            null, // arXiv_link
-				            "https://github.com/icejinx33/auto-err-template-fill", // code
-				        )
-				        add_paper("RESIN-11: Schema-guided Event Prediction for 11 Newsworthy Scenarios",
-				            "<b>Xinya Du</b>, Zixuan Zhang, Sha Li, Ziqi Wang, Pengfei Yu, Hongwei Wang, Tuan Manh Lai, Xudong Lin, Iris Liu, Ben Zhou, Haoyang Wen, Manling Li, Darryl Hannan, Jie Lei, Hyounghun Kim, Rotem Dror, Haoyu Wang, Michael Regan, Qi Zeng, Qing Lyu, Charles Yu, Carl Edwards, Xiaomeng Jin, Yizhu Jiao, Ghazaleh Kazeminejad, Zhenhailong Wang, Chris Callison-Burch, Carl Vondrick, Mohit Bansal, Dan Roth, Jiawei Han, Shih-Fu Chang, Martha Palmer, Heng Ji", // authors
-				            "NAACL 2022 (demo)", // conference
-				            "https://blender.cs.illinois.edu/paper/resin2022.pdf", // link
-				            null, //bib
-				            null, //abs
-				            null, //arxiv
-				            "https://github.com/RESIN-KAIROS/RESIN-11",//code
-				            null, //data
-				            "http://18.221.187.153:11000/kairos",  //pre
-				        )
-				        document.write("</ul>")
+				<div id="allPublicationList" class="publication-list mt-3">
+					<script>
+							paper_count = 0
 
 
-				        // ---------------------------------- 2021 ------------------------------------------------------------------------------------------------------
-				        document.write("<h5>2021</h5>")
-				        document.write("<ul style=\"list-style: none;\">")
-				        add_paper("Towards More Intelligent Extraction of Information from Documents",
-				            "<b>Xinya Du</b>", // authors
-				            "PhD Dissertation, Cornell University", // conference
-				            "https://search.proquest.com/openview/ff090eb702b98c8e4562865ddb5e7f81/1?pq-origsite=gscholar&cbl=18750&diss=y", // link
-						    "@article{du2021towards,<br>" +
- 							"&nbsp;&nbsp;&nbsp;title={Towards More Intelligent Extraction of Information from Documents},<br>" + 
-  						    "&nbsp;&nbsp;&nbsp;author={Du, Xinya},<br>" + 
-  						    "&nbsp;&nbsp;&nbsp;year={2021},<br>" + 
-  						    "&nbsp;&nbsp;&nbsp;school={Cornell University}<br>}",
-				        )
-				        add_paper("Template Filling with Generative Transformers",
-				            "<b>Xinya Du</b>, Alexander M. Rush, Claire Cardie", // authors
-				            "NAACL 2021 (short)", // conference
-				            "https://aclanthology.org/2021.naacl-main.70", // link
-				            null,
-				            // "@InProceedings{du2022dynamic,<br>" + // bib
-				            // "&nbsp;&nbsp;&nbsp;title={Dynamic Global Memory for Document-level Argument Extraction},<br>" +
-				            // "&nbsp;&nbsp;&nbsp;author={Du, Xinya and Li, Sha and Ji, Heng},<br>" +
-				            // "&nbsp;&nbsp;&nbsp;booktitle={Association for Computational Linguistics (ACL)},<br>" +
-				            // "&nbsp;&nbsp;&nbsp;year={2022}<br>}",
-				            "Template filling is generally tackled by a pipeline of two separate supervised systems – one for role-filler extraction and another for template/event recognition. Since pipelines consider events in isolation, they can suffer from error propagation. We introduce a framework based on end-to-end generative transformers for this task (i.e., GTT). It naturally models the dependence between entities both within a single event and across the multiple events described in a document. Experiments demonstrate that this framework substantially outperforms pipeline-based approaches, and other neural end-to-end baselines that do not model between-event dependencies. We further show that our framework specifically improves performance on documents containing multiple events.", // abstract
-				            null, // arXiv_link
-				            "https://github.com/xinyadu/gtt", // code
-				        )
-				        add_paper("GRIT: Generative Role-filler Transformers for <strong>Document-level</strong> Event Entity Extraction",
-				            "<b>Xinya Du</b>, Alexander M. Rush, Claire Cardie", // authors
-				            "EACL 2021", // conference
-				            "https://aclanthology.org/2021.eacl-main.52", // link
-				            null,
-				            // "@InProceedings{du2022dynamic,<br>" + // bib
-				            // "&nbsp;&nbsp;&nbsp;title={Dynamic Global Memory for Document-level Argument Extraction},<br>" +
-				            // "&nbsp;&nbsp;&nbsp;author={Du, Xinya and Li, Sha and Ji, Heng},<br>" +
-				            // "&nbsp;&nbsp;&nbsp;booktitle={Association for Computational Linguistics (ACL)},<br>" +
-				            // "&nbsp;&nbsp;&nbsp;year={2022}<br>}",
-				            "We revisit the classic problem of document-level role-filler entity extraction (REE) for template filling. We argue that sentence-level approaches are ill-suited to the task and introduce a generative transformer-based encoder-decoder framework (GRIT) that is designed to model context at the document level: it can make extraction decisions across sentence boundaries; is implicitly aware of noun phrase coreference structure, and has the capacity to respect cross-role dependencies in the template structure. We evaluate our approach on the MUC-4 dataset, and show that our model performs substantially better than prior work. We also show that our modeling choices contribute to model performance, e.g., by implicitly capturing linguistic knowledge such as recognizing coreferent entity mentions.", // abstract
-				            null, // arXiv_link
-				            "https://github.com/xinyadu/grit_doc_event_entity", // code
-				        )
-				        add_paper("Few-shot Intent Classification and Slot Filling with Retrieved Examples",
-				            "Dian Yu, Luheng He, Yuan Zhang, <strong>Xinya Du</strong>, Panupong Pasupat, Qi Li", // authors
-				            "NAACL 2021", // conference
-				            "https://aclanthology.org/2021.naacl-main.59/", // link
-				            null,
-				            // "@InProceedings{du2022dynamic,<br>" + // bib
-				            // "&nbsp;&nbsp;&nbsp;title={Dynamic Global Memory for Document-level Argument Extraction},<br>" +
-				            // "&nbsp;&nbsp;&nbsp;author={Du, Xinya and Li, Sha and Ji, Heng},<br>" +
-				            // "&nbsp;&nbsp;&nbsp;booktitle={Association for Computational Linguistics (ACL)},<br>" +
-				            // "&nbsp;&nbsp;&nbsp;year={2022}<br>}",
-				            "Few-shot learning arises in important practical scenarios, such as when a natural language understanding system needs to learn new semantic labels for an emerging, resource-scarce domain. In this paper, we explore retrieval-based methods for intent classification and slot filling tasks in few-shot settings. Retrieval-based methods make predictions based on labeled examples in the retrieval index that are similar to the input, and thus can adapt to new domains simply by changing the index without having to retrain the model. However, it is non-trivial to apply such methods on tasks with a complex label space like slot filling. To this end, we propose a span-level retrieval method that learns similar contextualized representations for spans with the same label via a novel batch-softmax objective. At inference time, we use the labels of the retrieved spans to construct the final structure with the highest aggregated score. Our method outperforms previous systems in various few-shot settings on the CLINC and SNIPS benchmarks.", // abstract
-				            "https://arxiv.org/abs/2104.05763", // arXiv_link
-				            // "https://github.com/xinyadu/grit_doc_event_entity", // code
-				        )
-				        add_paper("QA-Driven Zero-shot Slot Filling with Weak Supervision Pretraining",
-				            "<strong>Xinya Du</strong>, Luheng He, Qi Li, Dian Yu, Panupong Pasupat and Yuan Zhang", // authors
-				            "ACL 2021", // conference
-				            "https://aclanthology.org/2021.acl-short.83.pdf", // link
-				            null,
-				            // "@InProceedings{du2022dynamic,<br>" + // bib
-				            // "&nbsp;&nbsp;&nbsp;title={Dynamic Global Memory for Document-level Argument Extraction},<br>" +
-				            // "&nbsp;&nbsp;&nbsp;author={Du, Xinya and Li, Sha and Ji, Heng},<br>" +
-				            // "&nbsp;&nbsp;&nbsp;booktitle={Association for Computational Linguistics (ACL)},<br>" +
-				            // "&nbsp;&nbsp;&nbsp;year={2022}<br>}",
-				            "Slot-filling is an essential component for build- ing task-oriented dialog systems. In this work, we focus on the zero-shot slot-filling problem, where the model needs to predict slots and their values, given utterances from new do- mains without training on the target domain. Prior methods directly encode slot descrip- tions to generalize to unseen slot types. How- ever, raw slot descriptions are often ambigu- ous and do not encode enough semantic in- formation, limiting the models’ zero-shot ca- pability. To address this problem, we intro- duce QA-driven slot filling (QASF), which ex- tracts slot-filler spans from utterances with a span-based QA model. We use a linguistically motivated questioning strategy to turn descrip- tions into questions, allowing the model to gen- eralize to unseen slot types. Moreover, our QASF model can benefit from weak supervi- sion signals from QA pairs synthetically gen- erated from unlabeled conversations. Our full system substantially outperforms baselines by over 5% on the SNIPS benchmark.", // abstract
-				            // "https://arxiv.org/abs/2104.05763", // arXiv_link
-				            // "https://github.com/xinyadu/grit_doc_event_entity", // code
-				        )
+							// ---------------------------------- 2022 ------------------------------------------------------------------------------------------------------
+							document.write("<h5>2024</h5>")
+							document.write("<ul style=\"list-style: none;\">")
 
-				        document.write("</ul>")
+							add_paper("FGAIF: Aligning Large Vision-Language Models with Fine-grained AI Feedback",
+							"Liqiang Jing, <strong>Xinya Du</strong>", // authors
+							"arXiv preprint arXiv:2404.05046", // conference
+							"https://arxiv.org/abs/2404.05046", // link
+							"n/a", // bib.
+							"@misc{jing2023faithscore,<br>" + // bib
+							"&nbsp;&nbsp;&nbsp;title={FAITHSCORE: Evaluating Hallucinations in Large Vision-Language Models},<br>" +
+							"&nbsp;&nbsp;&nbsp;author={Liqiang Jing and Ruosen Li and Yunmo Chen and Mengzhao Jia and Xinya Du},<br>" +
+							"&nbsp;&nbsp;&nbsp;eprint={2311.01477},<br>" +
+							"&nbsp;&nbsp;&nbsp;year={2023}<br>}",
+							// "We introduce FAITHSCORE (Faithfulness to Atomic Image Facts Score), a reference-free and fine-grained evaluation metric that measures the faithfulness of the generated free-form answers from large vision-language models (LVLMs). The FAITHSCORE evaluation first identifies sub-sentences containing descriptive statements that need to be verified, then extracts a comprehensive list of atomic facts from these sub-sentences, and finally conducts consistency verification between fine-grained atomic facts and the input image. Meta-evaluation demonstrates that our metric highly correlates with human judgments of faithfulness. We collect two benchmark datasets (i.e. LLaVA-1k and MSCOCO-Cap) for evaluating LVLMs instruction-following hallucinations. We measure hallucinations in state-of-the-art LVLMs with FAITHSCORE on the datasets. Results reveal that current systems are prone to generate hallucinated content unfaithful to the image, which leaves room for future improvements. Further, we find that current LVLMs despite doing well on color and counting, still struggle with long answers, relations, and multiple objects.", // abstract
+							"https://arxiv.org/abs/2404.05046", // arXiv_link
+							// "https://github.com/xinyadu/RGQA", // code
+							// "abc", // data
+							// "abc" // pre
+							)
 
-						// ---------------------------------- 2020 ------------------------------------------------------------------------------------------------------
-				        document.write("<h5>2020</h5>")
-				        document.write("<ul style=\"list-style: none;\">")
-				        add_paper("Event Extraction by Answering (Almost) Natural <strong>Questions</strong>",
-				            "<b>Xinya Du</b>, Claire Cardie", // authors
-				            "EMNLP 2020", // conference
-				            "https://aclanthology.org/2020.emnlp-main.49/", // link
-				            // null,
-				            "@Inproceedings{du2022eeqa,<br>" + // bib
-				            "&nbsp;&nbsp;&nbsp;title={Event Extraction by Answering (Almost) Natural Questions},<br>" +
-				            "&nbsp;&nbsp;&nbsp;author={Du, Xinya and Cardie, Claire},<br>" +
-				            "&nbsp;&nbsp;&nbsp;booktitle={EMNLP)},<br>" +
-				            "&nbsp;&nbsp;&nbsp;year={2022}<br>}",
-				            "The problem of event extraction requires detecting the event trigger and extracting its corresponding arguments. Existing work in event argument extraction typically relies heavily on entity recognition as a preprocessing/concurrent step, causing the well-known problem of error propagation. To avoid this issue, we introduce a new paradigm for event extraction by formulating it as a question answering (QA) task that extracts the event arguments in an end-to-end manner. Empirical results demonstrate that our framework outperforms prior methods substantially; in addition, it is capable of extracting event arguments for roles not seen at training time (i.e., in a zero-shot learning setting).", // abstract
-				            "https://arxiv.org/abs/2004.13625", // arXiv_link
-				            "https://github.com/xinyadu/eeqa", // code
-				        )
-				        add_paper("Improving Event Duration Prediction via Time-aware Pre-training",
-				            "Zonglin Yang, <strong>Xinya Du</strong>, Alexander Rush, Claire Cardie", // authors
-				            "EMNLP 2020 (Findings)", // conference
-				            "https://aclanthology.org/2020.findings-emnlp.302.pdf", // link
-				            null,
-				            // "@Inproceedings{du2022eeqa,<br>" + // bib
-				            // "&nbsp;&nbsp;&nbsp;title={Dynamic Global Memory for Document-level Argument Extraction},<br>" +
-				            // "&nbsp;&nbsp;&nbsp;author={Du, Xinya and Cardie, Claire},<br>" +
-				            // "&nbsp;&nbsp;&nbsp;booktitle={EMNLP)},<br>" +
-				            // "&nbsp;&nbsp;&nbsp;year={2022}<br>}",
-				            "End-to-end models in NLP rarely encode external world knowledge about length of time. We introduce two effective models for duration prediction, which incorporate external knowledge by reading temporal-related news sentences (time-aware pre-training). Specifically, one model predicts the range/unit where the duration value falls in (R-PRED); and the other predicts the exact duration value (E-PRED). Our best model – E-PRED, substantially outperforms previous work, and captures duration information more accurately than R-PRED. We also demonstrate our models are capable of duration prediction in the unsupervised setting, outperforming the baselines.", // abstract
-				            // "https://arxiv.org/abs/2004.13625", // arXiv_link
-				            // "https://github.com/xinyadu/eeqa", // code
-				        )
-				        add_paper("Document-Level <em>Event Role Filler</em> Extraction Using Multi-Granularity Contextualized Encoding",
-				            "<strong>Xinya Du</strong>, Claire Cardie", // authors
-				            "ACL 2020", // conference
-				            "https://aclanthology.org/2020.acl-main.714/", // link
-				            // null,
-				            "@Inproceedings{du2020document,<br>" + // bib
-				            "&nbsp;&nbsp;&nbsp;title={Document-Level Event Role Filler Extraction Using Multi-Granularity Contextualized Encoding},<br>" +
-				            "&nbsp;&nbsp;&nbsp;author={Du, Xinya and Cardie, Claire},<br>" +
-				            "&nbsp;&nbsp;&nbsp;booktitle={ACL},<br>" +
-				            "&nbsp;&nbsp;&nbsp;year={2020}<br>}",
-				            "Few works in the literature of event extraction have gone beyond individual sentences to make extraction decisions. This is problematic when the information needed to recognize an event argument is spread across multiple sentences. We argue that document-level event extraction is a difficult task since it requires a view of a larger context to determine which spans of text correspond to event role fillers. We first investigate how end-to-end neural sequence models (with pre-trained language model representations) perform on document-level role filler extraction, as well as how the length of context captured affects the models’ performance. To dynamically aggregate information captured by neural representations learned at different levels of granularity (e.g., the sentence- and paragraph-level), we propose a novel multi-granularity reader. We evaluate our models on the MUC-4 event extraction dataset, and show that our best system performs substantially better than prior work. We also report findings on the relationship between context length and neural model performance on the task.", // abstract
-				            null,
-				            // "https://arxiv.org/abs/2004.13625", // arXiv_link
-				            "https://github.com/xinyadu/doc_event_role", // code
-				        )
-				        add_paper("Leveraging Structured Metadata for Improving Question Answering on the Web",
-				            "<strong>Xinya Du</strong>, Adam Fourney, Robert Sim, Paul Bennett, Claire Cardie, Ahmed Hassan Awadallah", // authors
-				            "AACL 2020", // conference
-				            "https://aclanthology.org/2020.aacl-main.55/", // link
-				            null,
-				            // "@Inproceedings{du2020document,<br>" + // bib
-				            // "&nbsp;&nbsp;&nbsp;title={Document-Level Event Role Filler Extraction Using Multi-Granularity Contextualized Encoding},<br>" +
-				            // "&nbsp;&nbsp;&nbsp;author={Du, Xinya and Cardie, Claire},<br>" +
-				            // "&nbsp;&nbsp;&nbsp;booktitle={ACL},<br>" +
-				            // "&nbsp;&nbsp;&nbsp;year={2020}<br>}",
-				            "We show that leveraging metadata information from web pages can improve the performance of models for answer passage selection/reranking. We propose a neural passage selection model that leverages metadata information with a fine-grained encoding strategy, which learns the representation for metadata predicates in a hierarchical way. The models are evaluated on the MS MARCO (Nguyen et al., 2016) and Recipe-MARCO datasets. Results show that our models significantly outperform baseline models, which do not incorporate metadata. We also show that the fine-grained encoding’s advantage over other strategies for encoding the metadata.", // abstract
-				            null,
-				            // "https://arxiv.org/abs/2004.13625", // arXiv_link
-				            // "https://github.com/xinyadu/doc_event_role", // code
-				        )
-				        document.write("</ul>")
+							add_paper("FaithScore: Evaluating Hallucinations in Large Vision-Language Models",
+							"Liqiang Jing, Ruosen Li, Yunmo Chen, Mengzhao Jia, <strong>Xinya Du</strong>", // authors
+							"arXiv:2311.01477v1", // conference
+							"https://arxiv.org/pdf/2311.01477.pdf", // link
+							// "n/a", // bib.
+							"@misc{jing2023faithscore,<br>" + // bib
+							"&nbsp;&nbsp;&nbsp;title={FAITHSCORE: Evaluating Hallucinations in Large Vision-Language Models},<br>" +
+							"&nbsp;&nbsp;&nbsp;author={Liqiang Jing and Ruosen Li and Yunmo Chen and Mengzhao Jia and Xinya Du},<br>" +
+							"&nbsp;&nbsp;&nbsp;eprint={2311.01477},<br>" +
+							"&nbsp;&nbsp;&nbsp;year={2023}<br>}",
+							"We introduce FAITHSCORE (Faithfulness to Atomic Image Facts Score), a reference-free and fine-grained evaluation metric that measures the faithfulness of the generated free-form answers from large vision-language models (LVLMs). The FAITHSCORE evaluation first identifies sub-sentences containing descriptive statements that need to be verified, then extracts a comprehensive list of atomic facts from these sub-sentences, and finally conducts consistency verification between fine-grained atomic facts and the input image. Meta-evaluation demonstrates that our metric highly correlates with human judgments of faithfulness. We collect two benchmark datasets (i.e. LLaVA-1k and MSCOCO-Cap) for evaluating LVLMs instruction-following hallucinations. We measure hallucinations in state-of-the-art LVLMs with FAITHSCORE on the datasets. Results reveal that current systems are prone to generate hallucinated content unfaithful to the image, which leaves room for future improvements. Further, we find that current LVLMs despite doing well on color and counting, still struggle with long answers, relations, and multiple objects.", // abstract
+							"https://arxiv.org/pdf/2311.01477.pdf", // arXiv_link
+							// "https://github.com/xinyadu/RGQA", // code
+							// "abc", // data
+							// "abc" // pre
+							)
 
 
-						// ---------------------------------- 2019 ------------------------------------------------------------------------------------------------------
-				        document.write("<h5>2019</h5>")
-				        document.write("<ul style=\"list-style: none;\">")
-				        add_paper("Be Consistent! Improving Procedural Text Comprehension using Label Consistency",
-				            "<b>Xinya Du</b>, Bhavana Dalvi, Niket Tandon, Antoine Bosselut, Wen-tau Yih, Peter Clark, Claire Cardie", // authors
-				            "NAACL 2019", // conference
-				            "https://aclanthology.org/N19-1244/", // link
-				            // null,
-				            "@Inproceedings{du2019consistency,<br>" + // bib
-				            "&nbsp;&nbsp;&nbsp;title={Be Consistent! Improving Procedural Text Comprehension using Label Consistency},<br>" +
-				            "&nbsp;&nbsp;&nbsp;author={Du, Xinya  and Dalvi, Bhavana  and Tandon, Niket  and Bosselut, Antoine  and Yih, Wen-tau  and Clark, Peter  and Cardie, Claire},<br>" +
-				            "&nbsp;&nbsp;&nbsp;booktitle={NAACL},<br>" +
-				            "&nbsp;&nbsp;&nbsp;year={2019}<br>}",
-				            "Our goal is procedural text comprehension, namely tracking how the properties of entities (e.g., their location) change with time given a procedural text (e.g., a paragraph about photosynthesis, a recipe). This task is challenging as the world is changing throughout the text, and despite recent advances, current systems still struggle with this task. Our approach is to leverage the fact that, for many procedural texts, multiple independent descriptions are readily available, and that predictions from them should be consistent (label consistency). We present a new learning framework that leverages label consistency during training, allowing consistency bias to be built into the model. Evaluation on a standard benchmark dataset for procedural text, ProPara (Dalvi et al., 2018), shows that our approach significantly improves prediction performance (F1) over prior state-of-the-art systems.", // abstract
-				            null,
-				            // "https://arxiv.org/abs/2004.13625", // arXiv_link
-				            // "https://github.com/xinyadu/doc_event_role", // code
-				        )
+							add_paper("PRD: Peer Rank and Discussion Improve Large Language Model based Evaluations",
+							"Ruosen Li, Teerth Patel, Xinya Du", // authors
+							"arXiv:2307.02762", // conference
+							"https://arxiv.org/pdf/2307.02762.pdf", // link
+							"@article{li2023prd},<br>" + // bib
+							"&nbsp;&nbsp;&nbsp;title={PRD: Peer Rank and Discussion Improve Large Language Model based Evaluations},<br>" +
+							"&nbsp;&nbsp;&nbsp;author={Li, Ruosen and Patel, Teerth and Du, Xinya},<br>" +
+							"&nbsp;&nbsp;&nbsp;booktitle={arXiv preprint arXiv:2307.02762},<br>" +
+							"&nbsp;&nbsp;&nbsp;year={2023}<br>}",
+							"n/a", // abstract
+							"n/a", // arXiv_link
+							// "https://github.com/xinyadu/RGQA", // code
+							// "abc", // data
+							// "abc" // pre
+							)
 
-				        document.write("</ul>")
+							add_paper("Logical Reasoning over Natural Language as Knowledge Representation: A Survey",
+							"Zonglin Yang, Xinya Du, Rui Mao, Jinjie Ni, Erik Cambria", // authors
+							"arXiv", // conference
+							"https://arxiv.org/abs/2303.12023", // link
+							"@article{yang2023logical},<br>" + // bib
+							"&nbsp;&nbsp;&nbsp;title={Logical Reasoning over Natural Language as Knowledge Representation: A Survey},<br>" +
+							"&nbsp;&nbsp;&nbsp;author={Yang, Zonglin and Du, Xinya and Mao, Rui and Ni, Jinjie and Cambria, Erik},<br>" +
+							"&nbsp;&nbsp;&nbsp;booktitle={arXiv preprint arXiv:2303.12023},<br>" +
+							"&nbsp;&nbsp;&nbsp;year={2023}<br>}",
+							"n/a", // abstract
+							"n/a", // arXiv_link
+							// "https://github.com/xinyadu/RGQA", // code
+							// "abc", // data
+							// "abc" // pre
+							)
 
-						// ---------------------------------- 2018 ------------------------------------------------------------------------------------------------------
-				        document.write("<h5>2018</h5>")
-				        document.write("<ul style=\"list-style: none;\">")
-				        add_paper("Harvesting Paragraph-level Question-Answer Pairs from Wikipedia",
-				            "<b>Xinya Du</b>, Claire Cardie", // authors
-				            "ACL 2018", // conference
-				            "https://aclanthology.org/P18-1177/", // link
-				            // null,
-				            "@Inproceedings{du2018harvesting,<br>" + // bib
-				            "&nbsp;&nbsp;&nbsp;title={Harvesting Paragraph-level Question-Answer Pairs from Wikipedia},<br>" +
-				            "&nbsp;&nbsp;&nbsp;author={Du, Xinya and Cardie, Claire},<br>" +
-				            "&nbsp;&nbsp;&nbsp;booktitle={ACL},<br>" +
-				            "&nbsp;&nbsp;&nbsp;year={2018}<br>}",
-				            "We study the task of generating from Wikipedia articles question-answer pairs that cover content beyond a single sentence. We propose a neural network approach that incorporates coreference knowledge via a novel gating mechanism. As compared to models that only take into account sentence-level information (Heilman and Smith, 2010; Du et al., 2017; Zhou et al., 2017), we find that the linguistic knowledge introduced by the coreference representation aids question generation significantly, producing models that outperform the current state-of-the-art. We apply our system (composed of an answer span extraction system and the passage-level QG system) to the 10,000 top ranking Wikipedia articles and create a corpus of over one million question-answer pairs. We provide qualitative analysis for the this large-scale generated corpus from Wikipedia.", // abstract
-				            // null,
-				            "https://arxiv.org/pdf/1805.05942.pdf", // arXiv_link
-				            "https://github.com/xinyadu/harvestingQA", // code
-				        )
-				        document.write("</ul>")
+							add_paper("Large Language Models for Automated Open-domain Scientific Hypotheses Discovery",
+							"Zonglin Yang, Xinya Du, Junxian Li, Jie Zheng, Soujanya Poria, Erik Cambria", // authors
+							"ACL 2024 (Findings)", // conference
+							"https://arxiv.org/pdf/2309.02726.pdf", // link
+							// "@article{yang2023logical},<br>" + // bib
+							// "&nbsp;&nbsp;&nbsp;title={Logical Reasoning over Natural Language as Knowledge Representation: A Survey},<br>" +
+							// "&nbsp;&nbsp;&nbsp;author={Yang, Zonglin and Du, Xinya and Mao, Rui and Ni, Jinjie and Cambria, Erik},<br>" +
+							// "&nbsp;&nbsp;&nbsp;booktitle={arXiv preprint arXiv:2303.12023},<br>" +
+							// "&nbsp;&nbsp;&nbsp;year={2023}<br>}",
+							"n/a", // abstract
+							"n/a", // arXiv_link
+							// "https://github.com/xinyadu/RGQA", // code
+							// "abc", // data
+							// "abc" // pre
+							)
 
-						// ---------------------------------- 2017 ------------------------------------------------------------------------------------------------------
-				        document.write("<h5>2017</h5>")
-				        document.write("<ul style=\"list-style: none;\">")
-				        add_paper("<strong>Learning to Ask</strong>: Neural Question Generation for Reading Comprehension",
-				            "<b>Xinya Du</b>, Junru Shao, Claire Cardie", // authors
-				            "ACL 2017", // conference
-				            "https://aclanthology.org/P17-1123/", // link
-				            // null,
-				            "@Inproceedings{du2017learning,<br>" + // bib
-				            "&nbsp;&nbsp;&nbsp;title={Learning to Ask: Neural Question Generation for Reading Comprehension},<br>" +
-				            "&nbsp;&nbsp;&nbsp;author={Du, Xinya  and Shao, Junru  and Cardie, Claire},<br>" +
-				            "&nbsp;&nbsp;&nbsp;booktitle={ACL},<br>" +
-				            "&nbsp;&nbsp;&nbsp;year={2017}<br>}",
-				            "We study the task of generating from Wikipedia articles question-answer pairs that cover content beyond a single sentence. We propose a neural network approach that incorporates coreference knowledge via a novel gating mechanism. As compared to models that only take into account sentence-level information (Heilman and Smith, 2010; Du et al., 2017; Zhou et al., 2017), we find that the linguistic knowledge introduced by the coreference representation aids question generation significantly, producing models that outperform the current state-of-the-art. We apply our system (composed of an answer span extraction system and the passage-level QG system) to the 10,000 top ranking Wikipedia articles and create a corpus of over one million question-answer pairs. We provide qualitative analysis for the this large-scale generated corpus from Wikipedia.", // abstract
-				            // null,
-				            "https://arxiv.org/abs/1705.00106", // arXiv_link
-				            "https://github.com/xinyadu/nqg", // code
-				            null, //data
-				            "files/acl17_dsc_poster.pdf", //slides
-				            null, //talk
-				            "<img src=\"imgs/tv-icon.png\" width=\"30px\" /> Featured in <a href=\"https://www.newscientist.com/article/2130205-inquisitive-bot-asks-questions-to-test-your-understanding/\"><em>New Scientist</em></a> <a><img src=\"imgs/newscientist.jpg\" width=\"40px\" /></a> <a href=\"http://www.techrepublic.com/article/how-researchers-trained-one-ai-system-to-start-asking-its-own-questions/\"><em>Tech Republic</em></a> <a><img src=\"imgs/techrepublic.png\" width=\"70px\" /></a>", //msg
-				        )
-				        add_paper("Identifying Where to Focus in Reading Comprehension for Neural Question Generation",
-				            "<b>Xinya Du</b>, Claire Cardie", // authors
-				            "EMNLP 2017", // conference
-				            "https://aclanthology.org/D17-1219/", // link
-				            // null,
-				            "@Inproceedings{du2017identifying,<br>" + // bib
-				            "&nbsp;&nbsp;&nbsp;title={Identifying Where to Focus in Reading Comprehension for Neural Question Generation},<br>" +
-				            "&nbsp;&nbsp;&nbsp;author={Du, Xinya and Cardie, Claire},<br>" +
-				            "&nbsp;&nbsp;&nbsp;booktitle={EMNLP},<br>" +
-				            "&nbsp;&nbsp;&nbsp;year={2017}<br>}",
-				            "A first step in the task of automatically generating questions for testing reading comprehension is to identify question-worthy sentences, i.e. sentences in a text passage that humans find it worthwhile to ask questions about. We propose a hierarchical neural sentence-level sequence tagging model for this task, which existing approaches to question generation have ignored. The approach is fully data-driven — with no sophisticated NLP pipelines or any hand-crafted rules/features — and compares favorably to a number of baselines when evaluated on the SQuAD data set. When incorporated into an existing neural question generation system, the resulting end-to-end system achieves state-of-the-art performance for paragraph-level question generation for reading comprehension.", // abstract
-				            null,
-				            // "https://arxiv.org/abs/1705.00106", // arXiv_link
-				            null,
-				            // "https://github.com/xinyadu/nqg", // code
-				            null, //data
 
-				            // "./files/acl17_dsc_poster.pdf", //slides
-				            null, //talk
-				        )
-				        document.write("</ul>")
+							add_paper("Language Models as Inductive Reasoners",
+							"Zonglin Yang, Li Dong, Xinya Du, Hao Cheng, Erik Cambria, Xiaodong Liu, Jianfeng Gao, Furu Wei", // authors
+							"EACL 2024", // conference
+							"https://arxiv.org/pdf/2212.10923.pdf", // link
+							"@article{yang2022inductive},<br>" + // bib
+							"&nbsp;&nbsp;&nbsp;title={Language Models as Inductive Reasoners},<br>" +
+							"&nbsp;&nbsp;&nbsp;author={Yang, Zonglin and Dong, Li and Du, Xinya and Cheng, Hao and Cambria, Erik and Liu, Xiaodong and Gao, Jianfeng and Wei, Furu},<br>" +
+							"&nbsp;&nbsp;&nbsp;booktitle={EACL},<br>" +
+							"&nbsp;&nbsp;&nbsp;year={2024}<br>}",
+							"n/a", // abstract
+							"n/a", // arXiv_link
+							// "https://github.com/xinyadu/RGQA", // code
+							// "abc", // data
+							// "abc" // pre
+							)
 
-				</script>
-					<!-- </script> -->
-					<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+							add_paper("QAEvent: Event Extraction as Question-Answer Pairs Generation",
+							"Milind Choudhary, Xinya Du", // authors
+							"EACL 2024 (Findings)", // conference
+							".", // link
+							"@article{Choudhary2024qaevent},<br>" + // bib
+							// "&nbsp;&nbsp;&nbsp;title={Language Models as Inductive Reasoners},<br>" +
+							// "&nbsp;&nbsp;&nbsp;author={Yang, Zonglin and Dong, Li and Du, Xinya and Cheng, Hao and Cambria, Erik and Liu, Xiaodong and Gao, Jianfeng and Wei, Furu},<br>" +
+							// "&nbsp;&nbsp;&nbsp;booktitle={EACL},<br>" +
+							// "&nbsp;&nbsp;&nbsp;year={2024}<br>}",
+							"n/a", // abstract
+							"n/a", // arXiv_link
+							// "https://github.com/xinyadu/RGQA", // code
+							// "abc", // data
+							// "abc" // pre
+							)
+
+							document.write("</ul>")
+
+							document.write("<h5>2023</h5>")
+							document.write("<ul style=\"list-style: none;\">")
+
+							add_paper("Leveraging Structured Information for Explainable Multi-hop Question Answering and Reasoning",
+							"Ruosen Li, Xinya Du", // authors
+							"EMNLP 2023 (Findings)", // conference
+							"", // link
+							"@InProceedings{li2023leveraging,<br>" + // bib
+							"&nbsp;&nbsp;&nbsp;title={Leveraging Structured Information for Explainable Multi-hop Question Answering and Reasoning},<br>" +
+							"&nbsp;&nbsp;&nbsp;author={Li, Ruosen and Du, Xinya},<br>" +
+							"&nbsp;&nbsp;&nbsp;booktitle={EMNLP},<br>" +
+							"&nbsp;&nbsp;&nbsp;year={2023}<br>}",
+							"Neural models, including large language models (LLMs), achieve superior performance on multi-hop question-answering. To elicit reasoning capabilities from LLMs, recent works propose using the chain-of-thought (CoT) mechanism to generate both the reasoning chain and the answer, which enhances the model’s capabilities in conducting multi-hop reasoning. However, several challenges still remain: such as struggling with inaccurate reasoning, hallucinations, and lack of interpretability. On the other hand, information extraction (IE) identifies entities, relations, and events grounded to the text. The extracted structured information can be easily interpreted by humans and machines (Grishman, 2019). In this work, we investigate constructing and leveraging extracted semantic structures (graphs) for multihop question answering, especially the reasoning process. Empirical results and human evaluations show that our framework: generates more faithful reasoning chains and substantially improves the QA performance on two benchmark datasets. Moreover, the extracted structures themselves naturally provide grounded explanations that are preferred by humans, as compared to the generated reasoning chains and saliency-based explanations.", // abstract
+							"n/a", // arXiv_link
+							// "https://github.com/xinyadu/RGQA", // code
+							// "abc", // data
+							// "abc" // pre
+							)
+
+							add_paper("Process of Elimination for Multiple Choice Reasoning",
+							"Chenkai Ma, Xinya Du", // authors
+							"EMNLP 2023", // conference
+							"", // link
+							"@InProceedings{li2023leveraging,<br>" + // bib
+							"&nbsp;&nbsp;&nbsp;title={Process of Elimination for Multiple Choice Reasoning},<br>" +
+							"&nbsp;&nbsp;&nbsp;author={Ma, Chenkai and Du, Xinya},<br>" +
+							"&nbsp;&nbsp;&nbsp;booktitle={arXiv preprint arXiv:2307.02762},<br>" +
+							"&nbsp;&nbsp;&nbsp;year={2023}<br>}",
+							"Language models are capable of in-context learning for multiple choice reasoning tasks, but the options in these tasks are treated equally. As human often eliminate wrong options before reaching the final answer, we argue a similar strategy can make LMs better at these tasks. To this end, we present Process of Elimination (PoE), a two-step prompting method. In the first step, PoE scores each option, and eliminates seemingly wrong options. In the second step, PoE masks wrong options, and makes the final prediction from the remaining options. Comprehensive experiments on 8 reasoning benchmarks illustrate the effect of our method. Analysis shows our method is applicable to fewshot and compatible with LLMs like ChatGPT.", // abstract
+							"n/a", // arXiv_link
+							// "https://github.com/xinyadu/RGQA", // code
+							// "abc", // data
+							// "abc" // pre
+							)
+
+							add_paper("Probing Representations for Document-level Event Extraction",
+							"Barry Wang, Xinya Du, Claire Cardie", // authors
+							"EMNLP 2023 (Findings)", // conference
+							"", // link
+							"@article{li2023prd},<br>" + // bib
+							"&nbsp;&nbsp;&nbsp;title={Probing Representations for Document-level Event Extraction},<br>" +
+							"&nbsp;&nbsp;&nbsp;author={Wang, Barry and Du, Xinya and Cardie, Claire},<br>" +
+							"&nbsp;&nbsp;&nbsp;booktitle={arXiv preprint arXiv:2307.02762},<br>" +
+							"&nbsp;&nbsp;&nbsp;year={2023}<br>}",
+							"n/a", // abstract
+							"n/a", // arXiv_link
+							// "https://github.com/xinyadu/RGQA", // code
+							// "abc", // data
+							// "abc" // pre
+							)
+
+							add_paper("Toward Consistent and Informative Event-Event Temporal Relation Extraction",
+							"Xiaomeng Jin, Haoyang Wen, Xinya Du, Heng Ji", // authors
+							"MATCHING at ACL 2023", // conference
+							"https://aclanthology.org/2023.matching-1.3.pdf", // link
+							"@InProceedings{jin2023consistent},<br>" + // bib
+							"&nbsp;&nbsp;&nbsp;title={Toward Consistent and Informative Event-Event Temporal Relation Extraction},<br>" +
+							"&nbsp;&nbsp;&nbsp;author={Jin, Xiaomeng and Wen, Haoyang and Du, Xinya and Ji, Heng},<br>" +
+							"&nbsp;&nbsp;&nbsp;booktitle={MATCHING at ACL 2023},<br>" +
+							"&nbsp;&nbsp;&nbsp;year={2023}<br>}",
+							"n/a", // abstract
+							"n/a", // arXiv_link
+							// "https://github.com/xinyadu/RGQA", // code
+							// "abc", // data
+							// "abc" // pre
+							)
+
+							add_paper("Zero-Shot Classification by Logical Reasoning on Natural Language Explanations",
+							"Chi Han, Hengzhi Pei, Xinya Du, Heng Ji", // authors
+							"ACL 2023 (Findings)", // conference
+							"https://aclanthology.org/2023.findings-acl.571.pdf", // link
+							"@InProceedings{han2023zero},<br>" + // bib
+							"&nbsp;&nbsp;&nbsp;title={Zero-Shot Classification by Logical Reasoning on Natural Language Explanations},<br>" +
+							"&nbsp;&nbsp;&nbsp;author={Han, Chi and Pei, Hengzhi and Du, Xinya and Ji, Heng},<br>" +
+							"&nbsp;&nbsp;&nbsp;booktitle={ACL (Findings)},<br>" +
+							"&nbsp;&nbsp;&nbsp;year={2023}<br>}",
+							"n/a", // abstract
+							"n/a", // arXiv_link
+							// "https://github.com/xinyadu/RGQA", // code
+							// "abc", // data
+							// "abc" // pre
+							)
+
+							add_paper("End-to-end Case-Based Reasoning for Commonsense Knowledge Base Completion",
+								"Zonglin Yang, <strong>Xinya Du</strong>, Erik Cambria, Claire Cardie", // authors
+								"EACL 2023", // conference
+								"https://w.sentic.net/commonsense-knowledge-base-completion.pdf", // link
+								"@InProceedings{yang2023cbr},<br>" + // bib
+								"&nbsp;&nbsp;&nbsp;title={End-to-end Case-Based Reasoning for Commonsense Knowledge Base Completion},<br>" +
+								"&nbsp;&nbsp;&nbsp;author={Yang, Zonglin and Du, Xinya and Cambria, Erik and Cardie, Claire},<br>" +
+								"&nbsp;&nbsp;&nbsp;booktitle={EACL},<br>" +
+								"&nbsp;&nbsp;&nbsp;year={2023}<br>}",
+								"n/a", // abstract
+								"n/a", // arXiv_link
+								// "https://github.com/xinyadu/RGQA", // code
+								// "abc", // data
+								// "abc" // pre
+							)
+
+							add_paper("Logical Entity Representation in Knowledge-Graphs for Differentiable Rule Learning",
+								"Chi Han, Qizheng He, Charles Yu, <b>Xinya Du</b>, Hanghang Tong, Heng Ji", // authors
+								"ICLR 2023", // conference
+								"https://arxiv.org/pdf/2211.07067.pdf", // link
+								"@InProceedings{yang2023cbr},<br>" + // bib
+								"&nbsp;&nbsp;&nbsp;title={Logical Entity Representation in Knowledge-Graphs for Differentiable Rule Learning},<br>" +
+								"&nbsp;&nbsp;&nbsp;author={Han, Chi and He, Qizheng and Yu, Charles and Du, Xinya and Tong, Hanghang and Ji, Heng},<br>" +
+								"&nbsp;&nbsp;&nbsp;booktitle={ICLR},<br>" +
+								"&nbsp;&nbsp;&nbsp;year={2023}<br>}",
+								"Probabilistic logical rule learning has shown great strength in logical rule mining and knowledge graph completion. It learns logical rules to predict missing edges by reasoning on existing edges in the knowledge graph. However, previous efforts have largely been limited to only modeling chain-like Horn clauses such as R1(x; z) ^ R2(z; y) ) H(x; y). This formulation overlooks additional contextual information from neighboring sub-graphs of entity variables x, y and z. Intuitively, there is a large gap here, as local sub-graphs have been found to provide important information for knowledge graph completion. Inspired by these observations, we propose Logical Entity RePresentation (LERP) to encode contextual information of entities in the knowledge graph. A LERP is designed as a vector of probabilistic logical functions on the entity’s neighboring sub-graph. It is an interpretable representation while allowing for differentiable optimization. We can then incorporate LERP into probabilistic logical rule learning to learn more expressive rules. Empirical results demonstrate that with LERP, our model outperforms other rule learning methods in knowledge graph completion and is comparable or even superior to state-of-the-art black-box methods. Moreover, we find that our model can discover a more expressive family of logical rules. LERP can also be further combined with embedding learning methods like TransE to make it more interpretable.", // abstract
+								"https://openreview.net/forum?id=JdgO-ht1uTN", // arXiv_link
+								// "https://github.com/xinyadu/RGQA", // code
+								// "abc", // data
+								// "abc" // pre
+							)
+
+							document.write("</ul>")
+
+							document.write("<h5>2022</h5>")
+							document.write("<ul style=\"list-style: none;\">")
+
+							add_paper("Retrieval-Augmented Generative Question Answering for Event Argument Extraction",
+								"<b>Xinya Du</b> and Heng Ji", // authors
+								"Proceedings of the 2022 Conference on Empirical Methods in Natural Language Processing (EMNLP)", // conference
+								"https://arxiv.org/pdf/2211.07067.pdf", // link
+								"@InProceedings{du2022retrieval},<br>" + // bib
+								"&nbsp;&nbsp;&nbsp;title={Retrieval-Augmented Generative Question Answering for Event Argument Extraction},<br>" +
+								"&nbsp;&nbsp;&nbsp;author={Du, Xinya and Ji, Heng},<br>" +
+								"&nbsp;&nbsp;&nbsp;booktitle={EMNLP},<br>" +
+								"&nbsp;&nbsp;&nbsp;year={2022}<br>}",
+								"Event argument extraction has long been studied as a sequential prediction problem with extractive-based methods, tackling each argument in isolation. Although recent work proposes generation-based methods to capture cross-argument dependency, they require generating and post-processing a complicated target sequence (template). Motivated by these observations and recent pretrained language models’ capabilities of learning from demonstrations. We propose a retrieval-augmented generative QA model (R-GQA) for event argument extraction. It retrieves the most similar QA pair and augments it as prompt to the current example’s context, then decodes the arguments as answers. Our approach outperforms substantially prior methods across various settings (i.e. fully supervised, domain transfer, and fewshot learning). Finally, we propose a clusteringbased sampling strategy (JointEnc) and conduct a thorough analysis of how different strategies influence the few-shot learning performance.", // abstract
+								"https://arxiv.org/abs/2211.07067", // arXiv_link
+								"https://github.com/xinyadu/RGQA", // code
+								// "abc", // data
+								// "abc" // pre
+							)
+							add_paper("Dynamic Global Memory for Document-level Argument Extraction",
+								"<b>Xinya Du</b>, Sha Li, Heng Ji", // authors
+								"Association for Computational Linguistics and the International Joint Conference on Natural Language Processing (ACL-IJCNLP) 2022", // conference
+								"https://aclanthology.org/2022.acl-long.361/", // link
+								"@InProceedings{du2022dynamic,<br>" + // bib
+								"&nbsp;&nbsp;&nbsp;title={Dynamic Global Memory for Document-level Argument Extraction},<br>" +
+								"&nbsp;&nbsp;&nbsp;author={Du, Xinya and Li, Sha and Ji, Heng},<br>" +
+								"&nbsp;&nbsp;&nbsp;booktitle={Association for Computational Linguistics (ACL)},<br>" +
+								"&nbsp;&nbsp;&nbsp;year={2022}<br>}",
+								"Extracting informative arguments of events from news articles is a challenging problem in information extraction, which requires a global understanding of each document. While recent work on document-level extraction has gone beyond single-sentence and increased the cross-sentence inference capability of end-to-end models, they are still restricted by certain input sequence length constraints and usually ignore the global context between events. To tackle this issue, we introduce a new global neural generation-based framework for document-level event argument extraction by constructing a document memory store to record the contextual event information and leveraging it to implicitly and explicitly help with decoding of arguments for later events. Empirical results show that our framework outperforms prior methods substantially and it is more robust to adversarially annotated examples with our constrained decoding design.", // abstract
+								null, // arXiv_link
+								"https://github.com/xinyadu/memory_docie", // code
+								// "abc", // data
+								// "abc" // pre
+							)
+
+							add_paper("Automatic Error Analysis for Document-level Information Extraction",
+								"Aliva Das<sup>*</sup>, <b>Xinya Du</b><sup>*</sup>, Barry Wang<sup>*</sup>, Jiayuan Gu, Kejian Shi, Thomas Porter, Claire Cardie", // authors
+								"ACL 2022", // conference
+								"https://aclanthology.org/2022.acl-long.274.pdf", // link
+								"@InProceedings{das2022error,<br>" + // bib
+								"&nbsp;&nbsp;&nbsp;title={Automatic Error Analysis for Document-level Information Extraction},<br>" +
+								"&nbsp;&nbsp;&nbsp;author={Das, Aliva and Du, Xinya  and Wang, Barry  and Shi, Kejian  and Gu, Jiayuan  and Porter, Thomas  and Cardie, Claire,<br>" +
+								"&nbsp;&nbsp;&nbsp;booktitle={Association for Computational Linguistics (ACL)},<br>" +
+								"&nbsp;&nbsp;&nbsp;year={2022}<br>}",
+								"Document-level information extraction (IE) tasks have recently begun to be revisited in earnest using the end-to-end neural network techniques that have been successful on their sentence-level IE counterparts. Evaluation of the approaches, however, has been limited in a number of dimensions. In particular, the precision/recall/F1 scores typically reported provide few insights on the range of errors the models make. We build on the work of Kummerfeld and Klein (2013) to propose a transformation-based framework for automating error analysis in document-level event and (N-ary) relation extraction. We employ our framework to compare two state-of-the-art document-level template-filling approaches on datasets from three domains; and then, to gauge progress in IE since its inception 30 years ago, vs. four systems from the MUC-4 (1992) evaluation.", // abstract
+								null, // arXiv_link
+								"https://github.com/icejinx33/auto-err-template-fill", // code
+							)
+							add_paper("RESIN-11: Schema-guided Event Prediction for 11 Newsworthy Scenarios",
+								"<b>Xinya Du</b>, Zixuan Zhang, Sha Li, Ziqi Wang, Pengfei Yu, Hongwei Wang, Tuan Manh Lai, Xudong Lin, Iris Liu, Ben Zhou, Haoyang Wen, Manling Li, Darryl Hannan, Jie Lei, Hyounghun Kim, Rotem Dror, Haoyu Wang, Michael Regan, Qi Zeng, Qing Lyu, Charles Yu, Carl Edwards, Xiaomeng Jin, Yizhu Jiao, Ghazaleh Kazeminejad, Zhenhailong Wang, Chris Callison-Burch, Carl Vondrick, Mohit Bansal, Dan Roth, Jiawei Han, Shih-Fu Chang, Martha Palmer, Heng Ji", // authors
+								"NAACL 2022 (demo)", // conference
+								"https://blender.cs.illinois.edu/paper/resin2022.pdf", // link
+								null, //bib
+								null, //abs
+								null, //arxiv
+								"https://github.com/RESIN-KAIROS/RESIN-11",//code
+								null, //data
+								"http://18.221.187.153:11000/kairos",  //pre
+							)
+							document.write("</ul>")
+
+
+							// ---------------------------------- 2021 ------------------------------------------------------------------------------------------------------
+							document.write("<h5>2021</h5>")
+							document.write("<ul style=\"list-style: none;\">")
+							add_paper("Towards More Intelligent Extraction of Information from Documents",
+								"<b>Xinya Du</b>", // authors
+								"PhD Dissertation, Cornell University", // conference
+								"https://search.proquest.com/openview/ff090eb702b98c8e4562865ddb5e7f81/1?pq-origsite=gscholar&cbl=18750&diss=y", // link
+								"@article{du2021towards,<br>" +
+								"&nbsp;&nbsp;&nbsp;title={Towards More Intelligent Extraction of Information from Documents},<br>" + 
+								"&nbsp;&nbsp;&nbsp;author={Du, Xinya},<br>" + 
+								"&nbsp;&nbsp;&nbsp;year={2021},<br>" + 
+								"&nbsp;&nbsp;&nbsp;school={Cornell University}<br>}",
+							)
+							add_paper("Template Filling with Generative Transformers",
+								"<b>Xinya Du</b>, Alexander M. Rush, Claire Cardie", // authors
+								"NAACL 2021 (short)", // conference
+								"https://aclanthology.org/2021.naacl-main.70", // link
+								null,
+								// "@InProceedings{du2022dynamic,<br>" + // bib
+								// "&nbsp;&nbsp;&nbsp;title={Dynamic Global Memory for Document-level Argument Extraction},<br>" +
+								// "&nbsp;&nbsp;&nbsp;author={Du, Xinya and Li, Sha and Ji, Heng},<br>" +
+								// "&nbsp;&nbsp;&nbsp;booktitle={Association for Computational Linguistics (ACL)},<br>" +
+								// "&nbsp;&nbsp;&nbsp;year={2022}<br>}",
+								"Template filling is generally tackled by a pipeline of two separate supervised systems – one for role-filler extraction and another for template/event recognition. Since pipelines consider events in isolation, they can suffer from error propagation. We introduce a framework based on end-to-end generative transformers for this task (i.e., GTT). It naturally models the dependence between entities both within a single event and across the multiple events described in a document. Experiments demonstrate that this framework substantially outperforms pipeline-based approaches, and other neural end-to-end baselines that do not model between-event dependencies. We further show that our framework specifically improves performance on documents containing multiple events.", // abstract
+								null, // arXiv_link
+								"https://github.com/xinyadu/gtt", // code
+							)
+							add_paper("GRIT: Generative Role-filler Transformers for <strong>Document-level</strong> Event Entity Extraction",
+								"<b>Xinya Du</b>, Alexander M. Rush, Claire Cardie", // authors
+								"EACL 2021", // conference
+								"https://aclanthology.org/2021.eacl-main.52", // link
+								null,
+								// "@InProceedings{du2022dynamic,<br>" + // bib
+								// "&nbsp;&nbsp;&nbsp;title={Dynamic Global Memory for Document-level Argument Extraction},<br>" +
+								// "&nbsp;&nbsp;&nbsp;author={Du, Xinya and Li, Sha and Ji, Heng},<br>" +
+								// "&nbsp;&nbsp;&nbsp;booktitle={Association for Computational Linguistics (ACL)},<br>" +
+								// "&nbsp;&nbsp;&nbsp;year={2022}<br>}",
+								"We revisit the classic problem of document-level role-filler entity extraction (REE) for template filling. We argue that sentence-level approaches are ill-suited to the task and introduce a generative transformer-based encoder-decoder framework (GRIT) that is designed to model context at the document level: it can make extraction decisions across sentence boundaries; is implicitly aware of noun phrase coreference structure, and has the capacity to respect cross-role dependencies in the template structure. We evaluate our approach on the MUC-4 dataset, and show that our model performs substantially better than prior work. We also show that our modeling choices contribute to model performance, e.g., by implicitly capturing linguistic knowledge such as recognizing coreferent entity mentions.", // abstract
+								null, // arXiv_link
+								"https://github.com/xinyadu/grit_doc_event_entity", // code
+							)
+							add_paper("Few-shot Intent Classification and Slot Filling with Retrieved Examples",
+								"Dian Yu, Luheng He, Yuan Zhang, <strong>Xinya Du</strong>, Panupong Pasupat, Qi Li", // authors
+								"NAACL 2021", // conference
+								"https://aclanthology.org/2021.naacl-main.59/", // link
+								null,
+								// "@InProceedings{du2022dynamic,<br>" + // bib
+								// "&nbsp;&nbsp;&nbsp;title={Dynamic Global Memory for Document-level Argument Extraction},<br>" +
+								// "&nbsp;&nbsp;&nbsp;author={Du, Xinya and Li, Sha and Ji, Heng},<br>" +
+								// "&nbsp;&nbsp;&nbsp;booktitle={Association for Computational Linguistics (ACL)},<br>" +
+								// "&nbsp;&nbsp;&nbsp;year={2022}<br>}",
+								"Few-shot learning arises in important practical scenarios, such as when a natural language understanding system needs to learn new semantic labels for an emerging, resource-scarce domain. In this paper, we explore retrieval-based methods for intent classification and slot filling tasks in few-shot settings. Retrieval-based methods make predictions based on labeled examples in the retrieval index that are similar to the input, and thus can adapt to new domains simply by changing the index without having to retrain the model. However, it is non-trivial to apply such methods on tasks with a complex label space like slot filling. To this end, we propose a span-level retrieval method that learns similar contextualized representations for spans with the same label via a novel batch-softmax objective. At inference time, we use the labels of the retrieved spans to construct the final structure with the highest aggregated score. Our method outperforms previous systems in various few-shot settings on the CLINC and SNIPS benchmarks.", // abstract
+								"https://arxiv.org/abs/2104.05763", // arXiv_link
+								// "https://github.com/xinyadu/grit_doc_event_entity", // code
+							)
+							add_paper("QA-Driven Zero-shot Slot Filling with Weak Supervision Pretraining",
+								"<strong>Xinya Du</strong>, Luheng He, Qi Li, Dian Yu, Panupong Pasupat and Yuan Zhang", // authors
+								"ACL 2021", // conference
+								"https://aclanthology.org/2021.acl-short.83.pdf", // link
+								null,
+								// "@InProceedings{du2022dynamic,<br>" + // bib
+								// "&nbsp;&nbsp;&nbsp;title={Dynamic Global Memory for Document-level Argument Extraction},<br>" +
+								// "&nbsp;&nbsp;&nbsp;author={Du, Xinya and Li, Sha and Ji, Heng},<br>" +
+								// "&nbsp;&nbsp;&nbsp;booktitle={Association for Computational Linguistics (ACL)},<br>" +
+								// "&nbsp;&nbsp;&nbsp;year={2022}<br>}",
+								"Slot-filling is an essential component for build- ing task-oriented dialog systems. In this work, we focus on the zero-shot slot-filling problem, where the model needs to predict slots and their values, given utterances from new do- mains without training on the target domain. Prior methods directly encode slot descrip- tions to generalize to unseen slot types. How- ever, raw slot descriptions are often ambigu- ous and do not encode enough semantic in- formation, limiting the models’ zero-shot ca- pability. To address this problem, we intro- duce QA-driven slot filling (QASF), which ex- tracts slot-filler spans from utterances with a span-based QA model. We use a linguistically motivated questioning strategy to turn descrip- tions into questions, allowing the model to gen- eralize to unseen slot types. Moreover, our QASF model can benefit from weak supervi- sion signals from QA pairs synthetically gen- erated from unlabeled conversations. Our full system substantially outperforms baselines by over 5% on the SNIPS benchmark.", // abstract
+								// "https://arxiv.org/abs/2104.05763", // arXiv_link
+								// "https://github.com/xinyadu/grit_doc_event_entity", // code
+							)
+
+							document.write("</ul>")
+
+							// ---------------------------------- 2020 ------------------------------------------------------------------------------------------------------
+							document.write("<h5>2020</h5>")
+							document.write("<ul style=\"list-style: none;\">")
+							add_paper("Event Extraction by Answering (Almost) Natural <strong>Questions</strong>",
+								"<b>Xinya Du</b>, Claire Cardie", // authors
+								"EMNLP 2020", // conference
+								"https://aclanthology.org/2020.emnlp-main.49/", // link
+								// null,
+								"@Inproceedings{du2022eeqa,<br>" + // bib
+								"&nbsp;&nbsp;&nbsp;title={Event Extraction by Answering (Almost) Natural Questions},<br>" +
+								"&nbsp;&nbsp;&nbsp;author={Du, Xinya and Cardie, Claire},<br>" +
+								"&nbsp;&nbsp;&nbsp;booktitle={EMNLP)},<br>" +
+								"&nbsp;&nbsp;&nbsp;year={2022}<br>}",
+								"The problem of event extraction requires detecting the event trigger and extracting its corresponding arguments. Existing work in event argument extraction typically relies heavily on entity recognition as a preprocessing/concurrent step, causing the well-known problem of error propagation. To avoid this issue, we introduce a new paradigm for event extraction by formulating it as a question answering (QA) task that extracts the event arguments in an end-to-end manner. Empirical results demonstrate that our framework outperforms prior methods substantially; in addition, it is capable of extracting event arguments for roles not seen at training time (i.e., in a zero-shot learning setting).", // abstract
+								"https://arxiv.org/abs/2004.13625", // arXiv_link
+								"https://github.com/xinyadu/eeqa", // code
+							)
+							add_paper("Improving Event Duration Prediction via Time-aware Pre-training",
+								"Zonglin Yang, <strong>Xinya Du</strong>, Alexander Rush, Claire Cardie", // authors
+								"EMNLP 2020 (Findings)", // conference
+								"https://aclanthology.org/2020.findings-emnlp.302.pdf", // link
+								null,
+								// "@Inproceedings{du2022eeqa,<br>" + // bib
+								// "&nbsp;&nbsp;&nbsp;title={Dynamic Global Memory for Document-level Argument Extraction},<br>" +
+								// "&nbsp;&nbsp;&nbsp;author={Du, Xinya and Cardie, Claire},<br>" +
+								// "&nbsp;&nbsp;&nbsp;booktitle={EMNLP)},<br>" +
+								// "&nbsp;&nbsp;&nbsp;year={2022}<br>}",
+								"End-to-end models in NLP rarely encode external world knowledge about length of time. We introduce two effective models for duration prediction, which incorporate external knowledge by reading temporal-related news sentences (time-aware pre-training). Specifically, one model predicts the range/unit where the duration value falls in (R-PRED); and the other predicts the exact duration value (E-PRED). Our best model – E-PRED, substantially outperforms previous work, and captures duration information more accurately than R-PRED. We also demonstrate our models are capable of duration prediction in the unsupervised setting, outperforming the baselines.", // abstract
+								// "https://arxiv.org/abs/2004.13625", // arXiv_link
+								// "https://github.com/xinyadu/eeqa", // code
+							)
+							add_paper("Document-Level <em>Event Role Filler</em> Extraction Using Multi-Granularity Contextualized Encoding",
+								"<strong>Xinya Du</strong>, Claire Cardie", // authors
+								"ACL 2020", // conference
+								"https://aclanthology.org/2020.acl-main.714/", // link
+								// null,
+								"@Inproceedings{du2020document,<br>" + // bib
+								"&nbsp;&nbsp;&nbsp;title={Document-Level Event Role Filler Extraction Using Multi-Granularity Contextualized Encoding},<br>" +
+								"&nbsp;&nbsp;&nbsp;author={Du, Xinya and Cardie, Claire},<br>" +
+								"&nbsp;&nbsp;&nbsp;booktitle={ACL},<br>" +
+								"&nbsp;&nbsp;&nbsp;year={2020}<br>}",
+								"Few works in the literature of event extraction have gone beyond individual sentences to make extraction decisions. This is problematic when the information needed to recognize an event argument is spread across multiple sentences. We argue that document-level event extraction is a difficult task since it requires a view of a larger context to determine which spans of text correspond to event role fillers. We first investigate how end-to-end neural sequence models (with pre-trained language model representations) perform on document-level role filler extraction, as well as how the length of context captured affects the models’ performance. To dynamically aggregate information captured by neural representations learned at different levels of granularity (e.g., the sentence- and paragraph-level), we propose a novel multi-granularity reader. We evaluate our models on the MUC-4 event extraction dataset, and show that our best system performs substantially better than prior work. We also report findings on the relationship between context length and neural model performance on the task.", // abstract
+								null,
+								// "https://arxiv.org/abs/2004.13625", // arXiv_link
+								"https://github.com/xinyadu/doc_event_role", // code
+							)
+							add_paper("Leveraging Structured Metadata for Improving Question Answering on the Web",
+								"<strong>Xinya Du</strong>, Adam Fourney, Robert Sim, Paul Bennett, Claire Cardie, Ahmed Hassan Awadallah", // authors
+								"AACL 2020", // conference
+								"https://aclanthology.org/2020.aacl-main.55/", // link
+								null,
+								// "@Inproceedings{du2020document,<br>" + // bib
+								// "&nbsp;&nbsp;&nbsp;title={Document-Level Event Role Filler Extraction Using Multi-Granularity Contextualized Encoding},<br>" +
+								// "&nbsp;&nbsp;&nbsp;author={Du, Xinya and Cardie, Claire},<br>" +
+								// "&nbsp;&nbsp;&nbsp;booktitle={ACL},<br>" +
+								// "&nbsp;&nbsp;&nbsp;year={2020}<br>}",
+								"We show that leveraging metadata information from web pages can improve the performance of models for answer passage selection/reranking. We propose a neural passage selection model that leverages metadata information with a fine-grained encoding strategy, which learns the representation for metadata predicates in a hierarchical way. The models are evaluated on the MS MARCO (Nguyen et al., 2016) and Recipe-MARCO datasets. Results show that our models significantly outperform baseline models, which do not incorporate metadata. We also show that the fine-grained encoding’s advantage over other strategies for encoding the metadata.", // abstract
+								null,
+								// "https://arxiv.org/abs/2004.13625", // arXiv_link
+								// "https://github.com/xinyadu/doc_event_role", // code
+							)
+							document.write("</ul>")
+
+
+							// ---------------------------------- 2019 ------------------------------------------------------------------------------------------------------
+							document.write("<h5>2019</h5>")
+							document.write("<ul style=\"list-style: none;\">")
+							add_paper("Be Consistent! Improving Procedural Text Comprehension using Label Consistency",
+								"<b>Xinya Du</b>, Bhavana Dalvi, Niket Tandon, Antoine Bosselut, Wen-tau Yih, Peter Clark, Claire Cardie", // authors
+								"NAACL 2019", // conference
+								"https://aclanthology.org/N19-1244/", // link
+								// null,
+								"@Inproceedings{du2019consistency,<br>" + // bib
+								"&nbsp;&nbsp;&nbsp;title={Be Consistent! Improving Procedural Text Comprehension using Label Consistency},<br>" +
+								"&nbsp;&nbsp;&nbsp;author={Du, Xinya  and Dalvi, Bhavana  and Tandon, Niket  and Bosselut, Antoine  and Yih, Wen-tau  and Clark, Peter  and Cardie, Claire},<br>" +
+								"&nbsp;&nbsp;&nbsp;booktitle={NAACL},<br>" +
+								"&nbsp;&nbsp;&nbsp;year={2019}<br>}",
+								"Our goal is procedural text comprehension, namely tracking how the properties of entities (e.g., their location) change with time given a procedural text (e.g., a paragraph about photosynthesis, a recipe). This task is challenging as the world is changing throughout the text, and despite recent advances, current systems still struggle with this task. Our approach is to leverage the fact that, for many procedural texts, multiple independent descriptions are readily available, and that predictions from them should be consistent (label consistency). We present a new learning framework that leverages label consistency during training, allowing consistency bias to be built into the model. Evaluation on a standard benchmark dataset for procedural text, ProPara (Dalvi et al., 2018), shows that our approach significantly improves prediction performance (F1) over prior state-of-the-art systems.", // abstract
+								null,
+								// "https://arxiv.org/abs/2004.13625", // arXiv_link
+								// "https://github.com/xinyadu/doc_event_role", // code
+							)
+
+							document.write("</ul>")
+
+							// ---------------------------------- 2018 ------------------------------------------------------------------------------------------------------
+							document.write("<h5>2018</h5>")
+							document.write("<ul style=\"list-style: none;\">")
+							add_paper("Harvesting Paragraph-level Question-Answer Pairs from Wikipedia",
+								"<b>Xinya Du</b>, Claire Cardie", // authors
+								"ACL 2018", // conference
+								"https://aclanthology.org/P18-1177/", // link
+								// null,
+								"@Inproceedings{du2018harvesting,<br>" + // bib
+								"&nbsp;&nbsp;&nbsp;title={Harvesting Paragraph-level Question-Answer Pairs from Wikipedia},<br>" +
+								"&nbsp;&nbsp;&nbsp;author={Du, Xinya and Cardie, Claire},<br>" +
+								"&nbsp;&nbsp;&nbsp;booktitle={ACL},<br>" +
+								"&nbsp;&nbsp;&nbsp;year={2018}<br>}",
+								"We study the task of generating from Wikipedia articles question-answer pairs that cover content beyond a single sentence. We propose a neural network approach that incorporates coreference knowledge via a novel gating mechanism. As compared to models that only take into account sentence-level information (Heilman and Smith, 2010; Du et al., 2017; Zhou et al., 2017), we find that the linguistic knowledge introduced by the coreference representation aids question generation significantly, producing models that outperform the current state-of-the-art. We apply our system (composed of an answer span extraction system and the passage-level QG system) to the 10,000 top ranking Wikipedia articles and create a corpus of over one million question-answer pairs. We provide qualitative analysis for the this large-scale generated corpus from Wikipedia.", // abstract
+								// null,
+								"https://arxiv.org/pdf/1805.05942.pdf", // arXiv_link
+								"https://github.com/xinyadu/harvestingQA", // code
+							)
+							document.write("</ul>")
+
+							// ---------------------------------- 2017 ------------------------------------------------------------------------------------------------------
+							document.write("<h5>2017</h5>")
+							document.write("<ul style=\"list-style: none;\">")
+							add_paper("<strong>Learning to Ask</strong>: Neural Question Generation for Reading Comprehension",
+								"<b>Xinya Du</b>, Junru Shao, Claire Cardie", // authors
+								"ACL 2017", // conference
+								"https://aclanthology.org/P17-1123/", // link
+								// null,
+								"@Inproceedings{du2017learning,<br>" + // bib
+								"&nbsp;&nbsp;&nbsp;title={Learning to Ask: Neural Question Generation for Reading Comprehension},<br>" +
+								"&nbsp;&nbsp;&nbsp;author={Du, Xinya  and Shao, Junru  and Cardie, Claire},<br>" +
+								"&nbsp;&nbsp;&nbsp;booktitle={ACL},<br>" +
+								"&nbsp;&nbsp;&nbsp;year={2017}<br>}",
+								"We study the task of generating from Wikipedia articles question-answer pairs that cover content beyond a single sentence. We propose a neural network approach that incorporates coreference knowledge via a novel gating mechanism. As compared to models that only take into account sentence-level information (Heilman and Smith, 2010; Du et al., 2017; Zhou et al., 2017), we find that the linguistic knowledge introduced by the coreference representation aids question generation significantly, producing models that outperform the current state-of-the-art. We apply our system (composed of an answer span extraction system and the passage-level QG system) to the 10,000 top ranking Wikipedia articles and create a corpus of over one million question-answer pairs. We provide qualitative analysis for the this large-scale generated corpus from Wikipedia.", // abstract
+								// null,
+								"https://arxiv.org/abs/1705.00106", // arXiv_link
+								"https://github.com/xinyadu/nqg", // code
+								null, //data
+								"files/acl17_dsc_poster.pdf", //slides
+								null, //talk
+								"<img src=\"imgs/tv-icon.png\" width=\"30px\" /> Featured in <a href=\"https://www.newscientist.com/article/2130205-inquisitive-bot-asks-questions-to-test-your-understanding/\"><em>New Scientist</em></a> <a><img src=\"imgs/newscientist.jpg\" width=\"40px\" /></a> <a href=\"http://www.techrepublic.com/article/how-researchers-trained-one-ai-system-to-start-asking-its-own-questions/\"><em>Tech Republic</em></a> <a><img src=\"imgs/techrepublic.png\" width=\"70px\" /></a>", //msg
+							)
+							add_paper("Identifying Where to Focus in Reading Comprehension for Neural Question Generation",
+								"<b>Xinya Du</b>, Claire Cardie", // authors
+								"EMNLP 2017", // conference
+								"https://aclanthology.org/D17-1219/", // link
+								// null,
+								"@Inproceedings{du2017identifying,<br>" + // bib
+								"&nbsp;&nbsp;&nbsp;title={Identifying Where to Focus in Reading Comprehension for Neural Question Generation},<br>" +
+								"&nbsp;&nbsp;&nbsp;author={Du, Xinya and Cardie, Claire},<br>" +
+								"&nbsp;&nbsp;&nbsp;booktitle={EMNLP},<br>" +
+								"&nbsp;&nbsp;&nbsp;year={2017}<br>}",
+								"A first step in the task of automatically generating questions for testing reading comprehension is to identify question-worthy sentences, i.e. sentences in a text passage that humans find it worthwhile to ask questions about. We propose a hierarchical neural sentence-level sequence tagging model for this task, which existing approaches to question generation have ignored. The approach is fully data-driven — with no sophisticated NLP pipelines or any hand-crafted rules/features — and compares favorably to a number of baselines when evaluated on the SQuAD data set. When incorporated into an existing neural question generation system, the resulting end-to-end system achieves state-of-the-art performance for paragraph-level question generation for reading comprehension.", // abstract
+								null,
+								// "https://arxiv.org/abs/1705.00106", // arXiv_link
+								null,
+								// "https://github.com/xinyadu/nqg", // code
+								null, //data
+
+								// "./files/acl17_dsc_poster.pdf", //slides
+								null, //talk
+							)
+							document.write("</ul>")
+
+					</script>
+				</div>
+
+				<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 			</section>
+
 		</div>
 	</body>
+
+
+	
