@@ -60,7 +60,33 @@
 			#selectedPublicationList {
 				display: block;
 			}
+
+			.btn-info {
+        		display: inline-block;
+        		margin-right: 5px;
+    		}
+
+    		.content {
+        		display: none;
+        		margin-top: 5px;
+    		}
+
+			.content-box {
+				border: 1px dotted #000;  /* Dotted black border */
+				padding: 10px;
+				margin-top: 5px;
+				margin-bottom: 5px;
+				display: none;
+			}
+			.btn-info {
+				display: inline-block;
+				margin-right: 5px;
+				margin-bottom: 5px;
+			}
+
 		</style>
+
+		<!-- script for pubs -->
 		<script>
 			function togglePublications(showSelected) {
 				var selectedPublicationList = document.getElementById("selectedPublicationList");
@@ -92,6 +118,28 @@
 		
 		<!-- add paper function-->
 		<script>
+			function toggleDisplay(id) {
+				const element = document.getElementById(id);
+				const bibElements = document.querySelectorAll('[id^="bib"]');
+				const abstractElements = document.querySelectorAll('[id^="abstract"]');
+
+				bibElements.forEach(el => {
+					if (el.id !== id) {
+						el.style.display = "none";
+					}
+				});
+
+				abstractElements.forEach(el => {
+					if (el.id !== id) {
+						el.style.display = "none";
+					}
+				});
+
+				element.style.display = element.style.display === "none" ? "block" : "none";
+        	}
+
+		
+
 			function add_paper(title, authors, conference, link, bib, abstract, arxiv_link, code, data, slides, talk, msg) {
 				list_entry = "<li style=\"font-size:15px\">"
 				if (link != null)
@@ -101,16 +149,30 @@
 					list_entry += "</a>"
 				list_entry += "<br>" + authors + "<br>" + conference + "</li>"
 
-				if (bib != null) {
-					list_entry += "<div id=\"bib" + paper_count + "\" style=\"display:none\">" + bib + "</div>"
-					list_entry += "<a href=\"javascript:copy(div" + paper_count + ",bib" + paper_count + ")\"> <span class=\"btn-sm btn-info\">bib</span></a>"
-				}
+				// Danqi version
+				// if (bib != null) {
+				// 	list_entry += "<div id=\"bib" + paper_count + "\" style=\"display:none\">" + bib + "</div>"
+				// 	list_entry += "<a href=\"javascript:copy(div" + paper_count + ",bib" + paper_count + ")\"> <span class=\"btn-sm btn-info\">bib</span></a>"
+				// }
 
-				if (abstract != null) {
-					list_entry += "<div id=\"abstract" + paper_count + "\" style=\"display:none\">" + abstract + "</div>"
-					list_entry += " <a href=\"javascript:copy(div" + paper_count + ",abstract" + paper_count + ")\"> <span class=\"btn-sm btn-info\">abstract</span></a>"
-					// list_entry += " <a target=\"_blank\" href=\"javascript:copy(div" + paper_count + ",abstract" + paper_count + ")\" class=\"btn-sm btn-info\">abstract</a>"
-				}
+				// if (abstract != null) {
+				// 	list_entry += "<div id=\"abstract" + paper_count + "\" style=\"display:none\">" + abstract + "</div>"
+				// 	list_entry += " <a href=\"javascript:copy(div" + paper_count + ",abstract" + paper_count + ")\"> <span class=\"btn-sm btn-info\">abstract</span></a>"
+				// }
+
+
+				if (bib != null) {
+					list_entry += `<a href="javascript:void(0);" onclick="toggleDisplay('bib${paper_count}')" class="btn-sm btn-info">bib</a>
+                            <div id="bib${paper_count}" class="content-box" style="display:none">${bib}</div>`;
+            	}
+
+
+            	if (abstract != null) {
+                	list_entry += `<a href="javascript:void(0);" onclick="toggleDisplay('abstract${paper_count}')" class="btn-sm btn-info">abstract</a>
+                            <div id="abstract${paper_count}" class="content-box" style="display:none">${abstract}</div>`;
+            	}
+
+
 				if (arxiv_link != null)
 					list_entry += " <a target=\"_blank\" href=\"" + arxiv_link + "\" class=\"btn-sm btn-info\">arXiv</a>"
 
@@ -202,13 +264,13 @@
 							"Liqiang Jing, <strong>Xinya Du</strong>", // authors
 							"arXiv preprint arXiv:2404.05046", // conference
 							"https://arxiv.org/abs/2404.05046", // link
-							"n/a", // bib.
-							"@misc{jing2023faithscore,<br>" + // bib
-							"&nbsp;&nbsp;&nbsp;title={FAITHSCORE: Evaluating Hallucinations in Large Vision-Language Models},<br>" +
-							"&nbsp;&nbsp;&nbsp;author={Liqiang Jing and Ruosen Li and Yunmo Chen and Mengzhao Jia and <strong>Xinya Du</strong>},<br>" +
-							"&nbsp;&nbsp;&nbsp;eprint={2311.01477},<br>" +
-							"&nbsp;&nbsp;&nbsp;year={2023}<br>}",
-							// "We introduce FAITHSCORE (Faithfulness to Atomic Image Facts Score), a reference-free and fine-grained evaluation metric that measures the faithfulness of the generated free-form answers from large vision-language models (LVLMs). The FAITHSCORE evaluation first identifies sub-sentences containing descriptive statements that need to be verified, then extracts a comprehensive list of atomic facts from these sub-sentences, and finally conducts consistency verification between fine-grained atomic facts and the input image. Meta-evaluation demonstrates that our metric highly correlates with human judgments of faithfulness. We collect two benchmark datasets (i.e. LLaVA-1k and MSCOCO-Cap) for evaluating LVLMs instruction-following hallucinations. We measure hallucinations in state-of-the-art LVLMs with FAITHSCORE on the datasets. Results reveal that current systems are prone to generate hallucinated content unfaithful to the image, which leaves room for future improvements. Further, we find that current LVLMs despite doing well on color and counting, still struggle with long answers, relations, and multiple objects.", // abstract
+							// "n/a", // bib.
+							"@misc{jing2023fgaif,<br>" + // bib
+							"&nbsp;&nbsp;&nbsp;title={FGAIF: Aligning Large Vision-Language Models with Fine-grained AI Feedback},<br>" +
+							"&nbsp;&nbsp;&nbsp;author={Liqiang Jing and <strong>Xinya Du</strong>},<br>" +
+							"&nbsp;&nbsp;&nbsp;eprint={2404.05046},<br>" +
+							"&nbsp;&nbsp;&nbsp;year={2024}<br>}",
+							"Large Vision-Language Models (LVLMs) have demonstrated proficiency in tackling a variety of visual-language tasks. However, current LVLMs suffer from misalignment between text and image modalities which causes three kinds of hallucination problems, i.e., object existence, object attribute, and object relationship. To tackle this issue, existing methods mainly utilize Reinforcement Learning (RL) to align modalities in LVLMs. However, they still suffer from three main limitations: (1) General feedback can not indicate the hallucination type contained in the response; (2) Sparse rewards only give the sequence-level reward for the whole response; and (3)Annotation cost is time-consuming and labor-intensive. To handle these limitations, we propose an innovative method to align modalities in LVLMs through Fine-Grained Artificial Intelligence Feedback (FGAIF), which mainly consists of three steps: AI-based Feedback Collection, Fine-grained Reward Model Training, and Reinforcement Learning with Fine-grained Reward. Specifically, We first utilize AI tools to predict the types of hallucination for each segment in the response and obtain a collection of fine-grained feedback. Then, based on the collected reward data, three specialized reward models are trained to produce dense rewards. Finally, a novel fine-grained feedback module is integrated into the Proximal Policy Optimization (PPO) algorithm. Extensive experiments are conducted on hallucination and general benchmarks, demonstrating the superior performance of our proposed method. Notably, compared with previous models trained with the RL-based aligning method, our proposed method is effective even with fewer parameters.",
 							"https://arxiv.org/abs/2404.05046", // arXiv_link
 							// "https://github.com/xinyadu/RGQA", // code
 							// "abc", // data
@@ -218,7 +280,7 @@
 						add_paper("FaithScore: Evaluating Hallucinations in Large Vision-Language Models",
 						"Liqiang Jing, Ruosen Li, Yunmo Chen, Mengzhao Jia, <strong>Xinya Du</strong>", // authors
 						"arXiv:2311.01477v1", // conference
-						"https://arxiv.org/pdf/2311.01477.pdf", // link
+						"https://arxiv.org/abs/2311.01477", // link
 						// "n/a", // bib.
 						"@misc{jing2023faithscore,<br>" + // bib
 						"&nbsp;&nbsp;&nbsp;title={FAITHSCORE: Evaluating Hallucinations in Large Vision-Language Models},<br>" +
@@ -226,7 +288,7 @@
 						"&nbsp;&nbsp;&nbsp;eprint={2311.01477},<br>" +
 						"&nbsp;&nbsp;&nbsp;year={2023}<br>}",
 						"We introduce FAITHSCORE (Faithfulness to Atomic Image Facts Score), a reference-free and fine-grained evaluation metric that measures the faithfulness of the generated free-form answers from large vision-language models (LVLMs). The FAITHSCORE evaluation first identifies sub-sentences containing descriptive statements that need to be verified, then extracts a comprehensive list of atomic facts from these sub-sentences, and finally conducts consistency verification between fine-grained atomic facts and the input image. Meta-evaluation demonstrates that our metric highly correlates with human judgments of faithfulness. We collect two benchmark datasets (i.e. LLaVA-1k and MSCOCO-Cap) for evaluating LVLMs instruction-following hallucinations. We measure hallucinations in state-of-the-art LVLMs with FAITHSCORE on the datasets. Results reveal that current systems are prone to generate hallucinated content unfaithful to the image, which leaves room for future improvements. Further, we find that current LVLMs despite doing well on color and counting, still struggle with long answers, relations, and multiple objects.", // abstract
-						"https://arxiv.org/pdf/2311.01477.pdf", // arXiv_link
+						"https://arxiv.org/abs/2311.01477", // arXiv_link
 						// "https://github.com/xinyadu/RGQA", // code
 						// "abc", // data
 						// "abc" // pre
@@ -236,29 +298,46 @@
 						"Ruosen Li, Teerth Patel, <strong>Xinya Du</strong>", // authors
 						"arXiv:2307.02762", // conference
 						"https://arxiv.org/pdf/2307.02762.pdf", // link
-						"@article{li2023prd},<br>" + // bib
+						"@article{li2023prd,<br>" + // bib
 						"&nbsp;&nbsp;&nbsp;title={PRD: Peer Rank and Discussion Improve Large Language Model based Evaluations},<br>" +
 						"&nbsp;&nbsp;&nbsp;author={Li, Ruosen and Patel, Teerth and Du, Xinya},<br>" +
 						"&nbsp;&nbsp;&nbsp;booktitle={arXiv preprint arXiv:2307.02762},<br>" +
 						"&nbsp;&nbsp;&nbsp;year={2023}<br>}",
-						"n/a", // abstract
-						"n/a", // arXiv_link
+						"Nowadays, the quality of responses generated by different modern large language models (LLMs) are hard to evaluate and compare automatically. Recent studies suggest and predominantly use LLMs as a reference-free metric for open-ended question answering. More specifically, they use the recognized strongest LLM as the evaluator, which conducts pairwise comparisons of candidate models' answers and provides a ranking score. However, this intuitive method has multiple problems, such as bringing in self-enhancement (favoring its own answers) and positional bias. We draw insights and lessons from the educational domain (Cho and MacArthur, 2011; Walsh, 2014) to improve LLM-based evaluations. Specifically, we propose the (1) peer rank (PR) algorithm that takes into account each peer LLM's pairwise preferences of all answer pairs, and outputs a final ranking of models; and (2) peer discussion (PD), where we prompt two LLMs to discuss and try to reach a mutual agreement on preferences of two answers. We conduct experiments on two benchmark datasets. We find that our approaches achieve higher accuracy and align better with human judgments, respectively. Interestingly, PR can induce a relatively accurate self-ranking of models under the anonymous setting, where each model's name is unrevealed. Our work provides space to explore evaluating models that are hard to compare for humans.", // abstract
+						"https://arxiv.org/abs/2307.02762", // arXiv_link
 						// "https://github.com/xinyadu/RGQA", // code
 						// "abc", // data
 						// "abc" // pre
 						)
 
+						add_paper("QAEvent: Event Extraction as Question-Answer Pairs Generation",
+						"Milind Choudhary, <strong>Xinya Du</strong>", // authors
+						"EACL 2024 (Findings)", // conference
+						"https://aclanthology.org/2024.findings-eacl.126/", // link
+						"@article{Choudhary2024qaevent,<br>" + // bib
+						"&nbsp;&nbsp;&nbsp;title={Language Models as Inductive Reasoners},<br>" +
+						"&nbsp;&nbsp;&nbsp;author={Choudhary, Milind  and Du, Xinya},<br>" +
+						"&nbsp;&nbsp;&nbsp;booktitle={Findings of the Association for Computational Linguistics: EACL 2024},<br>" +
+						"&nbsp;&nbsp;&nbsp;year={2024}<br>}",
+						"We propose a novel representation of document-level events as question and answer pairs (QAEVENT). Under this paradigm: (1) questions themselves can define argument roles without the need for predefined schemas, which will cover a comprehensive list of event arguments from the document; (2) it allows for more scalable and faster annotations from crowdworkers without linguistic expertise. Based on our new paradigm, we collect a novel and wide-coverage dataset. Our examinations show that annotations with the QA representations produce high-quality data for document-level event extraction, both in terms of human agreement level and high coverage of roles comparing to the pre-defined schema. We present and compare representative approaches for generating event question answer pairs on our benchmark.", // abstract
+						null, // arXiv_link
+						"https://github.com/Milind21/qag_ee", // code
+						// "abc", // data
+						// "abc" // pre
+						)
+
+
 						add_paper("Large Language Models for Automated Open-domain Scientific Hypotheses Discovery",
 						"Zonglin Yang, <strong>Xinya Du</strong> †, Junxian Li, Jie Zheng, Soujanya Poria, Erik Cambria", // authors
 						"ACL 2024 (Findings)", // conference
-						"https://arxiv.org/pdf/2309.02726.pdf", // link
-						// "@article{yang2023logical},<br>" + // bib
-						// "&nbsp;&nbsp;&nbsp;title={Logical Reasoning over Natural Language as Knowledge Representation: A Survey},<br>" +
-						// "&nbsp;&nbsp;&nbsp;author={Yang, Zonglin and Du, Xinya and Mao, Rui and Ni, Jinjie and Cambria, Erik},<br>" +
-						// "&nbsp;&nbsp;&nbsp;booktitle={arXiv preprint arXiv:2303.12023},<br>" +
-						// "&nbsp;&nbsp;&nbsp;year={2023}<br>}",
-						"n/a", // abstract
-						"n/a", // arXiv_link
+						"https://arxiv.org/abs/2309.02726", // link
+						"@article{yang2024large,<br>" + // bib
+						"&nbsp;&nbsp;&nbsp;title={Large Language Models for Automated Open-domain Scientific Hypotheses Discovery},<br>" +
+						"&nbsp;&nbsp;&nbsp;author={Zonglin Yang and Xinya Du and Junxian Li and Jie Zheng and Soujanya Poria and Erik Cambria},<br>" +
+						"&nbsp;&nbsp;&nbsp;booktitle={Findings of the Association for Computational Linguistics: ACL 2024},<br>" +
+						"&nbsp;&nbsp;&nbsp;year={2024}<br>}",
+						"Hypothetical induction is recognized as the main reasoning type when scientists make observations about the world and try to propose hypotheses to explain those observations. Past research on hypothetical induction is under a constrained setting: (1) the observation annotations in the dataset are carefully manually handpicked sentences (resulting in a close-domain setting); and (2) the ground truth hypotheses are mostly commonsense knowledge, making the task less challenging. In this work, we tackle these problems by proposing the first NLP dataset for social science academic hypotheses discovery, consisting of 50 recent top social science publications; and a raw web corpus that contains enough information to make it possible to develop all the research hypotheses in the 50 papers. The final goal is to create systems that automatically generate valid, novel, and helpful scientific hypotheses, given only a pile of raw web corpus. Different from the previous settings, the new dataset requires (1) using open-domain data (raw web corpus) as observations; and (2) proposing hypotheses even new to humanity. A multi-module framework is developed for the task, as well as three different feedback mechanisms that empirically show performance gain over the base framework. Finally, our framework exhibits superior performance in terms of both GPT-4 based evaluation and expert-based this http URL the best of our knowledge, this is the first work showing that LLMs are able to generate novel (not existing in the literature) and valid (reflecting reality) scientific hypotheses.", // abstract
+						"https://arxiv.org/abs/2309.02726", // arXiv_link
 						// "https://github.com/xinyadu/RGQA", // code
 						// "abc", // data
 						// "abc" // pre
@@ -268,33 +347,19 @@
 						"Zonglin Yang, Li Dong, <strong>Xinya Du</strong> †, Hao Cheng, Erik Cambria, Xiaodong Liu, Jianfeng Gao, Furu Wei", // authors
 						"EACL 2024", // conference
 						"https://arxiv.org/pdf/2212.10923.pdf", // link
-						"@article{yang2022inductive},<br>" + // bib
-						"&nbsp;&nbsp;&nbsp;title={Language Models as Inductive Reasoners},<br>" +
+						"@article{yang2024inductive,<br>" + // bib
+						"&nbsp;&nbsp;&nbsp;title={Language Models as Inductive Reasoners,<br>" +
 						"&nbsp;&nbsp;&nbsp;author={Yang, Zonglin and Dong, Li and Du, Xinya and Cheng, Hao and Cambria, Erik and Liu, Xiaodong and Gao, Jianfeng and Wei, Furu},<br>" +
 						"&nbsp;&nbsp;&nbsp;booktitle={EACL},<br>" +
 						"&nbsp;&nbsp;&nbsp;year={2024}<br>}",
-						"n/a", // abstract
-						"n/a", // arXiv_link
+						"Inductive reasoning is a core component of human intelligence. In the past research of inductive reasoning within computer science, logic language is used as representations of knowledge (facts and rules, more speciﬁcally). However, logic language can cause systematic problems for inductive reasoning such as disability of handling raw input such as natural language, sensitiveness to mislabeled data, and incapacity to handle ambiguous input. To this end, we propose a new task, which is to induce natural language rules from natural language facts, and create a dataset termed DEER containing 1.2k rule-fact pairs for the task, where rules and facts are written in natural language. New automatic metrics are also proposed and analysed for the evaluation of this task. With DEER, we investigate a modern approach for inductive reasoning where we use natural language as representation for knowledge instead of logic language and use pretrained language models as “reasoners”. Moreover, we provide the ﬁrst and comprehensive analysis of how well pretrained language models can induce natural language rules from natural language facts. We also propose a new framework drawing insights from philosophy literature for this task, which we show in the experiment section that surpasses baselines in both automatic and human evaluations.", // abstract
+						"https://arxiv.org/abs/2212.10923", // arXiv_link
 						// "https://github.com/xinyadu/RGQA", // code
 						// "abc", // data
 						// "abc" // pre
 						)
 
-						add_paper("QAEvent: Event Extraction as Question-Answer Pairs Generation",
-						"Milind Choudhary, <strong>Xinya Du</strong>", // authors
-						"EACL 2024 (Findings)", // conference
-						".", // link
-						"@article{Choudhary2024qaevent},<br>" + // bib
-						// "&nbsp;&nbsp;&nbsp;title={Language Models as Inductive Reasoners},<br>" +
-						// "&nbsp;&nbsp;&nbsp;author={Yang, Zonglin and Dong, Li and Du, Xinya and Cheng, Hao and Cambria, Erik and Liu, Xiaodong and Gao, Jianfeng and Wei, Furu},<br>" +
-						// "&nbsp;&nbsp;&nbsp;booktitle={EACL},<br>" +
-						// "&nbsp;&nbsp;&nbsp;year={2024}<br>}",
-						"n/a", // abstract
-						"n/a", // arXiv_link
-						// "https://github.com/xinyadu/RGQA", // code
-						// "abc", // data
-						// "abc" // pre
-						)
+
 
 
 						add_paper("Leveraging Structured Information for Explainable Multi-hop Question Answering and Reasoning",
@@ -320,7 +385,7 @@
 						"@InProceedings{li2023leveraging,<br>" + // bib
 						"&nbsp;&nbsp;&nbsp;title={Process of Elimination for Multiple Choice Reasoning},<br>" +
 						"&nbsp;&nbsp;&nbsp;author={Ma, Chenkai and Du, Xinya},<br>" +
-						"&nbsp;&nbsp;&nbsp;booktitle={arXiv preprint arXiv:2307.02762},<br>" +
+						"&nbsp;&nbsp;&nbsp;booktitle={EMNLP},<br>" +
 						"&nbsp;&nbsp;&nbsp;year={2023}<br>}",
 						"Language models are capable of in-context learning for multiple choice reasoning tasks, but the options in these tasks are treated equally. As human often eliminate wrong options before reaching the final answer, we argue a similar strategy can make LMs better at these tasks. To this end, we present Process of Elimination (PoE), a two-step prompting method. In the first step, PoE scores each option, and eliminates seemingly wrong options. In the second step, PoE masks wrong options, and makes the final prediction from the remaining options. Comprehensive experiments on 8 reasoning benchmarks illustrate the effect of our method. Analysis shows our method is applicable to fewshot and compatible with LLMs like ChatGPT.", // abstract
 						"n/a", // arXiv_link
@@ -332,13 +397,13 @@
 						add_paper("Probing Representations for Document-level Event Extraction",
 						"Barry Wang, <strong>Xinya Du</strong>, Claire Cardie", // authors
 						"EMNLP 2023 (Findings)", // conference
-						"", // link
-						"@article{li2023prd},<br>" + // bib
+						"https://aclanthology.org/2023.findings-emnlp.844/", // link
+						"@article{wang2023probing,<br>" + // bib
 						"&nbsp;&nbsp;&nbsp;title={Probing Representations for Document-level Event Extraction},<br>" +
 						"&nbsp;&nbsp;&nbsp;author={Wang, Barry and Du, Xinya and Cardie, Claire},<br>" +
-						"&nbsp;&nbsp;&nbsp;booktitle={arXiv preprint arXiv:2307.02762},<br>" +
+						"&nbsp;&nbsp;&nbsp;booktitle={EMNLP},<br>" +
 						"&nbsp;&nbsp;&nbsp;year={2023}<br>}",
-						"n/a", // abstract
+						"The probing classifiers framework has been employed for interpreting deep neural network models for a variety of natural language processing (NLP) applications. Studies, however, have largely focused on sentencelevel NLP tasks. This work is the first to apply the probing paradigm to representations learned for document-level information extraction (IE). We designed eight embedding probes to analyze surface, semantic, and event-understanding capabilities relevant to document-level event extraction. We apply them to the representations acquired by learning models from three different LLM-based document-level IE approaches on a standard dataset. We found that trained encoders from these models yield embeddings that can modestly improve argument detections and labeling but only slightly enhance event-level tasks, albeit trade-offs in information helpful for coherence and event-type prediction. We further found that encoder models struggle with document length and cross-sentence discourse.", // abstract
 						"n/a", // arXiv_link
 						// "https://github.com/xinyadu/RGQA", // code
 						// "abc", // data
@@ -349,13 +414,13 @@
 						"Xiaomeng Jin, Haoyang Wen, <strong>Xinya Du</strong>, Heng Ji", // authors
 						"MATCHING at ACL 2023", // conference
 						"https://aclanthology.org/2023.matching-1.3.pdf", // link
-						"@InProceedings{jin2023consistent},<br>" + // bib
+						"@InProceedings{jin2023consistent,<br>" + // bib
 						"&nbsp;&nbsp;&nbsp;title={Toward Consistent and Informative Event-Event Temporal Relation Extraction},<br>" +
 						"&nbsp;&nbsp;&nbsp;author={Jin, Xiaomeng and Wen, Haoyang and Du, Xinya and Ji, Heng},<br>" +
 						"&nbsp;&nbsp;&nbsp;booktitle={MATCHING at ACL 2023},<br>" +
 						"&nbsp;&nbsp;&nbsp;year={2023}<br>}",
-						"n/a", // abstract
-						"n/a", // arXiv_link
+						"Event-event temporal relation extraction aims to extract the temporal order between a pair of event mentions, which is usually used to con- struct temporal event graphs. However, event graphs generated by existing methods are usu- ally globally inconsistent (event graphs contain- ing cycles), semantically irrelevant (two unre- lated events having temporal links), and context unaware (neglecting neighborhood information of an event node). In this paper, we propose a novel event-event temporal relation extrac- tion method to address these limitations. Our model combines a pretrained language model and a graph neural network to output event em- beddings, which captures the contextual infor- mation of event graphs. Moreover, to achieve global consistency and semantic relevance, (1) event temporal order should be in accordance with the norm of their embeddings, and (2) two events have temporal relation only if their embeddings are close enough. Experimental results on a real-world event dataset demon- strate that our method achieves state-of-the-art performance and generates high-quality event graphs.", // abstract
+						null, // arXiv_link
 						// "https://github.com/xinyadu/RGQA", // code
 						// "abc", // data
 						// "abc" // pre
@@ -365,13 +430,13 @@
 						"Chi Han, Hengzhi Pei, <strong>Xinya Du</strong>, Heng Ji", // authors
 						"ACL 2023 (Findings)", // conference
 						"https://aclanthology.org/2023.findings-acl.571.pdf", // link
-						"@InProceedings{han2023zero},<br>" + // bib
+						"@InProceedings{han2023zero,<br>" + // bib
 						"&nbsp;&nbsp;&nbsp;title={Zero-Shot Classification by Logical Reasoning on Natural Language Explanations},<br>" +
 						"&nbsp;&nbsp;&nbsp;author={Han, Chi and Pei, Hengzhi and Du, Xinya and Ji, Heng},<br>" +
 						"&nbsp;&nbsp;&nbsp;booktitle={ACL (Findings)},<br>" +
 						"&nbsp;&nbsp;&nbsp;year={2023}<br>}",
-						"n/a", // abstract
-						"n/a", // arXiv_link
+						"Humans can classify data of an unseen cate- gory by reasoning on its language explanations. This ability is owing to the compositional na- ture of language: we can combine previously seen attributes to describe the new category. For example, we might describe a sage thrasher as it has a slim straight relatively short bill, yellow eyes and a long tail, so that others can use their knowledge of attributes “slim straight relatively short bill”, “yellow eyes” and “long tail” to recognize a sage thrasher. Inspired by this observation, in this work we tackle zero-shot classification task by logically pars- ing and reasoning on natural language expla- nations. To this end, we propose the frame- work CLORE (Classification by LOgical Rea- soning on Explanations). While previous meth- ods usually regard textual information as im- plicit features, CLORE parses explanations into logical structures and then explicitly reasons along thess structures on the input to produce a classification score. Experimental results on explanation-based zero-shot classification benchmarks demonstrate that CLORE is supe- rior to baselines, which we further show mainly comes from higher scores on tasks requiring more logical reasoning. We also demonstrate that our framework can be extended to zero- shot classification on visual modality. Along- side classification decisions, CLORE can pro- vide the logical parsing and reasoning process as a clear form of rationale. Through empirical analysis we demonstrate that CLORE is also less affected by linguistic biases than baselines.", // abstract
+						// "n/a", // arXiv_link
 						// "https://github.com/xinyadu/RGQA", // code
 						// "abc", // data
 						// "abc" // pre
@@ -380,14 +445,14 @@
 						add_paper("End-to-end Case-Based Reasoning for Commonsense Knowledge Base Completion",
 							"Zonglin Yang, <strong>Xinya Du</strong>, Erik Cambria, Claire Cardie", // authors
 							"EACL 2023", // conference
-							"https://w.sentic.net/commonsense-knowledge-base-completion.pdf", // link
-							"@InProceedings{yang2023cbr},<br>" + // bib
+							"https://aclanthology.org/2023.eacl-main.255/", // link
+							"@InProceedings{yang2023cbr,<br>" + // bib
 							"&nbsp;&nbsp;&nbsp;title={End-to-end Case-Based Reasoning for Commonsense Knowledge Base Completion},<br>" +
 							"&nbsp;&nbsp;&nbsp;author={Yang, Zonglin and Du, Xinya and Cambria, Erik and Cardie, Claire},<br>" +
 							"&nbsp;&nbsp;&nbsp;booktitle={EACL},<br>" +
 							"&nbsp;&nbsp;&nbsp;year={2023}<br>}",
-							"n/a", // abstract
-							"n/a", // arXiv_link
+							"Pretrained language models have been shown to store knowledge in their parameters and have achieved reasonable performance in commonsense knowledge base completion (CKBC) tasks. However, CKBC is knowledge-intensive and it is reported that pretrained language models’ performance in knowledge-intensive tasks are limited because of their incapability of accessing and manipulating knowledge. As a result, we hypothesize that providing retrieved passages that contain relevant knowledge as additional input to the CKBC task will improve performance. In particular, we draw insights from Case-Based Reasoning (CBR) – which aims to solve a new problem by reasoning with retrieved relevant cases, and investigate the direct application of it to CKBC. On two benchmark datasets, we demonstrate through automatic and human evaluations that our End-to-end Case-Based Reasoning Framework (ECBRF) generates more valid, informative, and novel knowledge than the state-of-the-art COMET model for CKBC in both the fully supervised and few-shot settings. We provide insights on why previous retrieval-based methods only achieve merely the same performance with COMET. From the perspective of CBR, our framework addresses a fundamental question on whether CBR methodology can be utilized to improve deep learning models.", // abs
+							null, // arXiv_link
 							// "https://github.com/xinyadu/RGQA", // code
 							// "abc", // data
 							// "abc" // pre
@@ -397,7 +462,7 @@
 							"Chi Han, Qizheng He, Charles Yu, <b>Xinya Du</b>, Hanghang Tong, Heng Ji", // authors
 							"ICLR 2023", // conference
 							"https://arxiv.org/pdf/2211.07067.pdf", // link
-							"@InProceedings{yang2023cbr},<br>" + // bib
+							"@InProceedings{han2023logical,<br>" + // bib
 							"&nbsp;&nbsp;&nbsp;title={Logical Entity Representation in Knowledge-Graphs for Differentiable Rule Learning},<br>" +
 							"&nbsp;&nbsp;&nbsp;author={Han, Chi and He, Qizheng and Yu, Charles and Du, Xinya and Tong, Hanghang and Ji, Heng},<br>" +
 							"&nbsp;&nbsp;&nbsp;booktitle={ICLR},<br>" +
@@ -413,7 +478,7 @@
 							"<b>Xinya Du</b> and Heng Ji", // authors
 							"Proceedings of the 2022 Conference on Empirical Methods in Natural Language Processing (EMNLP)", // conference
 							"https://arxiv.org/pdf/2211.07067.pdf", // link
-							"@InProceedings{du2022retrieval},<br>" + // bib
+							"@InProceedings{du2022retrieval,<br>" + // bib
 							"&nbsp;&nbsp;&nbsp;title={Retrieval-Augmented Generative Question Answering for Event Argument Extraction},<br>" +
 							"&nbsp;&nbsp;&nbsp;author={Du, Xinya and Ji, Heng},<br>" +
 							"&nbsp;&nbsp;&nbsp;booktitle={EMNLP},<br>" +
