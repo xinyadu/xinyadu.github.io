@@ -265,9 +265,9 @@
 							"arXiv preprint arXiv:2404.05046", // conference
 							"https://arxiv.org/abs/2404.05046", // link
 							// "n/a", // bib.
-							"@misc{jing2023fgaif,<br>" + // bib
+							"@misc{jing2024fgaif,<br>" + // bib
 							"&nbsp;&nbsp;&nbsp;title={FGAIF: Aligning Large Vision-Language Models with Fine-grained AI Feedback},<br>" +
-							"&nbsp;&nbsp;&nbsp;author={Liqiang Jing and <strong>Xinya Du</strong>},<br>" +
+							"&nbsp;&nbsp;&nbsp;author={Liqiang Jing and Xinya Du},<br>" +
 							"&nbsp;&nbsp;&nbsp;eprint={2404.05046},<br>" +
 							"&nbsp;&nbsp;&nbsp;year={2024}<br>}",
 							"Large Vision-Language Models (LVLMs) have demonstrated proficiency in tackling a variety of visual-language tasks. However, current LVLMs suffer from misalignment between text and image modalities which causes three kinds of hallucination problems, i.e., object existence, object attribute, and object relationship. To tackle this issue, existing methods mainly utilize Reinforcement Learning (RL) to align modalities in LVLMs. However, they still suffer from three main limitations: (1) General feedback can not indicate the hallucination type contained in the response; (2) Sparse rewards only give the sequence-level reward for the whole response; and (3)Annotation cost is time-consuming and labor-intensive. To handle these limitations, we propose an innovative method to align modalities in LVLMs through Fine-Grained Artificial Intelligence Feedback (FGAIF), which mainly consists of three steps: AI-based Feedback Collection, Fine-grained Reward Model Training, and Reinforcement Learning with Fine-grained Reward. Specifically, We first utilize AI tools to predict the types of hallucination for each segment in the response and obtain a collection of fine-grained feedback. Then, based on the collected reward data, three specialized reward models are trained to produce dense rewards. Finally, a novel fine-grained feedback module is integrated into the Proximal Policy Optimization (PPO) algorithm. Extensive experiments are conducted on hallucination and general benchmarks, demonstrating the superior performance of our proposed method. Notably, compared with previous models trained with the RL-based aligning method, our proposed method is effective even with fewer parameters.",
@@ -284,7 +284,7 @@
 						// "n/a", // bib.
 						"@misc{jing2023faithscore,<br>" + // bib
 						"&nbsp;&nbsp;&nbsp;title={FAITHSCORE: Evaluating Hallucinations in Large Vision-Language Models},<br>" +
-						"&nbsp;&nbsp;&nbsp;author={Liqiang Jing and Ruosen Li and Yunmo Chen and Mengzhao Jia and <strong>Xinya Du</strong>},<br>" +
+						"&nbsp;&nbsp;&nbsp;author={Liqiang Jing and Ruosen Li and Yunmo Chen and Mengzhao Jia and Xinya Du},<br>" +
 						"&nbsp;&nbsp;&nbsp;eprint={2311.01477},<br>" +
 						"&nbsp;&nbsp;&nbsp;year={2023}<br>}",
 						"We introduce FAITHSCORE (Faithfulness to Atomic Image Facts Score), a reference-free and fine-grained evaluation metric that measures the faithfulness of the generated free-form answers from large vision-language models (LVLMs). The FAITHSCORE evaluation first identifies sub-sentences containing descriptive statements that need to be verified, then extracts a comprehensive list of atomic facts from these sub-sentences, and finally conducts consistency verification between fine-grained atomic facts and the input image. Meta-evaluation demonstrates that our metric highly correlates with human judgments of faithfulness. We collect two benchmark datasets (i.e. LLaVA-1k and MSCOCO-Cap) for evaluating LVLMs instruction-following hallucinations. We measure hallucinations in state-of-the-art LVLMs with FAITHSCORE on the datasets. Results reveal that current systems are prone to generate hallucinated content unfaithful to the image, which leaves room for future improvements. Further, we find that current LVLMs despite doing well on color and counting, still struggle with long answers, relations, and multiple objects.", // abstract
@@ -702,17 +702,6 @@
 						"Liqiang Jing, <strong>Xinya Du</strong>", // authors
 						"arXiv preprint arXiv:2404.05046", // conference
 						"https://arxiv.org/abs/2404.05046", // link
-						"n/a", // bib.
-						"@misc{jing2023faithscore,<br>" + // bib
-						"&nbsp;&nbsp;&nbsp;title={FAITHSCORE: Evaluating Hallucinations in Large Vision-Language Models},<br>" +
-						"&nbsp;&nbsp;&nbsp;author={Liqiang Jing and Ruosen Li and Yunmo Chen and Mengzhao Jia and Xinya Du},<br>" +
-						"&nbsp;&nbsp;&nbsp;eprint={2311.01477},<br>" +
-						"&nbsp;&nbsp;&nbsp;year={2023}<br>}",
-						// "We introduce FAITHSCORE (Faithfulness to Atomic Image Facts Score), a reference-free and fine-grained evaluation metric that measures the faithfulness of the generated free-form answers from large vision-language models (LVLMs). The FAITHSCORE evaluation first identifies sub-sentences containing descriptive statements that need to be verified, then extracts a comprehensive list of atomic facts from these sub-sentences, and finally conducts consistency verification between fine-grained atomic facts and the input image. Meta-evaluation demonstrates that our metric highly correlates with human judgments of faithfulness. We collect two benchmark datasets (i.e. LLaVA-1k and MSCOCO-Cap) for evaluating LVLMs instruction-following hallucinations. We measure hallucinations in state-of-the-art LVLMs with FAITHSCORE on the datasets. Results reveal that current systems are prone to generate hallucinated content unfaithful to the image, which leaves room for future improvements. Further, we find that current LVLMs despite doing well on color and counting, still struggle with long answers, relations, and multiple objects.", // abstract
-						"https://arxiv.org/abs/2404.05046", // arXiv_link
-						// "https://github.com/xinyadu/RGQA", // code
-						// "abc", // data
-						// "abc" // pre
 						)
 
 						add_paper("FaithScore: Evaluating Hallucinations in Large Vision-Language Models",
