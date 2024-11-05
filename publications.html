@@ -260,6 +260,60 @@
 
 						document.write("<ul style=\"list-style: none;\">")
 
+						// 
+
+						add_paper("DSBench: How Far Are Data Science Agents to Become Data Science Experts?",
+							"Liqiang Jing, Zhehui Huang, Xiaoyang Wang, Wenlin Yao, Wenhao Yu, Kaixin Ma, Hongming Zhang, <strong>Xinya Du</strong>, Dong Yu", // authors
+							"arXiv preprint", // conference
+							"https://arxiv.org/abs/2409.07703", // link
+							"n/a", // bib.
+							// "@misc{jing2024fgaif,<br>" + // bib
+							// "&nbsp;&nbsp;&nbsp;title={FGAIF: Aligning Large Vision-Language Models with Fine-grained AI Feedback},<br>" +
+							// "&nbsp;&nbsp;&nbsp;author={Liqiang Jing and Xinya Du},<br>" +
+							// "&nbsp;&nbsp;&nbsp;eprint={2404.05046},<br>" +
+							// "&nbsp;&nbsp;&nbsp;year={2024}<br>}",
+							"Large Language Models (LLMs) and Large Vision-Language Models (LVLMs) have demonstrated impressive language/vision reasoning abilities, igniting the recent trend of building agents for targeted applications such as shopping assistants or AI software engineers. Recently, many data science benchmarks have been proposed to investigate their performance in the data science domain. However, existing data science benchmarks still fall short when compared to real-world data science applications due to their simplified settings. To bridge this gap, we introduce DSBench, a comprehensive benchmark designed to evaluate data science agents with realistic tasks. This benchmark includes 466 data analysis tasks and 74 data modeling tasks, sourced from Eloquence and Kaggle competitions. DSBench offers a realistic setting by encompassing long contexts, multimodal task backgrounds, reasoning with large data files and multi-table structures, and performing end-to-end data modeling tasks. Our evaluation of state-of-the-art LLMs, LVLMs, and agents shows that they struggle with most tasks, with the best agent solving only 34.12% of data analysis tasks and achieving a 34.74% Relative Performance Gap (RPG). These findings underscore the need for further advancements in developing more practical, intelligent, and autonomous data science agents.",
+							// "https://arxiv.org/abs/2408.14033", // arXiv_link
+							// "https://github.com/xinyadu/RGQA", // code
+							// "abc", // data
+							// "abc" // pre
+						)
+
+						add_paper("Fine-grained Hallucination Detection and Mitigation in Language Model Mathematical Reasoning",
+							"Ruosen Li, Ziming Luo, <strong>Xinya Du</strong>", // authors
+							"arXiv preprint", // conference
+							"https://arxiv.org/abs/2410.06304", // link
+							"n/a", // bib.
+							// "@misc{jing2024fgaif,<br>" + // bib
+							// "&nbsp;&nbsp;&nbsp;title={FGAIF: Aligning Large Vision-Language Models with Fine-grained AI Feedback},<br>" +
+							// "&nbsp;&nbsp;&nbsp;author={Liqiang Jing and Xinya Du},<br>" +
+							// "&nbsp;&nbsp;&nbsp;eprint={2404.05046},<br>" +
+							// "&nbsp;&nbsp;&nbsp;year={2024}<br>}",
+							"Hallucinations in large language models (LLMs) pose significant challenges in tasks requiring complex multi-step reasoning, such as mathematical problem-solving. Existing approaches primarily detect the presence of hallucinations but lack a nuanced understanding of their types and manifestations. In this paper, we first introduce a comprehensive taxonomy that categorizes the common hallucinations in mathematical reasoning task into six types: fabrication, factual inconsistency, context inconsistency, instruction inconsistency, logical inconsistency, and logical error. We then propose FG-PRM (Fine-Grained Process Reward Model), an augmented model designed to detect and mitigate hallucinations in a fine-grained, step-level manner. To address the limitations of manually labeling training data, we propose an automated method for generating fine-grained hallucination data using LLMs. By injecting hallucinations into reasoning steps of correct solutions, we create a diverse and balanced synthetic dataset for training FG-PRM, which consists of six specialized Process Reward Models (PRMs), each tailored to detect a specific hallucination type. Our FG-PRM demonstrates superior performance across two key tasks: 1) Fine-grained hallucination detection: classifying hallucination types for each reasoning step; and 2) Verification: ranking multiple LLM-generated outputs to select the most accurate solution, mitigating reasoning hallucinations. Our experiments show that FG-PRM outperforms ChatGPT-3.5 and Claude-3 on fine-grained hallucination detection and substantially boosts the performance of LLMs on GSM8K and MATH benchmarks.",
+							// "https://arxiv.org/abs/2408.14033", // arXiv_link
+							// "https://github.com/xinyadu/RGQA", // code
+							// "abc", // data
+							// "abc" // pre
+						)
+
+
+						add_paper("MLR-copilot: Autonomous machine learning research based on large language models agents",
+							"Ruochen Li, Teerth Patel, Qingyun Wang, <strong>Xinya Du</strong>", // authors
+							"arXiv preprint", // conference
+							"https://arxiv.org/abs/2408.14033", // link
+							"n/a", // bib.
+							// "@misc{jing2024fgaif,<br>" + // bib
+							// "&nbsp;&nbsp;&nbsp;title={FGAIF: Aligning Large Vision-Language Models with Fine-grained AI Feedback},<br>" +
+							// "&nbsp;&nbsp;&nbsp;author={Liqiang Jing and Xinya Du},<br>" +
+							// "&nbsp;&nbsp;&nbsp;eprint={2404.05046},<br>" +
+							// "&nbsp;&nbsp;&nbsp;year={2024}<br>}",
+							"Machine learning research, crucial for technological advancements and innovation, often faces significant challenges due to its inherent complexity, slow pace of experimentation, and the necessity for specialized expertise. Motivated by this, we present a new systematic framework, autonomous Machine Learning Research with large language models (MLR-Copilot), designed to enhance machine learning research productivity through the automatic generation and implementation of research ideas using Large Language Model (LLM) agents. The framework consists of three phases: research idea generation, experiment implementation, and implementation execution. First, existing research papers are used to generate hypotheses and experimental plans vis IdeaAgent powered by LLMs. Next, the implementation generation phase translates these plans into executables with ExperimentAgent. This phase leverages retrieved prototype code and optionally retrieves candidate models and data. Finally, the execution phase, also managed by ExperimentAgent, involves running experiments with mechanisms for human feedback and iterative debugging to enhance the likelihood of achieving executable research outcomes. We evaluate our framework on five machine learning research tasks and the experimental results show the framework's potential to facilitate the research progress and innovations.",
+							"https://arxiv.org/abs/2408.14033", // arXiv_link
+							"https://github.com/du-nlp-lab/MLR-Copilot", // code
+							// "abc", // data
+							// "abc" // pre
+						)
+
 						add_paper("FGAIF: Aligning Large Vision-Language Models with Fine-grained AI Feedback",
 							"Liqiang Jing, <strong>Xinya Du</strong>", // authors
 							"arXiv preprint arXiv:2404.05046", // conference
